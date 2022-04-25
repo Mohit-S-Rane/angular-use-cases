@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'angular-use-cases';
   loginForm: FormGroup;
+  myObservable!: Observable<any>;
 
   constructor() {
     this.loginForm = new FormGroup({
@@ -22,6 +24,19 @@ export class AppComponent {
   }
 
   login() {
-    console.log(this.loginForm.value);
+    this.myObservable = new Observable((emitter) => {
+      emitter.next(this.loginForm.value);
+      emitter.next('Hello');
+    });
+
+    this.myObservable.subscribe(data=>{
+      console.log(data, 'Login function subscribe');
+    })
+  }
+
+  signup() {
+    this.myObservable.subscribe(data=>{
+      console.log(data, 'Signup function subscribe');
+    })
   }
 }
