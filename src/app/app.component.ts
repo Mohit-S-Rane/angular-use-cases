@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -24,19 +24,32 @@ export class AppComponent {
   }
 
   login() {
-    this.myObservable = new Observable((emitter) => {
-      emitter.next(this.loginForm.value);
-      emitter.next('Hello');
+    // Map Operator = used as Guard
+    const myObserver = this.loginForm.valueChanges.pipe(
+      map((data) => {
+        return data.password;
+      })
+    );
+
+    myObserver.subscribe((data) => {
+      console.log(data);
     });
 
-    this.myObservable.subscribe(data=>{
-      console.log(data, 'Login function subscribe');
-    })
+    // Filter Operator = which filter data based on given condition
+    const filterObserver = this.loginForm.valueChanges.pipe(
+      filter((data) => {
+        return data.email === 'abc@gmail.com';
+      })
+    );
+
+    filterObserver.subscribe((data) => {
+      console.log(data);
+    });
   }
 
   signup() {
-    this.myObservable.subscribe(data=>{
+    this.myObservable.subscribe((data) => {
       console.log(data, 'Signup function subscribe');
-    })
+    });
   }
 }
