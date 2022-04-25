@@ -1,0 +1,14 @@
+.overlay {
+    width: 100%;
+    height: 100%;
+}
+
+.mat-card {
+    background-color: #CBF83E;
+    border: 3px solid goldenrod;
+    width: 20%;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}

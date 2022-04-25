@@ -1,45 +1,35 @@
-<h1>Angular Material</h1>
-
-<h3>Button</h3>
-<button mat-raised-button color="warn">Click Here to Subscribe</button>
-<button mat-raised-button color="primary">Primary</button>
-
-<h3>Mat Toolbar</h3>
-
-<mat-toolbar>
-  <button mat-button color="accent">Home</button>
-  <button mat-raised-button color="primary">Login</button>
-  <button mat-button color="primary">SignUp</button>
-</mat-toolbar>
-
-<h3>Mat Input</h3>
-<div style="background-color: aqua; width: 35vw; padding: 5px; margin: 15px">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" />
-  </mat-form-field>
-</div>
-<div style="background-color: aqua; width: 35vw; padding: 5px; margin: 15px">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-  </mat-form-field>
-</div>
-
-<h3>Mat Card</h3>
-<mat-card style="background-color: aqua; width: 40%;">
-  <h3>Login Card</h3>
-  <div style="background-color: aqua; width: 35vw; padding: 5px; margin: 15px">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" />
+<form class="overlay" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="mat-card" fxLayout="column" fxLayoutGap="10px">
+    <h2 class="fw-600">Login Form</h2>
+    <mat-form-field>
+      <mat-label>Email*</mat-label>
+      <input type="email" matInput placeholder="Email*">
     </mat-form-field>
-  </div>
-  <div style="background-color: aqua; width: 35vw; padding: 5px; margin: 15px">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    <mat-form-field>
+      <mat-label>Password*</mat-label>
+      <input type="password" matInput placeholder="Password*">
     </mat-form-field>
-  </div>
-</mat-card>
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+      <button class="fw-600" mat-raised-button>Login</button>
+      <button class="fw-600" mat-raised-button>Signup</button>
+    </div>
+  </mat-card>
+</form>
 
+ <!-- <form class="overlay" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <mat-card fxLayout="column" style="width: 300px;">
+    <h2>Login</h2>
+    <mat-form-field>
+      <input type="email" formControlName="email" matInput placeholder="Email">
+      <mat-error>Valid Email is Required*</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" formControlName="password" matInput placeholder="Password">
+      <mat-error>(4-8 Digit)Password is Required*</mat-error>
+    </mat-form-field>
+    <div class="mt-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+      <button type="submit" mat-raised-button color="accent">Login</button>
+      <button mat-raised-button color="accent">Signup</button>
+    </div>
+  </mat-card>
+</form> -->
