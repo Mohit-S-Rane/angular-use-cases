@@ -1,15 +1,18 @@
-<form class="overlay" fxLayout="column" fxLayoutAlign="center center">
+<form [formGroup]="this.loginForm" class="overlay" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
   <mat-card class="mat-card" fxLayout="column" fxLayoutGap="10px">
     <h2 class="fw-600">Login Form</h2>
     <mat-form-field>
-      <mat-label>Email*</mat-label>
-      <input type="email" matInput placeholder="Email*">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="Email*">
+      <mat-error>Valid Email Required</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password*</mat-label>
-      <input type="password" matInput placeholder="Password*">
+      <input type="password" formControlName="password" matInput placeholder="Password*">
+      <mat-error>(4-8)Character Valid Password Required</mat-error>
     </mat-form-field>
-    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+    <a href="#">Forgot Password</a>
+    <div class="mt-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
       <button class="fw-600" mat-raised-button>Login</button>
       <button class="fw-600" mat-raised-button>Signup</button>
     </div>
