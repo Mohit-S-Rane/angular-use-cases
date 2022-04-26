@@ -11,22 +11,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './services/http-service';
 import { ApiService } from './services/api-service';
+import { AlertService } from './services/alert-service';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [HttpService, ApiService],
+  providers: [HttpService, ApiService,AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

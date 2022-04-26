@@ -2,3 +2,38 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.overlay {
+    width: 100%;
+    height: 100%;
+}
+
+.mat-card {
+    background-color: #CBF83E;
+    border: 3px solid goldenrod;
+    width: 20%;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.mt-20 {
+    margin-top: 1rem;
+}
+
+.alert-success {
+    background-color: #dff0df;
+    border-color: #d0e9c6 ;
+    color: #3c763d
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #ebcccc ;
+    color: #a94442;
+}
+
+.alert .mat-simple-snackbar {
+    justify-content: center;
+}

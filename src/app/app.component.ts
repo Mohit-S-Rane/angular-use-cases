@@ -1,16 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AlertService } from './services/alert-service';
 import { ApiService } from './services/api-service';
-
-import {  BehaviorSubject,
-          combineLatest,
-          debounceTime,
-          distinctUntilChanged,
-          filter,
-          map,
-          observable,
-          Observable,
-          switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,12 +12,19 @@ export class AppComponent {
   title = 'angular-use-cases';
   loginForm: FormGroup;
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private alertService: AlertService
+  ) {
     //  My Component -> Api Service -> https Service -> HTTP Client Module
-    this.apiService.getUsers().subscribe(data=>{
-      console.log(data);
-      
-    })
+    this.apiService.getUsers().subscribe(
+      (data) => {
+        this.alertService.success('Done123!');
+      },
+      (error) => {
+        this.alertService.error(error.message);
+      }
+    );
 
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
