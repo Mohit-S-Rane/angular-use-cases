@@ -4,10 +4,9 @@ import { HttpService } from './http-service';
 @Injectable()
 export class ApiService {
   constructor(private httpService: HttpService) {
-      
   }
 
-  getUsers() {
-    return this.httpService.get('/users');
+  signup(data: {email: string, password: string, confirm_password: string, name: string, job_category: string, experience_level: string}) {
+    return this.httpService.post('/user/signup', data);
   }
 }

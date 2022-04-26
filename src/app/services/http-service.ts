@@ -5,7 +5,7 @@ import { catchError, throwError } from 'rxjs';
 
 @Injectable()
 export class HttpService {
-  private base_url = 'https://reqres.in/a1pi';
+  private base_url = 'http://localhost:5000/api';
 
   constructor(private httpClient: HttpClient, private alertService: AlertService) {
 
@@ -14,6 +14,10 @@ export class HttpService {
   get(url?: string, paramData?: any) {
     const data = { params: paramData };
     return this.httpClient.get(this.base_url + url, data).pipe(catchError(this.errorHandler.bind(this)));
+  }
+
+  post(url?: string, body?: any) {
+    return this.httpClient.post(this.base_url + url, body).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   private errorHandler(res: any) {
