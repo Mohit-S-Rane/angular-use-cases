@@ -1,17 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {
-  BehaviorSubject,
-  combineLatest,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  map,
-  observable,
-  Observable,
-  switchMap,
-} from 'rxjs';
+import { ApiService } from './services/api-service';
+
+import {  BehaviorSubject,
+          combineLatest,
+          debounceTime,
+          distinctUntilChanged,
+          filter,
+          map,
+          observable,
+          Observable,
+          switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +20,14 @@ import {
 export class AppComponent {
   title = 'angular-use-cases';
   loginForm: FormGroup;
-  myObservable!: Observable<any>;
-  // private httpClient : HttpClient;  /*  First API Call */
 
-  constructor(private httpClient: HttpClient) {
-    // this.httpClient = httpClient;
+  constructor(private apiService: ApiService) {
+    //  My Component -> Api Service -> https Service -> HTTP Client Module
+    this.apiService.getUsers().subscribe(data=>{
+      console.log(data);
+      
+    })
+
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
@@ -34,16 +36,6 @@ export class AppComponent {
         Validators.minLength(4),
       ]),
     });
-
-    const data: any = { page: 2 };
-    this.httpClient.get('https://reqres.in/api/users', { params: data }).subscribe(
-        (data) => {
-          console.log(data);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
   }
 
   login() {}
