@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, observable, Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,44 @@ export class AppComponent {
         Validators.maxLength(8),
         Validators.minLength(4),
       ]),
+    });
+    this.buySugarFromShop();
+  }
+
+  // Switch Map Operator
+  // Example
+  buySugarInBulk() {
+    return new Observable((emitter) => {
+      emitter.next('Sugar is purchase');
+    });
+  }
+
+  buySugarInQuantity(quantity: any) {
+    return new Observable((emitter) => {
+      emitter.next('Sugar with Quantity: ' + quantity + ' is here for you');
+    });
+  }
+
+  buySugarFromShop() {
+    // observable A is depending on observable B
+    // Which return a required observable B using Switch Map
+    // we need to observe value of Second value only
+    // this.buySugarInBulk().subscribe((data) => {
+    //   this.buySugarInQuantity('1Kg').subscribe((res) => {
+    //     console.log(res);
+    //   });
+    // });
+
+    // We will write this by using Switch Map
+
+    const myObservable = this.buySugarInBulk().pipe(
+      switchMap(() => {
+        return this.buySugarInQuantity('2Kg');
+      })
+    );
+
+    myObservable.subscribe((data) => {
+      console.log(data);
     });
   }
 
