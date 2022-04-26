@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
@@ -21,8 +22,10 @@ export class AppComponent {
   title = 'angular-use-cases';
   loginForm: FormGroup;
   myObservable!: Observable<any>;
+  // private httpClient : HttpClient;  /*  First API Call */
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
+    // this.httpClient = httpClient;
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
@@ -32,28 +35,15 @@ export class AppComponent {
       ]),
     });
 
-    // Debounce time & distinc until change
-    const myObserver = this.loginForm.valueChanges.pipe(
-      map((data) => {
-        data.email;
-      }),
-      debounceTime(500),
-      distinctUntilChanged()
-    );
-
-    myObserver.subscribe((data) => {
-      console.log(data);
-    });
-
-    // Combine latest which use to merge two or more Observable and return when any value changes happen
-    // const observableA = this.loginForm.valueChanges;
-    // const observableB = new Observable((emitter) => {
-    //   emitter.next('Hello');
-    // });
-
-    // combineLatest([observableA, observableB]).subscribe((data) => {
-    //   console.log(data);
-    // });
+    const data: any = { page: 2 };
+    this.httpClient.get('https://reqres.in/api/users', { params: data }).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   login() {}
