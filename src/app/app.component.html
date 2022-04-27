@@ -14,7 +14,7 @@
     </mat-form-field>
     <!-- <a href="#">Forgot Password</a> -->
 
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-label>Confirm Password</mat-label>
       <input type="text" formControlName="confirm_password" matInput placeholder="Confirm Password*">
       <mat-error>Enter (4-8) Character valid password</mat-error>
@@ -34,10 +34,10 @@
       <mat-label>Experience Level</mat-label>
       <input type="text" formControlName="experience_level" matInput placeholder="experience_level*">
       <mat-error>Enter Experience Level</mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
 
     <div class="mt-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="1rem">
-      <button type="submit" class="fw-600" mat-raised-button>Login</button>
+      <button type="submit" (click)="login()" class="fw-600" mat-raised-button>Login</button>
       <button type="button" (click)="signup()" class="fw-600" mat-raised-button>Signup</button>
     </div>
     <mat-spinner *ngIf="this.loading" diameter="40"></mat-spinner>

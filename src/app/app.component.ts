@@ -25,11 +25,19 @@ export class AppComponent {
   }
 
   login() {
-    console.log(this.loginForm.value);
+    this.loading = true;
+    const response$ = this.apiService.login(this.loginForm.value);
+    response$.subscribe(data=>{
+    this.loading = false;
+    this.alertService.success('User Login successfully...')
+    },(error)=>{
+    this.loading = false;
+      console.log(error);
+      this.alertService.error(error.message)
+    })
   }
 
   signup() {
-
     // this.apiService.signup(this.loginForm.value).subscribe(data=>{
     //   console.log('User added successfully');
       // this.apiService.getUsers().subscribe(res=>{
