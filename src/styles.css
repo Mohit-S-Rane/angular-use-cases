@@ -11,7 +11,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-card {
     background-color: #58cced;
     border: 3px solid goldenrod;
-    width: 20%;
+    width: 30%;
 }
 
 .fw-600 {

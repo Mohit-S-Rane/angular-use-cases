@@ -1,0 +1,44 @@
+<form (ngSubmit)="this.signupForm.valid && signup()" [formGroup]="this.signupForm" class="overlay" fxLayout="column"
+  fxLayoutAlign="center center" fxLayoutGap="2rem">
+  <mat-card class="mat-card" fxLayout="column" fxLayoutGap="1rem">
+    <h2 class="fw-600">Signup</h2>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="Email*">
+      <mat-error>Enter Valid Email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="Password*">
+      <mat-error>Enter (4-8) Character valid password</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input type="text" formControlName="confirm_password" matInput placeholder="Confirm Password*">
+      <mat-error>Enter (4-8) Character valid password</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="name*">
+      <mat-error>Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Job Category</mat-label>
+      <input type="text" formControlName="job_category" matInput placeholder="job_category*">
+      <mat-error>Enter Job Category</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Experience Level</mat-label>
+      <input type="text" formControlName="experience_level" matInput placeholder="experience_level*">
+      <mat-error>Enter Experience Level</mat-error>
+    </mat-form-field>
+
+    <div class="mt-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="1rem">
+      <button type="submit" (click)="login()" class="fw-600" mat-raised-button>Back to Login</button>
+      <button type="button" (click)="signup()" class="fw-600" mat-raised-button>Signup</button>
+    </div>
+    <mat-spinner *ngIf="this.loading" diameter="40"></mat-spinner>
+  </mat-card>
+</form>
