@@ -9,7 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-card {
-    background-color: #CBF83E;
+    background-color: #58cced;
     border: 3px solid goldenrod;
     width: 20%;
 }

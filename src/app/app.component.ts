@@ -29,6 +29,14 @@ export class AppComponent {
   }
 
   signup() {
+
+    // this.apiService.signup(this.loginForm.value).subscribe(data=>{
+    //   console.log('User added successfully');
+      // this.apiService.getUsers().subscribe(res=>{
+      //   this.alertService.success('done...!')
+      // })
+    // })
+    // debugger
     this.loading = true;
     this.apiService.signup(this.loginForm.value).subscribe((data)=>{
       this.loading = false;
@@ -36,7 +44,7 @@ export class AppComponent {
       console.log(data);
     }, error=>{
       this.loading = false;
-      console.log(error);
+      console.log(error.message);
     })
   }
 }
