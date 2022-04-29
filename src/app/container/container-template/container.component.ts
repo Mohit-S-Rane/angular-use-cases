@@ -1,10 +1,10 @@
-// import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css'],
-// })
-// export class LoginComponent {
-//   constructor() {}
-// }
+@Component({
+  selector: 'app-container-template',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.css'],
+})
+export class ContainerTempComponent {
+  constructor() {}
+}

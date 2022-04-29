@@ -15,13 +15,15 @@ import { AlertService } from './services/alert-service';
 import { LoginComponent } from './container/login/login.component';
 import { SignupComponent } from './container/signup/signup.component';
 import { ForgotPasswordComponent } from '../app/container/forgot-password/forgot-password.component'
+import { ContainerTempComponent } from '../app/container/container-template/container.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ContainerTempComponent
   ],
   imports: [
   BrowserModule,

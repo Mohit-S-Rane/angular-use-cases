@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./forgot-password.component.css'],
 })
 export class ForgotPasswordComponent {
-  constructor() {}
+  loading: boolean = false;
+  forgotPasswordForm: FormGroup;
+  constructor() {
+
+    this.forgotPasswordForm = new FormGroup({
+      email: new FormControl(null, [Validators.required])
+    })
+  }
+
+  sendEmail() {
+    console.log('Send Email called');
+    
+  }
 }
