@@ -18,11 +18,19 @@ export class ApiService {
     return this.httpService.post('/user/signup', data);
   }
 
-  login( data: {email: string, password: string}): Observable<User> {
+  login(data: { email: string; password: string }): Observable<User> {
     return this.httpService.get('/user/login', data);
   }
 
   getUsers() {
     return this.httpService.get('/users');
+  }
+
+  sendResetPasswordEmail(data: { email: string }): Observable<any> {
+    return this.httpService.get('/user/reset/password/email', data)
+  }
+
+  resetPassword(data: {code: string, new_password: string, confirm_password: string}): Observable<any> {
+    return this.httpService.patch('/user/reset/password', data)
   }
 }
