@@ -9,15 +9,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ForgotPasswordComponent {
   loading: boolean = false;
   forgotPasswordForm: FormGroup;
+  isEmailSend = false;
   constructor() {
-
     this.forgotPasswordForm = new FormGroup({
-      email: new FormControl(null, [Validators.required])
-    })
+      email: new FormControl(null, !this.isEmailSend ? [Validators.required] : []),
+      code: new FormControl(null, []),
+      new_password: new FormControl(null, []),
+      confirm_password: new FormControl(null, []),
+    });
+  }
+ 
+  sendEmail() {
+    this.isEmailSend = true;
+    console.log('Send Email called');
+    this.forgotPasswordForm.get('code')?.setValidators([Validators.required])
+    this.forgotPasswordForm.get('new_password')?.setValidators([Validators.required])
+    this.forgotPasswordForm.get('confirm_password')?.setValidators([Validators.required])
   }
 
-  sendEmail() {
-    console.log('Send Email called');
-    
+  changePassword() {
+    console.log(this.forgotPasswordForm.value);
   }
 }
