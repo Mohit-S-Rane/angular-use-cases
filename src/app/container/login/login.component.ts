@@ -38,7 +38,7 @@ export class LoginComponent {
 
   login() {
     this.loading = true;
-    const response$ = this.apiService.login(this.loginForm.value);
+    const response$ = this.apiService.loginAndSetToken(this.loginForm.value);
     response$.subscribe(
       (data) => {
         this.loading = false;

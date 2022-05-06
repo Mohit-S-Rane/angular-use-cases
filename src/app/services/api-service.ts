@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { HttpService } from './http-service';
 
 @Injectable()
 export class ApiService {
+  private readonly authToken = 'auth token';
+
   constructor(private httpService: HttpService) {}
 
   signup(data: {
@@ -18,8 +20,23 @@ export class ApiService {
     return this.httpService.post('/user/signup', data);
   }
 
-  login(data: { email: string; password: string }): Observable<User> {
-    return this.httpService.get('/user/login', data);
+  loginAndSetToken(data: { email: string; password: string }): Observable<User> {
+    return this.httpService.get('/user/login', data).pipe(map(res=>{
+      this.setAuthToken(res.token)
+      return res;
+    }));
+  }
+
+  getAuthToken() {
+    return localStorage.getItem(this.authToken);
+  }
+
+  setAuthToken(value: any) {
+    return localStorage.setItem(this.authToken, value);
+  }
+
+  removeAuthToken() {
+    return localStorage.removeItem(this.authToken);
   }
 
   getUsers() {
