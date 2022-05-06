@@ -18,6 +18,7 @@ import { ForgotPasswordComponent } from '../app/container/forgot-password/forgot
 import { ContainerTempComponent } from '../app/container/container-template/container.component'
 import { VerificationComponent } from './container/verification/verification.component';
 import { AuthGuard } from './guards/auth-guard';
+import { AnonGuard } from './guards/anon.guard';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { AuthGuard } from './guards/auth-guard';
     HttpClientModule,
     
   ],
-  providers: [HttpService, ApiService,AlertService, AuthGuard],
+  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
