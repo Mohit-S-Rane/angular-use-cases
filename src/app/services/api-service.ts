@@ -5,9 +5,21 @@ import { HttpService } from './http-service';
 
 @Injectable()
 export class ApiService {
-  private readonly authToken = 'auth token';
+  private static authToken = 'auth token';
 
   constructor(private httpService: HttpService) {}
+
+  static getAuthToken() {
+    return localStorage.getItem(ApiService.authToken);
+  }
+
+  static setAuthToken(value: any) {
+    return localStorage.setItem(ApiService.authToken, value);
+  }
+
+  static removeAuthToken() {
+    return localStorage.removeItem(ApiService.authToken);
+  }
 
   signup(data: {
     email: string;
@@ -22,21 +34,9 @@ export class ApiService {
 
   loginAndSetToken(data: { email: string; password: string }): Observable<User> {
     return this.httpService.get('/user/login', data).pipe(map(res=>{
-      this.setAuthToken(res.token)
+      ApiService.setAuthToken(res.token)
       return res;
     }));
-  }
-
-  getAuthToken() {
-    return localStorage.getItem(this.authToken);
-  }
-
-  setAuthToken(value: any) {
-    return localStorage.setItem(this.authToken, value);
-  }
-
-  removeAuthToken() {
-    return localStorage.removeItem(this.authToken);
   }
 
   getUsers() {

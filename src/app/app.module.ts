@@ -16,6 +16,8 @@ import { LoginComponent } from './container/login/login.component';
 import { SignupComponent } from './container/signup/signup.component';
 import { ForgotPasswordComponent } from '../app/container/forgot-password/forgot-password.component'
 import { ContainerTempComponent } from '../app/container/container-template/container.component'
+import { VerificationComponent } from './container/verification/verification.component';
+import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ContainerTempComponent } from '../app/container/container-template/cont
     LoginComponent,
     SignupComponent,
     ForgotPasswordComponent,
-    ContainerTempComponent
+    ContainerTempComponent,
+    VerificationComponent
   ],
   imports: [
   BrowserModule,
@@ -36,7 +39,7 @@ import { ContainerTempComponent } from '../app/container/container-template/cont
     HttpClientModule,
     
   ],
-  providers: [HttpService, ApiService,AlertService],
+  providers: [HttpService, ApiService,AlertService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

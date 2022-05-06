@@ -43,6 +43,7 @@ export class LoginComponent {
       (data) => {
         this.loading = false;
         this.alertService.success('User Login successfully...');
+        this.router.navigate(['verify']);
       },
       (error) => {
         this.loading = false;
