@@ -35,7 +35,7 @@ export class ApiService {
   loginAndSetToken(data: { email: string; password: string }): Observable<User> {
     return this.httpService.get('/user/login', data).pipe(map(res=>{
       ApiService.setAuthToken(res.token)
-      return res;
+      return res.data;
     }));
   }
 

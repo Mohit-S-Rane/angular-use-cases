@@ -38,12 +38,14 @@ export class LoginComponent {
 
   login() {
     this.loading = true;
+    const userEmail = this.loginForm.value.email;
+    this.router.navigate(['verify'], {queryParams: { email: userEmail }});
     const response$ = this.apiService.loginAndSetToken(this.loginForm.value);
     response$.subscribe(
       (data) => {
         this.loading = false;
         this.alertService.success('User Login successfully...');
-        this.router.navigate(['verify']);
+        this.router.navigate(['verify'], {queryParams: { email: data.email }});
       },
       (error) => {
         this.loading = false;

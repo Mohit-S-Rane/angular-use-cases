@@ -11,7 +11,7 @@ const routes: Routes = [{path: '', component: LoginComponent, canActivate: [Anon
                         {path: 'login', component: LoginComponent, canActivate: [AnonGuard]}, 
                         {path: 'signup', component: SignupComponent, canActivate: [AnonGuard]},
                         {path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [AnonGuard]},
-                        {path: 'verify', component: VerificationComponent, canActivate: [AuthGuard]}
+                        {path: 'verify', component: VerificationComponent}
                       ];
 
 @NgModule({

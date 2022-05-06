@@ -12,6 +12,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #58cced;
     border: 3px solid goldenrod;
     width: 30%;
+    background-color: whitesmoke;
 }
 
 .fw-600 {
@@ -19,7 +20,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mt-20 {
-    margin-top: 1rem;
+    margin-top: 1rem !important;
+}
+
+.mt-60 {
+    margin-top: 3rem !important;
 }
 
 .alert-success {
@@ -41,4 +46,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-spinner {
     align-items: center;
     align-self: center;
+}
+
+.background-img {
+    background: linear-gradient(to bottom, #f32b60, #ff8f1f);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.verify-card-fw-bold {
+    font-weight: bold !important;
+    font-size: 1.8rem !important;
+    color: rgb(125, 226, 97);
 }

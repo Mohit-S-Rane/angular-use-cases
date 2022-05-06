@@ -1,1 +1,12 @@
-<h1>Verification Component</h1>
+<div class="overlay background-img" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="card-size mt-20" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2.5rem">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <mat-icon inline>unsubscribe</mat-icon>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h1 class="verify-card-fw-bold text-center">You haven't Verified your Email Yet</h1>
+            <p class="text-center p-text-width">Please verify your email which is sent to <strong> {{ email }} </strong> before continuing. Please verify your email</p>
+        </div>
+        <button mat-raised-button color="primary">Send Email Again</button>
+    </mat-card>
+</div>
