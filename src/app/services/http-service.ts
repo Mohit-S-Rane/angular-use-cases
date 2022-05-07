@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AlertService } from './alert-service';
 import { catchError, Observable, throwError } from 'rxjs';
 import { ApiService } from './api-service';
+import { AuthUtils } from './../utility/auth-utils';
 
 @Injectable()
 export class HttpService {
@@ -31,7 +32,7 @@ export class HttpService {
 
   private getAuthHeaders() {
     return {
-      Authorization: `Bearer ${ApiService.getAuthToken()}`
+      Authorization: `Bearer ${AuthUtils.getAuthToken()}`
     }
   }
 
