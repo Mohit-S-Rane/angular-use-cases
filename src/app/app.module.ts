@@ -21,6 +21,10 @@ import { AuthGuard } from './guards/auth-guard';
 import { AnonGuard } from './guards/anon.guard';
 import { OnBoardingComponent } from './container/on-boarding/on-boarding.component';
 import { DashboardComponent } from './container/dashboard/dashboard.component';
+import { VerificationCompleted } from './guards/verification-completed';
+import { VerificationInComplete } from './guards/verification-in-complete';
+import { OnBoardingComplete } from './guards/on-boarding-complete';
+import { OnBoardingInComplete } from './guards/on-boarding-in-complete';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,7 @@ import { DashboardComponent } from './container/dashboard/dashboard.component';
     HttpClientModule,
     
   ],
-  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard],
+  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

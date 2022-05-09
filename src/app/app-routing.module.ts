@@ -8,6 +8,10 @@ import { SignupComponent } from './container/signup/signup.component';
 import { VerificationComponent } from './container/verification/verification.component';
 import { AnonGuard } from './guards/anon.guard';
 import { AuthGuard } from './guards/auth-guard';
+import { OnBoardingComplete } from './guards/on-boarding-complete';
+import { OnBoardingInComplete } from './guards/on-boarding-in-complete';
+import { VerificationCompleted } from './guards/verification-completed';
+import { VerificationInComplete } from './guards/verification-in-complete';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -15,12 +19,14 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                                               {path: 'forgot-password', component: ForgotPasswordComponent},
                                               {path: '', component: LoginComponent}]},
                         {path: '', canActivate: [AuthGuard], 
-                                   children: [{path: 'verify', component: VerificationComponent},
-                                              {path: 'on-boarding', component: OnBoardingComponent},
-                                              {path: 'dashboard', component: DashboardComponent}, ]}                    ]
+                                   children: [{path: 'verify', component: VerificationComponent, canActivate: [VerificationInComplete]},
+                                              {path: 'on-boarding', component: OnBoardingComponent, canActivate: [VerificationCompleted, OnBoardingInComplete]},
+                                              {path: 'dashboard', component: DashboardComponent, canActivate: [VerificationCompleted, OnBoardingComplete]}, ]}                    ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+
+
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
