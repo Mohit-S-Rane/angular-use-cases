@@ -1,0 +1,15 @@
+<div class="overlay" fxLayout="column" fxLayoutAlign="center center">
+    <form [formGroup]="this.resumeForm" (ngSubmit)="this.resumeForm.valid && this.createResume()">
+        <mat-card class="resume-name-card" fxLayout="column" fxLayoutGap="20px">
+            <h1 class="resume-name-title">Name your Resume</h1>
+            <mat-form-field>
+                <input formControlName="name" type="text" matInput placeholder="Resume Name">
+                <mat-hint>It can't be seen by others.</mat-hint>
+                <mat-error>Resume Name is Required</mat-error>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button matStepperNext type="submit" mat-raised-button color="accent">Next</button>
+            </div>
+        </mat-card>
+    </form>
+</div>

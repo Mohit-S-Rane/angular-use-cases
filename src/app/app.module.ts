@@ -19,13 +19,14 @@ import { ContainerTempComponent } from '../app/container/container-template/cont
 import { VerificationComponent } from './container/verification/verification.component';
 import { AuthGuard } from './guards/auth-guard';
 import { AnonGuard } from './guards/anon.guard';
-import { OnBoardingComponent } from './container/on-boarding/on-boarding.component';
+import { OnBoardingComponent } from './container/on-boarding/on-boarding/on-boarding.component';
 import { DashboardComponent } from './container/dashboard/dashboard.component';
 import { VerificationCompleted } from './guards/verification-completed';
 import { VerificationInComplete } from './guards/verification-in-complete';
 import { OnBoardingComplete } from './guards/on-boarding-complete';
 import { OnBoardingInComplete } from './guards/on-boarding-in-complete';
 import { OnBoardingIntroComponent } from "./container/on-boarding/intro/on-boarding-intro.component";
+import { ResumeNameComponent } from "./container/on-boarding/resume-name/resume-name.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { OnBoardingIntroComponent } from "./container/on-boarding/intro/on-board
     VerificationComponent,
     OnBoardingComponent,
     DashboardComponent,
-    OnBoardingIntroComponent
+    OnBoardingIntroComponent,
+    ResumeNameComponent
   ],
   imports: [
   BrowserModule,

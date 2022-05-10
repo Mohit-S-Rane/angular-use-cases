@@ -4,7 +4,7 @@ import { DashboardComponent } from './container/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './container/forgot-password/forgot-password.component';
 import { LoginComponent } from './container/login/login.component';
 import { OnBoardingIntroComponent } from './container/on-boarding/intro/on-boarding-intro.component';
-import { OnBoardingComponent } from './container/on-boarding/on-boarding.component';
+import { OnBoardingComponent } from './container/on-boarding/on-boarding/on-boarding.component';
 import { SignupComponent } from './container/signup/signup.component';
 import { VerificationComponent } from './container/verification/verification.component';
 import { AnonGuard } from './guards/anon.guard';
