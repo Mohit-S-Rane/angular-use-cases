@@ -1,8 +1,7 @@
-.resume-name-card {
-    width: 30vw;
-    height: 35vh;
-}
-
 .resume-name-title {
     font-size: 2rem;
+}
+
+.container {
+    height: 100vh;
 }

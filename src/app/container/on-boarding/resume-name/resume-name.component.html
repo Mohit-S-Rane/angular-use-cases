@@ -1,6 +1,6 @@
-<div class="overlay" fxLayout="column" fxLayoutAlign="center center">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
     <form [formGroup]="this.resumeForm" (ngSubmit)="this.resumeForm.valid && this.createResume()">
-        <mat-card class="resume-name-card" fxLayout="column" fxLayoutGap="20px">
+        <mat-card fxFlex="100%" fxLayout="column" fxLayoutGap="20px">
             <h1 class="resume-name-title">Name your Resume</h1>
             <mat-form-field>
                 <input formControlName="name" type="text" matInput placeholder="Resume Name">
