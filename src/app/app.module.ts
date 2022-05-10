@@ -47,7 +47,7 @@ import { OnBoardingIntroComponent } from "./container/on-boarding/intro/on-board
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
     
   ],
   providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete],
