@@ -7,6 +7,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ResumeNameComponent implements OnInit {
   resumeForm: FormGroup;
+  isCompleted = false;
+  loading = false;
+
   constructor() {}
   ngOnInit() {
     this.resumeForm = new FormGroup({
@@ -15,6 +18,7 @@ export class ResumeNameComponent implements OnInit {
   }
 
   createResume() {
+    this.isCompleted = true;
       console.log('called');
       
   }
