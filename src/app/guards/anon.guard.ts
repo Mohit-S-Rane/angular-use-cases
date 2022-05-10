@@ -13,13 +13,11 @@ export class AnonGuard implements CanActivate{
         if(!AuthUtils.getAuthToken()){
             return true
         } else {
-            console.log('called');
-            
             return this.apiservice.fetchMe().pipe(map(data =>{
                 if(!data.verified){
                     this.router.navigate(['verified'])
                 } else if(data.onboarding !== 200){
-                    this.router.navigate(['onboarding'])
+                    this.router.navigate(['on-boarding'])
                 } else {
                     this.router.navigate(['dashboard'])
                 }
