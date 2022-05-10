@@ -1,11 +1,11 @@
-<mat-horizontal-stepper>
-    <mat-step *ngIf="!this.loading">
+<mat-horizontal-stepper *ngIf="!this.loading">
+    <mat-step>
         <ng-template matStepLabel>Name your Resume</ng-template>
         <app-resume-name [isCompleted]="isFirstStepCompleted"></app-resume-name>
     </mat-step>
-    <mat-step *ngIf="!this.loading">
+    <mat-step *ngIf="isFirstStepCompleted" optional>
         <ng-template matStepLabel>Upload Video & Image</ng-template>
-        <p>Upload Image and Video</p>
+        <app-upload></app-upload>
     </mat-step>
 </mat-horizontal-stepper>
 <div *ngIf="this.loading" class="overlay" fxLayout="column" fxLayoutAlign="center center">
