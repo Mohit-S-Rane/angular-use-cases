@@ -1,6 +1,6 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
     <form [formGroup]="this.resumeForm" (ngSubmit)="this.resumeForm.valid && this.createResume()">
-        <mat-card *ngIf="!isCompleted" fxFlex="100%" fxLayout="column" fxLayoutGap="20px">
+        <mat-card *ngIf="!isCompleted && !loading" fxFlex="100%" fxLayout="column" fxLayoutGap="20px">
             <h1 class="resume-name-title">Name your Resume</h1>
             <mat-form-field>
                 <input formControlName="name" type="text" matInput placeholder="Resume Name">
@@ -11,9 +11,10 @@
                 <button matStepperNext type="submit" mat-raised-button color="accent">Save</button>
             </div>
         </mat-card>
-        <div *ngIf="isCompleted" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <div *ngIf="isCompleted && !loading" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
             <h1>You have already completed this step</h1>
             <button type="button" matStepperNext mat-raised-button color="accent">Next</button>
         </div>
     </form>
+    <mat-spinner *ngIf="loading"></mat-spinner>
 </div>
