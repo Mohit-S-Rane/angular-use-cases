@@ -51,4 +51,14 @@ export class ApiService {
   saveResume(data: { name: string}) {
     return this.httpService.post('/resume/add/resume', data);
   }
+
+  saveOrUpdateImage(image: File, resumeId: string): Observable<Resume> {
+    const formData = new FormData();
+    formData.append('profile_image', image) 
+    return this.httpService.post('/resume/add/image/' + resumeId, formData)
+  }
+
+  deleteImage(resumeId: string) {
+    return this.httpService.delete('/resume/delete/image/' + resumeId)
+  }
 }

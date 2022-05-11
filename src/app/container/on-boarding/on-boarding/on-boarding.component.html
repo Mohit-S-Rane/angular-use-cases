@@ -5,7 +5,7 @@
     </mat-step>
     <mat-step *ngIf="isFirstStepCompleted" optional>
         <ng-template matStepLabel>Upload Video & Image</ng-template>
-        <app-upload></app-upload>
+        <app-upload [resume]="resume"></app-upload>
     </mat-step>
 </mat-horizontal-stepper>
 <div *ngIf="this.loading" class="overlay" fxLayout="column" fxLayoutAlign="center center">

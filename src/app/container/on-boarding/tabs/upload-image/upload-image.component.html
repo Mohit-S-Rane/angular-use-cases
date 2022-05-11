@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
+<div *ngIf="!loading" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
     <input type="file" accept="image/jpeg, image/png" (change)="onImageSelect($event)" hidden #fileInput>
     <h1>
         <mat-icon>cloud_upload</mat-icon>
@@ -11,4 +11,9 @@
         <span *ngIf="isSelected">CHANGE</span>
     </button>
     <img #previewImg [src]="this.url" height="200px" alt="">
+    <button *ngIf="this.isSelected && !this.isUploaded" (click)="save()" mat-raised-button color="accent">SAVE</button>
+    <button *ngIf="this.isSelected && this.isUploaded" (click)="delete()" mat-raised-button color="accent">DELETE</button>
+</div>
+<div *ngIf="loading" style="height: 100vh;" fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
 </div>

@@ -1,24 +1,42 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/services/alert-service';
+import { ApiService } from 'src/app/services/api-service';
+import { Resume } from 'src/app/models/resume';
 
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',
   styleUrls: ['./upload-image.component.css'],
 })
-export class UploadImageComponent {
+export class UploadImageComponent implements AfterViewInit{
   isUploaded = false;
   isSelected = false;
   selectButtonIcon = 'add';
   file: File;
   MAX_IMAGE_SIZE = 2 * 1000 * 1000;
   url = '';
+  loading = false;
+  @Input() resume: Resume;
 
   @ViewChild('fileInput') fileInput: ElementRef;
   @ViewChild('previewImg') previewImg: ElementRef;
 
-  constructor(private alertService: AlertService) {}
+  ngAfterViewInit(): void {
+    this.init();
+  }
 
+  constructor(private alertService: AlertService, private apiService: ApiService) {}
+
+  init(){
+    if(this.resume){
+      this.isUploaded = !!this.resume.image_url;
+      if(this.isUploaded) {
+        this.isSelected = true;
+        this.url = this.resume.image_url;
+      }
+    }
+  }
+ 
   onImageSelect(value: any) {
     const file = value.target.files[0];
     this.file = file;
@@ -38,4 +56,30 @@ export class UploadImageComponent {
   onFileSelect() {
     this.fileInput.nativeElement.click();
   }
+
+  save() {
+    this.loading = true;
+    this.apiService.saveOrUpdateImage(this.file, this.resume._id).subscribe(data=>{
+      this.loading = false;
+      this.isUploaded = true;
+      this.url = data.image_url;
+      this.alertService.success('Image uploaded Successfully');
+    }, error=>{
+      this.loading = false;
+    })
+  }
+
+  delete() {
+    this.loading = true;
+    this.apiService.deleteImage(this.resume._id).subscribe(data=>{
+      this.loading = false;
+      this.alertService.success('Image deleted Successfully');
+      this.isUploaded = false;
+      this.isSelected = false;
+      this.url = '';
+    }, error =>{
+      this.loading = false;
+    })
+  }
+
 }
