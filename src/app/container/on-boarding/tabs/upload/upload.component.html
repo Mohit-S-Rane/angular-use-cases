@@ -1,6 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="start center">
     <mat-tab-group mat-align-tabs="center" color="accent" backgroundColor="primary" style="width: 100%;">
-        <mat-tab #myTags #myTag label="UPLOAD PROFILE IMAGE">Content 1</mat-tab>
+        <mat-tab #myTags #myTag label="UPLOAD PROFILE IMAGE">
+            <app-upload-image></app-upload-image>
+        </mat-tab>
         <mat-tab #myTags label="UPLOAD EXISTING VIDEO">Content 2</mat-tab>
         <mat-tab #myTags label="PASTE YOUTUBE LINK">Content 3</mat-tab>
     </mat-tab-group>

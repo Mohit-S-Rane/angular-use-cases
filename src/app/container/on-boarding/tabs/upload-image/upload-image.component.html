@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
+    <input type="file" accept="image/jpeg, image/png" (change)="onImageSelect($event)" hidden #fileInput>
+    <h1>
+        <mat-icon>cloud_upload</mat-icon>
+        Upload Profile Image
+    </h1>
+    <mat-hint style="font-size: 1rem;">Image size must be 2mb</mat-hint>
+    <button *ngIf="!isUploaded" type="button" (click)="this.onFileSelect()" mat-raised-button color="primary">
+        <mat-icon>{{ selectButtonIcon }}</mat-icon>
+        <span *ngIf="!isSelected">SELECT</span>
+        <span *ngIf="isSelected">CHANGE</span>
+    </button>
+</div>
