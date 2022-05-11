@@ -1,6 +1,6 @@
 <div *ngIf="!loading" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
     <input type="file" accept="image/jpeg, image/png" (change)="onImageSelect($event)" hidden #fileInput>
-    <h1>
+    <h1 class="tabs-heading">
         <mat-icon>cloud_upload</mat-icon>
         Upload Profile Image
     </h1>

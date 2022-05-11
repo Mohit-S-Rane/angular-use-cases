@@ -61,4 +61,8 @@ export class ApiService {
   deleteImage(resumeId: string) {
     return this.httpService.delete('/resume/delete/image/' + resumeId)
   }
+
+  addVideo(resumeId: string, data: { video_url: string }) {
+    return this.httpService.patch('/resume/import/video/' + resumeId, data);
+  }
 }
