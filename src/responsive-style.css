@@ -1,0 +1,20 @@
+@media screen and (max-width: 599px) {
+    .res-onboarding-title {
+      text-align: center !important;
+      font-size: 2rem !important;
+    }
+  
+    .res-onboarding-desc {
+      text-align: center !important;
+      font-size: 1rem !important;
+    }
+  
+    .res-expansion-title {
+      margin-bottom: 2rem !important;
+    }
+  
+    .res-mat-expansion-panel-header {
+      padding: 5px !important;
+    }
+  }
+  
