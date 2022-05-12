@@ -65,4 +65,12 @@ export class ApiService {
   addVideo(resumeId: string, data: { video_url: string }) {
     return this.httpService.patch('/resume/import/video/' + resumeId, data);
   }
+
+  UpdateContactDetails(data: any, contactDetailId: string) {
+    return this.httpService.patch('/resume/update/contactDetails/' + contactDetailId, data)
+  }
+
+  AddContactDetails(data: any, contactDetailId: string) {
+    return this.httpService.post('/resume/add/contactDetails/' + contactDetailId, data)
+  }
 }

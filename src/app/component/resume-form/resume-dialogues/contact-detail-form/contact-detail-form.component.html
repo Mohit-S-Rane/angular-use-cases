@@ -1,1 +1,55 @@
-<h1>I'm inside a dialog</h1>
+<form (ngSubmit)="contactDetailForm.valid && addOrUpdate()" [formGroup]="contactDetailForm">
+    <div fxLayout="column">
+        <mat-form-field>
+            <input type="text" formControlName="first_name" matInput placeholder="First Name">
+            <mat-error>First Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="last_name" matInput placeholder="Last Name">
+            <mat-error>Last Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="phone_number" matInput placeholder="Mobile No">
+            <mat-error>Mobile Number is required</mat-error>
+        </mat-form-field> 
+        <mat-form-field>
+            <input type="email" formControlName="email" matInput placeholder="Email">
+            <mat-error>Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="linkedin_url" matInput placeholder="LinkedIn Url(Optional)">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="website_url" matInput placeholder="Website Url(Optional)">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea rows="5" formControlName="address" matInput placeholder="Address"></textarea>
+            <mat-error>Address is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="city" matInput placeholder="City">
+            <mat-error>City is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="state" matInput placeholder="State">
+            <mat-error>State is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="zip_code" matInput placeholder="Zip Code">
+            <mat-error>Zip Code is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="country" matInput placeholder="Country">
+            <mat-error>Country is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea formControlName="summary" rows="5" matInput placeholder="Few line about yourself"></textarea>
+            <mat-error>Summary is required</mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+            <button *ngIf="this.data.contactDetails" mat-raised-button color="primary">Update</button>
+            <button *ngIf="!this.data.contactDetails" mat-raised-button color="primary">Save</button>
+            <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
+        </div>
+    </div>    
+</form>
