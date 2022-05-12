@@ -33,6 +33,7 @@ import { UploadFromDiskComponent } from "./container/tabs/upload-from-disk/uploa
 import { ImportFromYoutubeComponent } from "./container/tabs/import-from-youtube/import-from-youtube.component";
 import { ResumeFormComponent } from "./container/resume-form/resume-form.component";
 import { ContactDetailsComponent } from "./component/resume-form/resume-card/contact-details/contact-details.component"
+import { ContactDetailFormComponent } from "./component/resume-form/resume-dialogues/contact-detail-form/contact-detail-form.component"
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ContactDetailsComponent } from "./component/resume-form/resume-card/con
     UploadFromDiskComponent,
     ImportFromYoutubeComponent,
     ResumeFormComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    ContactDetailFormComponent
   ],
   imports: [
   BrowserModule,
