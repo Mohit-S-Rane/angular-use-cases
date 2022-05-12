@@ -12,7 +12,7 @@
         </div>
     </form>
     <div *ngIf="isVideoUploaded && !this.uploadAgain" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
-        <p style="font-size: 1.5rem;">You have Already Uploaded a Video</p>
+        <p class="tabs-heading" style="font-size: 1.5rem;">You have Already Uploaded a Video</p>
         <button (click)="this.uploadAgain = true" mat-raised-button color="primary">Update Video</button>
     </div>
     <div fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">

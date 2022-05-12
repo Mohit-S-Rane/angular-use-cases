@@ -1,8 +1,8 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Resume } from './../../../../models/resume';
+import { Resume } from 'src/app/models/resume';
+import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
-import { AlertService } from './../../../../services/alert-service';
 
 
 @Component({

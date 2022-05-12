@@ -27,11 +27,11 @@ import { OnBoardingComplete } from './guards/on-boarding-complete';
 import { OnBoardingInComplete } from './guards/on-boarding-in-complete';
 import { OnBoardingIntroComponent } from "./container/on-boarding/intro/on-boarding-intro.component";
 import { ResumeNameComponent } from "./container/on-boarding/resume-name/resume-name.component";
-import { UploadComponent } from "./container/on-boarding/tabs/upload/upload.component";
-import { UploadImageComponent } from "./container/on-boarding/tabs/upload-image/upload-image.component";
-import { UploadFromDiskComponent } from "./container/on-boarding/tabs/upload-from-disk/upload-from-disk";
-import { ImportFromYoutubeComponent } from "./container/on-boarding/tabs/import-from-youtube/import-from-youtube.component";
-import { ResumeFormComponent } from "./container/on-boarding/resume-form/resume-form.component"
+import { UploadComponent } from "./container/tabs/upload/upload.component";
+import { UploadImageComponent } from "./container/tabs/upload-image/upload-image.component";
+import { UploadFromDiskComponent } from "./container/tabs/upload-from-disk/upload-from-disk";
+import { ImportFromYoutubeComponent } from "./container/tabs/import-from-youtube/import-from-youtube.component";
+import { ResumeFormComponent } from "./container/resume-form/resume-form.component"
 @NgModule({
   declarations: [
     AppComponent,
