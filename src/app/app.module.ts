@@ -31,7 +31,7 @@ import { UploadComponent } from "./container/on-boarding/tabs/upload/upload.comp
 import { UploadImageComponent } from "./container/on-boarding/tabs/upload-image/upload-image.component";
 import { UploadFromDiskComponent } from "./container/on-boarding/tabs/upload-from-disk/upload-from-disk";
 import { ImportFromYoutubeComponent } from "./container/on-boarding/tabs/import-from-youtube/import-from-youtube.component";
-
+import { ResumeFormComponent } from "./container/on-boarding/resume-form/resume-form.component"
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,8 @@ import { ImportFromYoutubeComponent } from "./container/on-boarding/tabs/import-
     UploadComponent,
     UploadImageComponent,
     UploadFromDiskComponent,
-    ImportFromYoutubeComponent
+    ImportFromYoutubeComponent,
+    ResumeFormComponent
   ],
   imports: [
   BrowserModule,

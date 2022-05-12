@@ -8,6 +8,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 const data = [
     MatButtonModule,
@@ -18,7 +20,8 @@ const data = [
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatStepperModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
 
 ];
 
