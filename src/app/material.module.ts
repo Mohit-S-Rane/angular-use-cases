@@ -10,6 +10,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 
 const data = [
@@ -23,7 +25,9 @@ const data = [
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatOptionModule
 
 ];
 

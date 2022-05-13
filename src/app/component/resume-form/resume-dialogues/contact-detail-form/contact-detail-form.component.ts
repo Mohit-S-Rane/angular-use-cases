@@ -59,16 +59,16 @@ export class ContactDetailFormComponent implements OnInit{
   }
 
   save() {
-    const observers$ = this.apiService.AddContactDetails(this.contactDetailForm.value, this.data.resumeId)
+    const observers$ = this.apiService.addContactDetails(this.contactDetailForm.value, this.data.resumeId)
     observers$.subscribe(data=>{
-      console.log(data);
+      this.dialogRef.close();
     })
   }
 
   update() {
-    const observers$ = this.apiService.UpdateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id)
+    const observers$ = this.apiService.updateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id)
     observers$.subscribe(data=>{
-      console.log(data);
+      this.dialogRef.close();
     })
   }
 

@@ -1,0 +1,73 @@
+<form (ngSubmit)="this.educationForm.valid && addOrUpdate()" [formGroup]="this.educationForm">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+            <input formControlName="school_name" matInput placeholder="School Name or College Name">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="city" matInput placeholder="City">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="state" matInput placeholder="State">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="field" matInput placeholder="Field">
+            <mat-hint>Example @ B.Tech in Computer Science</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="percentage" matInput placeholder="Percentage">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="degree_type" matInput placeholder="Degree Type">
+            <mat-hint>Example @ Diploma, Graduation</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Graduation Month</mat-label>
+            <mat-select formControlName="graduation_month">
+                <mat-option value="January">
+                    January
+                </mat-option>
+                <mat-option value="February">
+                    February
+                </mat-option>
+                <mat-option value="March">
+                    March
+                </mat-option>
+                <mat-option value="April">
+                    April
+                </mat-option>
+                <mat-option value="May">
+                    May
+                </mat-option>
+                <mat-option value="June">
+                    June
+                </mat-option>
+                <mat-option value="July">
+                    July
+                </mat-option>
+                <mat-option value="August">
+                    August
+                </mat-option>
+                <mat-option value="September">
+                    September
+                </mat-option>
+                <mat-option value="October">
+                    October
+                </mat-option>
+                <mat-option value="November">
+                    November
+                </mat-option>
+                <mat-option value="December">
+                    December
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="graduation_year" matInput placeholder="Graduation Year">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+            <button *ngIf="this.data.education" mat-raised-button color="primary">Update</button>
+            <button *ngIf="!this.data.education" mat-raised-button color="primary">Save</button>
+            <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
+        </div>
+    </div>
+</form>

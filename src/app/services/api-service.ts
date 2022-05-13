@@ -66,11 +66,19 @@ export class ApiService {
     return this.httpService.patch('/resume/import/video/' + resumeId, data);
   }
 
-  UpdateContactDetails(data: any, contactDetailId: string) {
+  updateContactDetails(data: any, contactDetailId: string) {
     return this.httpService.patch('/resume/update/contactDetails/' + contactDetailId, data)
   }
 
-  AddContactDetails(data: any, contactDetailId: string) {
+  addContactDetails(data: any, contactDetailId: string) {
     return this.httpService.post('/resume/add/contactDetails/' + contactDetailId, data)
+  }
+
+  addEducation(data: any, resumeId: string) {
+    return this.httpService.post('/resume/add/education/' + resumeId, data);
+  }
+
+  updateEducation(data: any, educationId: string) {
+    return this.httpService.patch('/resume/add/education/' + educationId, data);
   }
 }
