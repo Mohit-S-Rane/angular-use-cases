@@ -23,5 +23,16 @@
             </mat-expansion-panel-header>
             <app-education [resumeId]="resume._id" [educations]="resume.education"></app-education>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Employment History 
+                </mat-panel-title>
+                <mat-panel-description>
+                    Enter your Work Experience
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-emp-history [resumeId]="resume._id" [employmentHistorys]="resume.employment_history"></app-emp-history>
+        </mat-expansion-panel>
     </div>
 </mat-accordion>

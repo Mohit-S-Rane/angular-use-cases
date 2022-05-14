@@ -1,0 +1,44 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <mat-form-field>
+        <input matInput placeholder="Designation">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Organization">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="city">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="State">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Explain about your Work">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Starting Month</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let month of monthArray" [value]="month">
+                {{ month }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Starting Year">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>End Month(Don't fill still Working)</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let month of monthArray" [value]="month">
+                {{ month }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="End Year(Don't fill still Working)">
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+        <button *ngIf="this.data.employmentHistory" mat-raised-button color="primary">Update</button>
+        <button *ngIf="!this.data.employmentHistory" mat-raised-button color="primary">Save</button>
+        <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
+    </div>
+</div>
