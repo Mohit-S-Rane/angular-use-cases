@@ -105,3 +105,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
     transition: opacity .35s ease;
 }
+
+.resume-card-info-card-heading {
+    margin: 0 !important;
+    font-weight: bold !important;
+}
+
+.resume-form-mat-icon-button {
+    margin-top: 2rem !important;
+}
+
+.resume-form-mat-icon {
+    font-size: 33px !important;
+    margin-top: 1.4rem !important;
+}
