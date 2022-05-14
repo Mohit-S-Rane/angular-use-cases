@@ -98,5 +98,27 @@ export class ApiService {
     return this.httpService.delete('/resume/delete/employmentHistory/' + employmentHistoryId )
   }
 
+  addInterest(data: any, resumeId: string){
+    return this.httpService.post('/resume/add/interest/' + resumeId, data)
+  }
 
+  updateInterest(data: any, interestId: string){
+    return this.httpService.patch('/resume/update/interest/' + interestId, data)
+  }
+
+  deleteInterest(interestId: string){
+    return this.httpService.delete('/resume/delete/interest/' + interestId)
+  }
+
+  addSkill(data: any, resumeId: string){
+    return this.httpService.post('/resume/add/skill/' + resumeId, data)
+  }
+
+  updateSkill(data: any, skillId: string){
+    return this.httpService.patch('/resume/update/skill/' + skillId, data)
+  }
+
+  deleteSkill(skillId: string){
+    return this.httpService.delete('/resume/delete/skill/' + skillId)
+  }
 }

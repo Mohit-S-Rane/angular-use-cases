@@ -42,6 +42,15 @@ import { EmpHistoryComponent } from "./component/resume-form/emp-history/emp-his
 import { EmpHistoryFormComponent } from "./component/resume-form/resume-dialogues/emp-history-form/emp-history-form.component"
 import { EmpHistoryListComponent } from "./component/resume-form/resume-list/emp-history-list/emp-history-list.component"
 import { EmpHistoryCardComponent } from "./component/resume-form/resume-card/emp-history-card/emp-history-card.component"
+import { InterestComponent } from "./component/resume-form/interest/interest.component"
+import { InterestFormComponent } from "./component/resume-form/resume-dialogues/interest-form/interest-form.component"
+import { InterestListComponent } from "./component/resume-form/resume-list/interest-list/interest-list.component"
+import { InterestCardComponent } from "./component/resume-form/resume-card/interest-card/interest-card.component"
+import { SkillComponent } from "./component/resume-form/skill/skill.component"
+import { SkillFormComponent } from "./component/resume-form/resume-dialogues/skill-form/skill-form.component"
+import { SkillListComponent } from "./component/resume-form/resume-list/skill-list/skill-list.component"
+import { SkillCardComponent } from './component/resume-form/resume-card/skill-card/skill-card.component';
+
 
 
 @NgModule({
@@ -70,7 +79,16 @@ import { EmpHistoryCardComponent } from "./component/resume-form/resume-card/emp
     EmpHistoryComponent,
     EmpHistoryFormComponent,
     EmpHistoryListComponent,
-    EmpHistoryCardComponent
+    EmpHistoryCardComponent,
+    InterestComponent,
+    InterestFormComponent,
+    InterestListComponent,
+    InterestCardComponent,
+    SkillComponent,
+    SkillFormComponent,
+    SkillListComponent,
+    SkillCardComponent
+
   ],
   imports: [
   BrowserModule,

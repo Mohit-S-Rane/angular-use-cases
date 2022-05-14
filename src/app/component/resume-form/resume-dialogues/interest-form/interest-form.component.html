@@ -1,0 +1,13 @@
+<form (ngSubmit)="this.interestForm.valid && addOrUpdate()" [formGroup]="this.interestForm">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+            <mat-label>Enter your Interest</mat-label>
+            <textarea formControlName="interest" matInput rows="10">Please your interest here...</textarea>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+            <button *ngIf="this.data.interest._id" mat-raised-button color="primary">Update</button>
+            <button *ngIf="!this.data.interest._id" mat-raised-button color="primary">Save</button>
+            <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
+        </div>
+    </div>
+</form>

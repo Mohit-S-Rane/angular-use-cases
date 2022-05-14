@@ -34,5 +34,27 @@
             </mat-expansion-panel-header>
             <app-emp-history [resumeId]="resume._id" [employmentHistorys]="resume.employment_history"></app-emp-history>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Hobbies & Intrests
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Hobbies and Intrests in detail
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-interest [resumeId]="resume._id" [interest]="resume.interests"></app-interest>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Professional Skills
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Skills
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-skill [resumeId]="resume._id" [skills]="resume.skills"></app-skill>
+        </mat-expansion-panel>
     </div>
 </mat-accordion>
