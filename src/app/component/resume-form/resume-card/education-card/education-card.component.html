@@ -9,10 +9,10 @@
         <div fxLayoutWrap="wrap" fxLayoutAlign="center center">
             <div class="hover-container">
                 <div class="hover">
-                    <button class="resume-form-mat-icon-button" mat-icon-button>
+                    <button (click)="edit()" class="resume-form-mat-icon-button" mat-icon-button>
                         <mat-icon class="resume-form-mat-icon" >create</mat-icon>
                     </button>
-                    <button class="resume-form-mat-icon-button" mat-icon-button>
+                    <button (click)="delete()" class="resume-form-mat-icon-button" mat-icon-button>
                         <mat-icon class="resume-form-mat-icon" >delete</mat-icon>
                     </button>
                 </div>
