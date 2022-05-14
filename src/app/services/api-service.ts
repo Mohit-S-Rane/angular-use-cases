@@ -85,4 +85,18 @@ export class ApiService {
   deleteEducation(educationId: string) {
     return this.httpService.delete('/resume/delete/education/' + educationId )
   }
+
+  addEmploymentHistory(data: any, resumeId: string) {
+    return this.httpService.post('/resume/add/employmentHistory/' + resumeId, data)
+  }
+
+  updateEmploymentHistory(data: any, employmentHistoryId: string) {
+    return this.httpService.patch('/resume/update/employmentHistory/' + employmentHistoryId, data)
+  }
+
+  deleteEmpploymentHistory(employmentHistoryId: string) {
+    return this.httpService.delete('/resume/delete/employmentHistory/' + employmentHistoryId )
+  }
+
+
 }

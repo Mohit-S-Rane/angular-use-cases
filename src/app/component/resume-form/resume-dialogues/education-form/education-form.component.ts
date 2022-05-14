@@ -25,24 +25,14 @@ export class EducationFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const schoolName = this.data.education
-      ? this.data.education.school_name
-      : null;
+    const schoolName = this.data.education ? this.data.education.school_name : null;
     const city = this.data.education ? this.data.education.city : null;
     const state = this.data.education ? this.data.education.state : null;
     const field = this.data.education ? this.data.education.field : null;
-    const degreeType = this.data.education
-      ? this.data.education.degree_type
-      : null;
-    const graduationMonth = this.data.education
-      ? this.data.education.graduation_month
-      : null;
-    const graduationYear = this.data.education
-      ? this.data.education.graduation_year
-      : null;
-    const percentage = this.data.education
-      ? this.data.education.percentage
-      : null;
+    const degreeType = this.data.education ? this.data.education.degree_type : null;
+    const graduationMonth = this.data.education ? this.data.education.graduation_month : null;
+    const graduationYear = this.data.education ? this.data.education.graduation_year : null;
+    const percentage = this.data.education ? this.data.education.percentage : null;
     this.educationForm = new FormGroup({
       school_name: new FormControl(schoolName, [Validators.required]),
       city: new FormControl(city, [Validators.required]),
@@ -64,6 +54,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   save() {
+    debugger
     const observer$ = this.apiService.addEducation(this.educationForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.dialogRef.close();
@@ -71,6 +62,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   update() {
+    debugger
     const observer$ = this.apiService.updateEducation(this.educationForm.value, this.data.education._id);
     observer$.subscribe(data=>{
       this.dialogRef.close();

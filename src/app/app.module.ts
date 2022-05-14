@@ -40,6 +40,9 @@ import { EducationCardComponent } from "./component/resume-form/resume-card/educ
 import { EducationListComponent } from "./component/resume-form/resume-list/education-list/education-list.component"
 import { EmpHistoryComponent } from "./component/resume-form/emp-history/emp-history.component"
 import { EmpHistoryFormComponent } from "./component/resume-form/resume-dialogues/emp-history-form/emp-history-form.component"
+import { EmpHistoryListComponent } from "./component/resume-form/resume-list/emp-history-list/emp-history-list.component"
+import { EmpHistoryCardComponent } from "./component/resume-form/resume-card/emp-history-card/emp-history-card.component"
+
 
 @NgModule({
   declarations: [
@@ -65,7 +68,9 @@ import { EmpHistoryFormComponent } from "./component/resume-form/resume-dialogue
     EducationCardComponent,
     EducationListComponent,
     EmpHistoryComponent,
-    EmpHistoryFormComponent
+    EmpHistoryFormComponent,
+    EmpHistoryListComponent,
+    EmpHistoryCardComponent
   ],
   imports: [
   BrowserModule,
