@@ -36,8 +36,8 @@ import { ContactDetailsComponent } from "./component/resume-form/contact-details
 import { ContactDetailFormComponent } from "./component/resume-form/resume-dialogues/contact-detail-form/contact-detail-form.component"
 import { EducationComponent } from "./component/resume-form/education/education.component"
 import { EducationFormComponent } from "./component/resume-form/resume-dialogues/education-form/education-form.component"
-
-
+import { EducationCardComponent } from "./component/resume-form/resume-card/education-card/education-card.component"
+import { EducationListComponent } from "./component/resume-form/resume-list/education-list/education-list.component"
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +58,9 @@ import { EducationFormComponent } from "./component/resume-form/resume-dialogues
     ContactDetailsComponent,
     ContactDetailFormComponent,
     EducationComponent,
-    EducationFormComponent
+    EducationFormComponent,
+    EducationCardComponent,
+    EducationListComponent
   ],
   imports: [
   BrowserModule,
