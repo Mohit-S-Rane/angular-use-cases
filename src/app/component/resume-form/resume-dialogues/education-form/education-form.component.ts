@@ -16,6 +16,8 @@ export interface DataType {
 })
 export class EducationFormComponent implements OnInit {
   educationForm: FormGroup;
+  monthArray = ['Jaunary', 'February','March','April','May','June','July','Augest','September','Octomber','November','December'];
+
   constructor(
     public dialogRef: MatDialogRef<EducationFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
