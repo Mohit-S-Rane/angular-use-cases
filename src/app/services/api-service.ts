@@ -145,4 +145,16 @@ export class ApiService {
   deleteIndustrialExposure(industrialExposureId: string){
     return this.httpService.delete('/resume/delete/industrialExposure/' + industrialExposureId)
   }
+
+  addAwardsAchivement(data: any, resumeId: string){
+    return this.httpService.post('/resume/add/award/' + resumeId, data)
+  }
+  
+  updateAwardsAchivement(data: any, awardId: string){
+    return this.httpService.patch('/resume/update/award/' + awardId, data)
+  }
+
+  deleteAwardsAchivement(awardId: string){
+    return this.httpService.delete('/resume/delete/award/' + awardId)
+  }
 }

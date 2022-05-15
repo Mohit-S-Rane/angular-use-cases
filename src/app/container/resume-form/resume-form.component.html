@@ -78,6 +78,17 @@
             </mat-expansion-panel-header>
             <app-industrial-exposure [resumeId]="resume._id" [industrialExposures]="resume.industrialExposures"></app-industrial-exposure>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Awards and Achievement
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Awards and Achievement
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-awards-achivement [resumeId]="resume._id" [awardsAchivements]="resume.award_achivements"></app-awards-achivement>
+        </mat-expansion-panel>
         
     </div>
 </mat-accordion>
