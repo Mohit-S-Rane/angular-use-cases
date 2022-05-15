@@ -54,6 +54,10 @@ import { LanguageComponent } from './component/resume-form/language/language.com
 import { LanguageFormComponent } from "./component/resume-form/resume-dialogues/language-form/language-form.component"
 import { LanguageListComponent } from './component/resume-form/resume-list/language-list/language-list.component';
 import { LanguageCardComponent } from './component/resume-form/resume-card/language-card/language-card.component';
+import { IndustrialExposureComponent } from './component/resume-form/industrial-exposure/industrial-exposure.component';
+import { IndustrialExposureListComponent } from './component/resume-form/resume-list/industrial-exposure-list/industrial-exposure-list.component';
+import { IndustrialExposureFormComponent } from './component/resume-form/resume-dialogues/industrial-exposure-form/industrial-exposure-form.component';
+import { IndustrialExposureCardComponent } from './component/resume-form/resume-card/industrial-exposure-card/industrial-exposure-card.component';
 
 
 @NgModule({
@@ -94,7 +98,11 @@ import { LanguageCardComponent } from './component/resume-form/resume-card/langu
     LanguageComponent,
     LanguageFormComponent,
     LanguageListComponent,
-    LanguageCardComponent
+    LanguageCardComponent,
+    IndustrialExposureComponent,
+    IndustrialExposureListComponent,
+    IndustrialExposureFormComponent,
+    IndustrialExposureCardComponent
 
   ],
   imports: [
