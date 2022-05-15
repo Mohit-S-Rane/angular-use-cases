@@ -56,5 +56,16 @@
             </mat-expansion-panel-header>
             <app-skill [resumeId]="resume._id" [skills]="resume.skills"></app-skill>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Languages
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your kown Languages
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-language [resumeId]="resume._id" [languages]="resume.languages"></app-language>
+        </mat-expansion-panel>
     </div>
 </mat-accordion>

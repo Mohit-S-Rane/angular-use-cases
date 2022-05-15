@@ -119,3 +119,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 33px !important;
     margin-top: 1.4rem !important;
 }
+
+.resume-form-mat-icon-button-1 {
+    margin-top: 0 !important;
+}
+
+.resume-form-mat-icon-1 {
+    font-size: 23px !important;
+    margin-top: 0 !important;
+}
