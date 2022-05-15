@@ -20,8 +20,8 @@ export class IndustrialExposureCardComponent {
   };
 
   delete() {
-    this.apiService.deleteEmpploymentHistory(this.industrialExposure._id).subscribe(data=>{
-      this.alertService.success('Employment History Deleted successfully')
+    this.apiService.deleteIndustrialExposure(this.industrialExposure._id).subscribe(data=>{
+      this.alertService.success('Industrial Exposure Deleted successfully')
     }, error=>{
       this.alertService.error(error.message);
     })
