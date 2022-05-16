@@ -31,8 +31,6 @@ export class AwardsAchivementFormComponent implements OnInit{
   }
 
   addOrUpdate(){
-    console.log(this.awardsAchivementForm.value);
-    
     if(this.data.awardsAchivement._id) {
       this.update();
     } else {

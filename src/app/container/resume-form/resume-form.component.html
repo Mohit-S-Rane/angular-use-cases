@@ -99,7 +99,17 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <app-objective [resumeId]="resume._id" [objectives]="resume.objectives"></app-objective>
-            <!-- <app-awards-achivement [resumeId]="resume._id" [awardsAchivements]="resume.award_achivements"></app-awards-achivement> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Reference
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Reference
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-reference [resumeId]="resume._id" [references]="resume.refrences"></app-reference>
         </mat-expansion-panel>
         
     </div>

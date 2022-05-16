@@ -5,12 +5,7 @@ import { AwardsAchivement } from 'src/app/models/awards-achivement';
   templateUrl: './awards-achivement-list.component.html',
 //   styleUrls: ['./awards-achivement-list.component.css'],
 })
-export class AwardsAchivementListComponent implements OnInit{
+export class AwardsAchivementListComponent {
   @Input() awardsAchivementList: AwardsAchivement[];
   constructor() {}
-
-  ngOnInit(): void {
-    console.log(this.awardsAchivementList);
-    
-  }
 }
