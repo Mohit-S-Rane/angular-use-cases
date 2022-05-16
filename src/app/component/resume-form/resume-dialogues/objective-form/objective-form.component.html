@@ -1,0 +1,21 @@
+<form (ngSubmit)="this.objectiveForm.valid && addOrUpdate()" [formGroup]="this.objectiveForm">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+            <input type="text" formControlName="objective" matInput placeholder="Your Objective">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="number" formControlName="date" matInput placeholder="Date">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="place" matInput placeholder="Place">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="declaration" matInput placeholder="Declaration">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+            <button *ngIf="this.data.objective._id" color="primary">Update</button>
+            <button *ngIf="!this.data.objective._id" mat-raised-button color="primary">Save</button>
+            <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
+        </div>
+    </div>
+</form>

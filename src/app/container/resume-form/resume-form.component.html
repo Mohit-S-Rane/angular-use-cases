@@ -89,6 +89,18 @@
             </mat-expansion-panel-header>
             <app-awards-achivement [resumeId]="resume._id" [awardsAchivements]="resume.award_achivements"></app-awards-achivement>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Objective
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Objective
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-objective [resumeId]="resume._id" [objectives]="resume.objectives"></app-objective>
+            <!-- <app-awards-achivement [resumeId]="resume._id" [awardsAchivements]="resume.award_achivements"></app-awards-achivement> -->
+        </mat-expansion-panel>
         
     </div>
 </mat-accordion>

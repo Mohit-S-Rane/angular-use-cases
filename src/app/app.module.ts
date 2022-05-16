@@ -62,6 +62,10 @@ import { AwardsAchivementComponent } from './component/resume-form/awards-achive
 import { AwardsAchivementFormComponent } from './component/resume-form/resume-dialogues/awards-achivement-form/awards-achivement-form.component';
 import { AwardsAchivementListComponent } from './component/resume-form/resume-list/awards-achivement-list/awards-achivement-list.component';
 import { AwardsAchivementCardComponent } from './component/resume-form/resume-card/awards-achivement-card/awards-achivement-card.component';
+import { ObjectiveComponent } from './component/resume-form/objective/objective.component';
+import { ObjectiveListComponent } from './component/resume-form/resume-list/objective-list/objective-list.component';
+import { ObjectiveFormComponent } from './component/resume-form/resume-dialogues/objective-form/objective-form.component';
+import { ObjectiveCardComponent } from './component/resume-form/resume-card/objective-card/objective-card.component';
 
 
 @NgModule({
@@ -110,7 +114,11 @@ import { AwardsAchivementCardComponent } from './component/resume-form/resume-ca
     AwardsAchivementComponent,
     AwardsAchivementFormComponent,
     AwardsAchivementListComponent,
-    AwardsAchivementCardComponent
+    AwardsAchivementCardComponent,
+    ObjectiveComponent,
+    ObjectiveListComponent,
+    ObjectiveFormComponent,
+    ObjectiveCardComponent
 
   ],
   imports: [

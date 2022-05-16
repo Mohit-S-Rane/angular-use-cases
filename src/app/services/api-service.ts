@@ -157,4 +157,16 @@ export class ApiService {
   deleteAwardsAchivement(awardId: string){
     return this.httpService.delete('/resume/delete/award/' + awardId)
   }
+
+  addObjective(data: any, resumeId: string){
+    return this.httpService.post('/resume/add/objective/' + resumeId, data)
+  }
+  
+  updateObjective(data: any, objectiveId: string){
+    return this.httpService.patch('/resume/update/objective/' + objectiveId, data)
+  }
+
+  deleteObjective(objectiveId: string){
+    return this.httpService.delete('/resume/delete/objective/' + objectiveId)
+  }
 }
