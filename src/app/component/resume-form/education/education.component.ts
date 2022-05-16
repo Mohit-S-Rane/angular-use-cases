@@ -16,7 +16,7 @@ export class EducationComponent {
 
   add() {
       this.matDialog.open(EducationFormComponent, {
-          width: '90%', height: '90%', data: {resumeId: this.resumeId, education: this.educations}
+          width: '50%', height: '90%', data: {resumeId: this.resumeId, education: this.educations}
       })
   }
 }

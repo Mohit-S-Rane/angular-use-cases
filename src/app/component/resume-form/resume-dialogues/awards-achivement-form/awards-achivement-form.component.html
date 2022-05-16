@@ -1,7 +1,7 @@
 <form (ngSubmit)="this.awardsAchivementForm.valid && addOrUpdate()" [formGroup]="this.awardsAchivementForm">
     <div fxLayout="column" fxLayoutGap="10px">
         <mat-form-field>
-            <textarea type="text" formControlName="awards_and_achivements" matInput placeholder="Describe about your Awards and Achievement" rows="5"></textarea>
+            <textarea type="text" formControlName="awards_and_achivements" matInput placeholder="Describe about your Awards and Achievement" rows="3"></textarea>
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
             <button *ngIf="this.data.awardsAchivement._id" color="primary">Update</button>

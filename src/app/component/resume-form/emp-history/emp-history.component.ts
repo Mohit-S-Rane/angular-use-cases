@@ -15,7 +15,7 @@ export class EmpHistoryComponent {
 
   add(){
     this.matDialog.open(EmpHistoryFormComponent, {
-      width: '90%', height: '90%', data: {resumeId: this.resumeId, employmentHistory: this.employmentHistorys}
+      width: '50%', height: '90%', data: {resumeId: this.resumeId, employmentHistory: this.employmentHistorys}
     })
   }
 }

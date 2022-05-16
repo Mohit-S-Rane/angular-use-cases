@@ -15,7 +15,7 @@ export class ReferenceComponent {
 
   add() {
     this.matDialog.open(ReferenceFormComponent, {
-        width: '50%', height: '60%', data: {resumeId: this.resumeId, reference: this.references}
+        width: '50%', height: '80%', data: {resumeId: this.resumeId, reference: this.references}
     })
   }
 }

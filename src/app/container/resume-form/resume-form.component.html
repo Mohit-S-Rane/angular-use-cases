@@ -122,6 +122,27 @@
             </mat-expansion-panel-header>
             <app-project-detail [resumeId]="resume._id" [ProjectDetails]="resume.projectDetails"></app-project-detail>
         </mat-expansion-panel>
-        
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Strength
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Strength
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-strength [resumeId]="resume._id" [strengths]="resume.strengths"></app-strength>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Weakness
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Weakness
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-weakness [resumeId]="resume._id" [weaknesses]="resume.weakness"></app-weakness>
+        </mat-expansion-panel>
     </div>
 </mat-accordion>

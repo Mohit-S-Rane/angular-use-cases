@@ -16,7 +16,7 @@ export class AwardsAchivementComponent {
 
   add(){
     this.matDialog.open(AwardsAchivementFormComponent, {
-      width: '90%', height: '90%', data: {resumeId: this.resumeId, awardsAchivement: this.awardsAchivements}
+      width: '50%', height: '30%', data: {resumeId: this.resumeId, awardsAchivement: this.awardsAchivements}
     })
   }
 }

@@ -74,6 +74,14 @@ import { ProjectDetailComponent } from './component/resume-form/project-detail/p
 import { ProjectDetailListComponent } from './component/resume-form/resume-list/project-detail-list/project-detail-list.component';
 import { ProjectDetailFormComponent } from './component/resume-form/resume-dialogues/project-detail-form/project-detail-form.component';
 import { ProjectDetailCardComponent } from './component/resume-form/resume-card/project-detail-card/project-detail-card.component';
+import { StrengthComponent } from './component/resume-form/strength/strength.component';
+import { StrengthListComponent } from './component/resume-form/resume-list/strength-list/strength-list.component';
+import { StrengthFormComponent } from './component/resume-form/resume-dialogues/strength-form/strength-form.component';
+import { StrengthCardComponent } from './component/resume-form/resume-card/strength-card/strength-card.component';
+import { WeaknessComponent } from './component/resume-form/weakness/weakness.component';
+import { WeaknessListComponent } from './component/resume-form/resume-list/weakness-list/weakness-list.component';
+import { WeaknessFormComponent } from './component/resume-form/resume-dialogues/weakness-form/weakness-form.component';
+import { WeaknessCardComponent } from './component/resume-form/resume-card/weakness-card/weakness-card.component';
 
 
 @NgModule({
@@ -134,7 +142,15 @@ import { ProjectDetailCardComponent } from './component/resume-form/resume-card/
     ProjectDetailComponent,
     ProjectDetailListComponent,
     ProjectDetailFormComponent,
-    ProjectDetailCardComponent
+    ProjectDetailCardComponent,
+    StrengthComponent,
+    StrengthListComponent,
+    StrengthFormComponent,
+    StrengthCardComponent,
+    WeaknessComponent,
+    WeaknessListComponent,
+    WeaknessFormComponent,
+    WeaknessCardComponent
 
   ],
   imports: [

@@ -15,7 +15,7 @@ export class IndustrialExposureComponent {
 
   add() {
       this.matDialog.open(IndustrialExposureFormComponent, {
-          width: '90%', height: '90%', data: {resumeId: this.resumeId, industrialExposure: this.industrialExposures}
+          width: '50%', height: '90%', data: {resumeId: this.resumeId, industrialExposure: this.industrialExposures}
       })
   }
 }
