@@ -111,6 +111,17 @@
             </mat-expansion-panel-header>
             <app-reference [resumeId]="resume._id" [references]="resume.refrences"></app-reference>
         </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="res-mat-expansion-panel-header">
+                <mat-panel-title>
+                    Project Details
+                </mat-panel-title>
+                <mat-panel-description>
+                    Describe your Project Details
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-project-detail [resumeId]="resume._id" [ProjectDetails]="resume.projectDetails"></app-project-detail>
+        </mat-expansion-panel>
         
     </div>
 </mat-accordion>

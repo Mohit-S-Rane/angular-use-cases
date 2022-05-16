@@ -70,6 +70,10 @@ import { ReferenceComponent } from './component/resume-form/reference/reference.
 import { ReferenceListComponent } from './component/resume-form/resume-list/reference-list/reference-list.component';
 import { ReferenceFormComponent } from './component/resume-form/resume-dialogues/reference-form/reference-form.component';
 import { ReferenceCardComponent } from './component/resume-form/resume-card/reference-card/reference-card.component';
+import { ProjectDetailComponent } from './component/resume-form/project-detail/project-detail.component';
+import { ProjectDetailListComponent } from './component/resume-form/resume-list/project-detail-list/project-detail-list.component';
+import { ProjectDetailFormComponent } from './component/resume-form/resume-dialogues/project-detail-form/project-detail-form.component';
+import { ProjectDetailCardComponent } from './component/resume-form/resume-card/project-detail-card/project-detail-card.component';
 
 
 @NgModule({
@@ -126,7 +130,11 @@ import { ReferenceCardComponent } from './component/resume-form/resume-card/refe
     ReferenceComponent,
     ReferenceListComponent,
     ReferenceFormComponent,
-    ReferenceCardComponent
+    ReferenceCardComponent,
+    ProjectDetailComponent,
+    ProjectDetailListComponent,
+    ProjectDetailFormComponent,
+    ProjectDetailCardComponent
 
   ],
   imports: [

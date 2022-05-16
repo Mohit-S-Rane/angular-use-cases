@@ -181,4 +181,16 @@ export class ApiService {
   deleteReference(referenceId: string){
     return this.httpService.delete('/resume/delete/refrence/' + referenceId)
   }
+
+  addProjectDetail(data: any, resumeId: string){
+    return this.httpService.post('/resume/add/projectDetail/' + resumeId, data)
+  }
+  
+  updateProjectDetail(data: any, projectDetailId: string){
+    return this.httpService.patch('/resume/update/projectDetail/' + projectDetailId, data)
+  }
+
+  deleteProjectDetail(projectDetailId: string){
+    return this.httpService.delete('/resume/delete/projectDetail/' + projectDetailId)
+  }
 }
