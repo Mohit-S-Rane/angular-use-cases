@@ -10,7 +10,7 @@ import { ContactDetailFormComponent } from '../resume-dialogues/contact-detail-f
 })
 export class ContactDetailsComponent {
   @Input() contactDetails: Contact;
-  @Input() resumeId: string;
+  @Input() resumeId!: string;
 
   constructor(private matDialog: MatDialog) {}
 

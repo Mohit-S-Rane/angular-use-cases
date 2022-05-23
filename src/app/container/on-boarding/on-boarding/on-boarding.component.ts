@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api-service';
 export class OnBoardingComponent implements OnInit {
   resume: Resume;
   isFirstStepCompleted = false;
-  loading = true;
+  loading = false;
 
   constructor(private apiService: ApiService) {}
 

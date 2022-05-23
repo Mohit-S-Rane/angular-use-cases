@@ -46,7 +46,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   addOrUpdate() {
-    if (this.data.education) {
+    if (this.data.education._id) {
       this.update();
     } else {
       this.save();

@@ -32,8 +32,8 @@
             <input formControlName="graduation_year" matInput placeholder="Graduation Year">
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-            <button *ngIf="this.data.education" mat-raised-button color="primary">Update</button>
-            <button *ngIf="!this.data.education" mat-raised-button color="primary">Save</button>
+            <button *ngIf="this.data.education._id" mat-raised-button color="primary">Update</button>
+            <button *ngIf="!this.data.education._id" mat-raised-button color="primary">Save</button>
             <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
         </div>
     </div>

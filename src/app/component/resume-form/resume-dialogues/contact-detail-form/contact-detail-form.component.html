@@ -47,8 +47,8 @@
             <mat-error>Summary is required</mat-error>
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-            <button *ngIf="this.data.contactDetails" mat-raised-button color="primary">Update</button>
-            <button *ngIf="!this.data.contactDetails" mat-raised-button color="primary">Save</button>
+            <button *ngIf="this.data.contactDetails._id" mat-raised-button color="primary">Update</button>
+            <button *ngIf="!this.data.contactDetails._id" mat-raised-button color="primary">Save</button>
             <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
         </div>
     </div>    
