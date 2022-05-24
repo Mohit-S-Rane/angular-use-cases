@@ -6,10 +6,9 @@ import { ApiService } from "../services/api-service";
 
 @Injectable()
 export class OnBoardingInComplete implements CanActivate{
-    constructor(private authRepo: AuthRepository, private router: Router) {}
+    constructor(private authRepo: AuthRepository, private router: Router, private apiService: ApiService) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-        const user$ = this.authRepo.fetchMe();
-        return user$.pipe(filter(data => !!data), map(data=>{
+        return this.authRepo.fetchMe().pipe(filter(data => !!data), map(data => {
             if(data.onboarding !== 200){
                 return true;
             } else {
