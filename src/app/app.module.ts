@@ -83,6 +83,8 @@ import { WeaknessListComponent } from './component/resume-form/resume-list/weakn
 import { WeaknessFormComponent } from './component/resume-form/resume-dialogues/weakness-form/weakness-form.component';
 import { WeaknessCardComponent } from './component/resume-form/resume-card/weakness-card/weakness-card.component';
 import { Truncate } from './pipes/truncate';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './reducers';
 
 
 @NgModule({
@@ -163,7 +165,8 @@ import { Truncate } from './pipes/truncate';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(rootReducer)
     
   ],
   providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete],
