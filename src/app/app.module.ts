@@ -167,7 +167,8 @@ import { AuthRepository } from './repository/auth-repository';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot(rootReducer)
+    StoreModule.forRoot(rootReducer),
+    StoreModule.forRoot({}, {})
     
   ],
   providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete, AuthRepository],
