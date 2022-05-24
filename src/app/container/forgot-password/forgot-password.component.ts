@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api-service';
 import { AlertService } from './../../services/alert-service';
 import { Router } from '@angular/router';
+import { AuthRepository } from 'src/app/repository/auth-repository';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,7 +14,7 @@ export class ForgotPasswordComponent {
   loading: boolean = false;
   forgotPasswordForm: FormGroup;
   isEmailSend = false;
-  constructor(private apiService: ApiService, private alertService: AlertService, private router: Router) {
+  constructor(private authRepo: AuthRepository, private alertService: AlertService, private router: Router) {
     this.forgotPasswordForm = new FormGroup({
       email: new FormControl(null, !this.isEmailSend ? [Validators.required] : []),
       code: new FormControl(null, []),
@@ -24,7 +25,7 @@ export class ForgotPasswordComponent {
  
   sendEmail() {
     this.loading = true;
-    this.apiService.sendResetPasswordEmail(this.forgotPasswordForm.value).subscribe((data)=>{
+    this.authRepo.sendResetPasswordEmail(this.forgotPasswordForm.value).subscribe((data)=>{
       this.loading = false;
       this.isEmailSend = true;
       this.alertService.success('Email has been send to ' + this.forgotPasswordForm.get('email')?.value)
@@ -38,7 +39,7 @@ export class ForgotPasswordComponent {
 
   changePassword() {
     this.loading = true;
-    const observer$ = this.apiService.resetPassword(this.forgotPasswordForm.value);
+    const observer$ = this.authRepo.resetPassword(this.forgotPasswordForm.value);
     observer$.subscribe(data=>{
       this.loading = false;
       this.alertService.success('Password updated successfully');

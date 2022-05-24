@@ -85,6 +85,7 @@ import { WeaknessCardComponent } from './component/resume-form/resume-card/weakn
 import { Truncate } from './pipes/truncate';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './reducers';
+import { AuthRepository } from './repository/auth-repository';
 
 
 @NgModule({
@@ -158,7 +159,7 @@ import { rootReducer } from './reducers';
 
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -169,7 +170,7 @@ import { rootReducer } from './reducers';
     StoreModule.forRoot(rootReducer)
     
   ],
-  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete],
+  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete, AuthRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
