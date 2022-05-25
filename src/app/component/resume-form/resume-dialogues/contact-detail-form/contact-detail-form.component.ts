@@ -4,6 +4,7 @@ import { Resume } from './../../../../models/resume';
 import { Contact } from 'src/app/models/resume';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api-service';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 interface DataType {
   contactDetails: Contact;
@@ -17,7 +18,7 @@ interface DataType {
 export class ContactDetailFormComponent implements OnInit{
   contactDetailForm: FormGroup;
   constructor(public dialogRef: MatDialogRef<ContactDetailFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DataType, private apiService: ApiService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DataType, private resumeRepo: ResumeRepository) {}
 
   ngOnInit(): void {
     const firstName = this.data.contactDetails ? this.data.contactDetails.first_name : null;
@@ -59,14 +60,14 @@ export class ContactDetailFormComponent implements OnInit{
   }
 
   save() {
-    const observers$ = this.apiService.addContactDetails(this.contactDetailForm.value, this.data.resumeId)
+    const observers$ = this.resumeRepo.addContactDetails(this.contactDetailForm.value, this.data.resumeId)
     observers$.subscribe(data=>{
       this.dialogRef.close();
     })
   }
 
   update() {
-    const observers$ = this.apiService.updateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id)
+    const observers$ = this.resumeRepo.updateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id, this.data.resumeId)
     observers$.subscribe(data=>{
       this.dialogRef.close();
     })

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { Resume } from 'src/app/models/resume';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 @Component({
   selector: 'app-upload-image',
@@ -25,7 +26,7 @@ export class UploadImageComponent implements AfterViewInit{
     this.init();
   }
 
-  constructor(private alertService: AlertService, private apiService: ApiService) {}
+  constructor(private alertService: AlertService, private resumeRepo: ResumeRepository) {}
 
   init(){
     if(this.resume){
@@ -59,7 +60,7 @@ export class UploadImageComponent implements AfterViewInit{
 
   save() {
     this.loading = true;
-    this.apiService.saveOrUpdateImage(this.file, this.resume._id).subscribe(data=>{
+    this.resumeRepo.saveOrUpdateImage(this.file, this.resume._id).subscribe(data=>{
       this.loading = false;
       this.isUploaded = true;
       this.url = data.image_url;
@@ -71,7 +72,7 @@ export class UploadImageComponent implements AfterViewInit{
 
   delete() {
     this.loading = true;
-    this.apiService.deleteImage(this.resume._id).subscribe(data=>{
+    this.resumeRepo.deleteImage(this.resume._id).subscribe(data=>{
       this.loading = false;
       this.alertService.success('Image deleted Successfully');
       this.isUploaded = false;

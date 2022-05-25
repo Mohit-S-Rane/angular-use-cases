@@ -86,6 +86,7 @@ import { Truncate } from './pipes/truncate';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './reducers';
 import { AuthRepository } from './repository/auth-repository';
+import { ResumeRepository } from './repository/resume-repository'
 
 
 @NgModule({
@@ -170,7 +171,7 @@ import { AuthRepository } from './repository/auth-repository';
     StoreModule.forRoot(rootReducer),
     
   ],
-  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete, AuthRepository],
+  providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete, AuthRepository, ResumeRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

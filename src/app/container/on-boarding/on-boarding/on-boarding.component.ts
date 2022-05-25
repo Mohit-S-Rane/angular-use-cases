@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { takeWhile } from 'rxjs';
 import { Resume } from 'src/app/models/resume';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { ApiService } from 'src/app/services/api-service';
 
 @Component({
@@ -7,15 +9,22 @@ import { ApiService } from 'src/app/services/api-service';
   templateUrl: './on-boarding.component.html',
   styleUrls: ['./on-boarding.component.css'],
 })
-export class OnBoardingComponent implements OnInit {
+export class OnBoardingComponent implements OnInit, OnDestroy {
   resume: Resume;
   isFirstStepCompleted = false;
   loading = false;
+  isAlive = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private resumeRepo: ResumeRepository) {}
+
+  ngOnDestroy(): void {
+   this.isAlive = false; 
+  }
 
   ngOnInit(): void {
-    this.apiService.fetchAllResume().subscribe(data=>{
+    const observer$ = this.resumeRepo.fetchAllResumes();
+    const resume$ = observer$[2];
+    resume$.pipe(takeWhile(()=>this.isAlive)).subscribe(data=>{
       if(data.length){
         this.resume = data[0];
         this.isFirstStepCompleted = true;
