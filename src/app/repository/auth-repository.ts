@@ -3,12 +3,7 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Store } from '@ngrx/store';
-import {
-  LoginRequestAction,
-  LoginSuccessAction,
-  UserProfileRequestAction,
-  UserProfileSuccessAction,
-} from '../actions/user-actions';
+import { LoginRequestAction, LoginSuccessAction, UserProfileRequestAction, UserProfileSuccessAction } from '../actions/user-actions';
 import { getUser, userLoggedIn, userLoggingIn } from '../reducers';
 import { loggedIn, UserReducerState } from './../reducers/user-reducer';
 import { RootReducerState } from './../reducers/index';
@@ -34,11 +29,7 @@ export class AuthRepository {
     return this.apiService.sendResetPasswordEmail(data);
   }
 
-  resetPassword(data: {
-    code: string;
-    new_password: string;
-    confirm_password: string;
-  }): Observable<User> {
+  resetPassword(data: { code: string; new_password: string; confirm_password: string; }): Observable<User> {
     return this.apiService.resetPassword(data);
   }
 
