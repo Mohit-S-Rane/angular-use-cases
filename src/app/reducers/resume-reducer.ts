@@ -6,6 +6,7 @@ import { RESUME_LIST_SUCCESS, RESUME_DELETE, RESUME_ADD_CONTACT_DETAIL, RESUME_U
 import { StoreUtility } from './../utility/store-utility';
 import { Contact } from 'src/app/models/resume';
 import { createSelector } from '@ngrx/store';
+import { LOGOUT_ACTION } from '../actions/user-actions';
 
 
 
@@ -82,6 +83,9 @@ export function ResumeReducer(state = initialState, action: Action): ResumeReduc
             const obj = {[resumeId]: oldResume};
             const newEntities = {...state.entities, ...obj};
             return {...state, ...{entities: newEntities}}
+        }
+        case LOGOUT_ACTION: {
+            return {...initialState};
         }
         case RESUME_UPDATE_SKILL: {
             const skill = action.payload.skill;

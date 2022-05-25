@@ -63,8 +63,12 @@ export const RESUME_ADD_WEAKNESS = 'add new Weakness';
 export const RESUME_UPDATE_WEAKNESS = 'update Weakness';
 export const RESUME_DELETE_WEAKNESS = 'delete Weakness';
 
+  export class ResumeErrorAction implements Action {
+    readonly type = RESUME_ERROR;
 
-export class AddResumeAction implements Action {
+    constructor() {}
+  }
+  export class AddResumeAction implements Action {
     readonly type = RESUME_ADD_SUCCESS;
   
     constructor(public payload: Resume) {
