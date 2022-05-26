@@ -172,15 +172,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateInterest(data, resumeId: string, interestId: string) {
+  updateInterest(data, interestId: string, resumeId: string) {
     return this.apiService.updateInterest(data, interestId).pipe(map((res) => {
       this.store.dispatch(new UpdateInterestAction({interest: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteInterest(resumeId: string, interestId: string) {
-    console.log(interestId);
+  deleteInterest(interestId: string, resumeId: string) {
     return this.apiService.deleteInterest(interestId).pipe(map((res) => {
       this.store.dispatch(new DeleteInterestAction({interest: res, resume_id: resumeId}));
       return res;
@@ -194,14 +193,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateLanguage(data, resumeId: string, languageId: string) {
+  updateLanguage(data, languageId: string, resumeId: string) {
     return this.apiService.updateLanguage(data, languageId).pipe(map((res) => {
       this.store.dispatch(new UpdateLanguageAction({language: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteLanguage(resumeId: string, languageId: string) {
+  deleteLanguage(languageId: string, resumeId: string) {
     return this.apiService.deleteLanguage(languageId).pipe(map((res) => {
       this.store.dispatch(new DeleteLanguageAction({language: res, resume_id: resumeId}));
       return res;

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { EmploymentHistory } from './../../../../models/employment-history';
@@ -22,7 +23,7 @@ export class EmpHistoryFormComponent implements OnInit{
 
   constructor(public dialogRef: MatDialogRef<EmpHistoryFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService,private alertService: AlertService) {}
+    private resumeRepo: ResumeRepository, private alertService: AlertService) {}
 
     ngOnInit(): void {
       const employer = this.data.employmentHistory ? this.data.employmentHistory.employer : null;
@@ -57,7 +58,7 @@ export class EmpHistoryFormComponent implements OnInit{
     }
 
     save() {
-      const observer$ = this.apiService.addEmploymentHistory(this.employmentHistoryForm.value, this.data.resumeId)
+      const observer$ = this.resumeRepo.addEmploymentHistory(this.employmentHistoryForm.value, this.data.resumeId)
       observer$.subscribe(data=>{
         this.alertService.success('Employment Work History added successfully')
         this.dialogRef.close();
@@ -65,7 +66,7 @@ export class EmpHistoryFormComponent implements OnInit{
     }
 
     update() {
-      const observer$ = this.apiService.updateEmploymentHistory(this.employmentHistoryForm.value, this.data.employmentHistory._id)
+      const observer$ = this.resumeRepo.updateEmploymentHistory(this.employmentHistoryForm.value, this.data.employmentHistory._id, this.data.resumeId)
       observer$.subscribe(data=>{
         this.alertService.success('Employment Work History updated successfully')
         this.dialogRef.close();

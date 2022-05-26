@@ -6,6 +6,7 @@ import { FormControl, FormControlName, FormGroup, Validators } from '@angular/fo
 import { Skill } from 'src/app/models/skill';
 import { AlertService } from 'src/app/services/alert-service';
 import { Language } from 'src/app/models/language';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 export interface DataType {
   resumeId: string;
@@ -24,7 +25,7 @@ export class LanguageFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<LanguageFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class LanguageFormComponent implements OnInit {
   }
 
   save() {
-    const observer$ = this.apiService.addLanguage(this.languageForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addLanguage(this.languageForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Language added successfully');
       this.dialogRef.close();
@@ -55,7 +56,7 @@ export class LanguageFormComponent implements OnInit {
   }
 
   update() {
-    const observer$ = this.apiService.updateLanguage(this.languageForm.value, this.data.language._id);
+    const observer$ = this.resumeRepo.updateLanguage(this.languageForm.value, this.data.language._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Language updated successfully')
       this.dialogRef.close();

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmploymentHistory } from 'src/app/models/employment-history';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { EmpHistoryFormComponent } from '../../resume-dialogues/emp-history-form/emp-history-form.component';
@@ -11,16 +12,17 @@ import { EmpHistoryFormComponent } from '../../resume-dialogues/emp-history-form
 })
 export class EmpHistoryCardComponent {
   @Input() employmentHistory: EmploymentHistory;
-  constructor(private matDialog: MatDialog ,private apiService: ApiService, private alertService: AlertService) {}
+  @Input() resumeId: string;
+  constructor(private matDialog: MatDialog ,private resumeRepo: ResumeRepository, private alertService: AlertService) {}
 
   edit() {
     this.matDialog.open(EmpHistoryFormComponent, {
-      width: '90%', height: '90%', data: { employmentHistory: this.employmentHistory}  
+      width: '90%', height: '90%', data: { employmentHistory: this.employmentHistory, resumeId: this.resumeId}  
     })
   };
 
   delete() {
-    this.apiService.deleteEmploymentHistory(this.employmentHistory._id).subscribe(data=>{
+    this.resumeRepo.deleteEmploymentHistory(this.employmentHistory._id, this.resumeId).subscribe(data=>{
       this.alertService.success('Employment History Deleted successfully')
     }, error=>{
       this.alertService.error(error.message);
