@@ -6,6 +6,7 @@ import { Objective } from './../../../../models/objective';
 //   styleUrls: ['./objective-list.component.css'],
 })
 export class ObjectiveListComponent {
-  @Input() objectiveList: Objective[]
+  @Input() objectiveList: Objective[];
+  @Input() resumeId: string;
   constructor() {}
 }

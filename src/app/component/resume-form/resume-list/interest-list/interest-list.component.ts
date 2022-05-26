@@ -7,5 +7,6 @@ import { Interest } from 'src/app/models/interest';
 })
 export class InterestListComponent {
   @Input() interestList: Interest[];
+  @Input() resumeId: string;
   constructor() {}
 }

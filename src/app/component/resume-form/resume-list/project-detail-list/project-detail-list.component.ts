@@ -6,6 +6,7 @@ import { ProjectDetail } from './../../../../models/project-detail';
 //   styleUrls: ['./project-detail-list.component.css'],
 })
 export class ProjectDetailListComponent {
-  @Input() projectDetailList: ProjectDetail[]
+  @Input() projectDetailList: ProjectDetail[];
+  @Input() resumeId: string;
   constructor() {}
 }

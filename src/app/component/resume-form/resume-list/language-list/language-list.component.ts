@@ -6,6 +6,7 @@ import { Language } from 'src/app/models/language';
 //   styleUrls: ['./language-list.component.css'],
 })
 export class LanguageListComponent {
-    @Input() languageList: Language[]
+    @Input() languageList: Language[];
+    @Input() resumeId: string;
   constructor() {}
 }

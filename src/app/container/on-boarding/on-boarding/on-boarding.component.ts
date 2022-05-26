@@ -12,24 +12,25 @@ import { ApiService } from 'src/app/services/api-service';
 export class OnBoardingComponent implements OnInit, OnDestroy {
   resume: Resume;
   isFirstStepCompleted = false;
-  loading = false;
+  loading = true;
   isAlive = true;
 
-  constructor(private resumeRepo: ResumeRepository) {}
-
-  ngOnDestroy(): void {
-   this.isAlive = false; 
+  constructor(private resumeRepo: ResumeRepository) {
   }
 
-  ngOnInit(): void {
+  ngOnDestroy() {
+    this.isAlive = false;
+  }
+
+  ngOnInit() {
     const observer$ = this.resumeRepo.fetchAllResumes();
     const resume$ = observer$[2];
-    resume$.pipe(takeWhile(()=>this.isAlive)).subscribe(data=>{
-      if(data.length){
+    resume$.pipe(takeWhile(() => this.isAlive)).subscribe(data => {
+      if (data.length) {
         this.resume = data[0];
         this.isFirstStepCompleted = true;
         this.loading = false;
       }
-    })
+    });
   }
 }

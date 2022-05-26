@@ -6,6 +6,7 @@ import { Refrence } from './../../../../models/refrence';
 //   styleUrls: ['./reference-list.component.css'],
 })
 export class ReferenceListComponent {
-  @Input() referenceList: Refrence[]
+  @Input() referenceList: Refrence[];
+  @Input() resumeId: string;
   constructor() {}
 }

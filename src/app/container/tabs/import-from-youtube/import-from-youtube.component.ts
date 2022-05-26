@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/services/api-service';
 
 
 
-export class ImportFromYoutubeComponent implements AfterViewInit{
+export class ImportFromYoutubeComponent implements AfterViewInit {
   youtubeForm: FormGroup;
   isVideoUploaded = false;
   uploadAgain = false;

@@ -7,5 +7,6 @@ import { EmploymentHistory } from 'src/app/models/employment-history';
 })
 export class EmpHistoryListComponent {
   @Input() empHistoryList: EmploymentHistory[];
+  @Input() resumeId: string;
   constructor() {}
 }

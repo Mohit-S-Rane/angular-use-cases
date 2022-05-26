@@ -7,5 +7,6 @@ import { AwardsAchivement } from 'src/app/models/awards-achivement';
 })
 export class AwardsAchivementListComponent {
   @Input() awardsAchivementList: AwardsAchivement[];
+  @Input() resumeId: string;
   constructor() {}
 }

@@ -8,5 +8,6 @@ import { Skill } from 'src/app/models/skill';
 })
 export class SkillListComponent {
   @Input() skillList: Skill[];
+  @Input() resumeId: string;
   constructor() {}
 }

@@ -12,21 +12,22 @@ export class ResumeNameComponent implements OnInit {
   @Input() isCompleted = false;
   loading = false;
 
-  constructor(private resumeRepo: ResumeRepository) {}
+  constructor(private resumeRepo: ResumeRepository) {
+  }
+
   ngOnInit() {
     this.resumeForm = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required])
     });
   }
 
   createResume() {
     this.loading = true;
-    this.resumeRepo.saveResume(this.resumeForm.value).subscribe(data=>{
+    this.resumeRepo.saveResume(this.resumeForm.value).subscribe(data => {
+      this.loading = false;
       this.isCompleted = true;
+    }, error => {
       this.loading = false;
-    }, error =>{
-      this.loading = false;
-    })
-      
+    });
   }
 }

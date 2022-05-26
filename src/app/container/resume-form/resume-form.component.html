@@ -1,4 +1,4 @@
-<mat-accordion>
+<mat-accordion *ngIf="!this.loading" fxLayout="column" fxLayoutAlign="center center">
     <div fxLayout="column" fxLayoutAlign="start center">
         <h1 class="tabs-heading resume-form-title res-expansion-title">Enter details which you want to see on your Resume</h1>
         <mat-expansion-panel>
@@ -146,3 +146,4 @@
         </mat-expansion-panel>
     </div>
 </mat-accordion>
+<mat-spinner *ngIf="this.loading" color="accent" diameter="40"></mat-spinner>

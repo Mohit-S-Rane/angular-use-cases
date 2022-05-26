@@ -20,7 +20,7 @@ export class AwardsAchivementCardComponent {
   };
 
   delete() {
-    this.apiService.deleteAwardsAchivement(this.awardsAchivement._id).subscribe(data=>{
+    this.apiService.deleteAward(this.awardsAchivement._id).subscribe(data=>{
       this.alertService.success('Employment History Deleted successfully')
     }, error=>{
       this.alertService.error(error.message);

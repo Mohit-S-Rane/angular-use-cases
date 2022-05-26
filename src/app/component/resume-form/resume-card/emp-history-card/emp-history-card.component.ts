@@ -20,7 +20,7 @@ export class EmpHistoryCardComponent {
   };
 
   delete() {
-    this.apiService.deleteEmpploymentHistory(this.employmentHistory._id).subscribe(data=>{
+    this.apiService.deleteEmploymentHistory(this.employmentHistory._id).subscribe(data=>{
       this.alertService.success('Employment History Deleted successfully')
     }, error=>{
       this.alertService.error(error.message);

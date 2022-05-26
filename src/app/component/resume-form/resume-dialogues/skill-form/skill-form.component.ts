@@ -5,6 +5,7 @@ import { Education } from './../../../../models/education';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Skill } from 'src/app/models/skill';
 import { AlertService } from 'src/app/services/alert-service';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 export interface DataType {
   resumeId: string;
@@ -17,52 +18,45 @@ export interface DataType {
   //   styleUrls: ['./education-form.component.css'],
 })
 export class SkillFormComponent implements OnInit {
-  skillLevelArray = ['Beginner', 'Intermediate', 'Advance'];
   skillForm: FormGroup;
+  levelArray = ['basic', 'intermediate', 'advance'];
 
-  constructor(
-    public dialogRef: MatDialogRef<SkillFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
-  ) {}
+  constructor(public dialogRef: MatDialogRef<SkillFormComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: DataType, private resumeRepository: ResumeRepository) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const skill = this.data.skill ? this.data.skill.skill : null;
     const level = this.data.skill ? this.data.skill.level : null;
-
     this.skillForm = new FormGroup({
       skill: new FormControl(skill, [Validators.required]),
       level: new FormControl(level, [Validators.required])
-    })
-    
+    });
   }
 
-  addOrUpdate(){
-    if(this.data.skill._id){
-      this.update()
-    } else (
-      this.save()
-    )
+  cancel() {
+    this.dialogRef.close();
   }
 
-  save() {
-    const observer$ = this.apiService.addSkill(this.skillForm.value, this.data.resumeId);
-    observer$.subscribe(data=>{
-      this.alertService.success('Skill added successfully');
-      this.dialogRef.close();
-    }, error=>{
-      this.alertService.error(error)
-    })
+  addOrUpdate() {
+    if (this.data.skill) {
+      this.update();
+    } else {
+      this.save();
+    }
   }
 
   update() {
-    const observer$ = this.apiService.updateSkill(this.skillForm.value, this.data.skill._id);
-    observer$.subscribe(data=>{
-      this.alertService.success('Skill updated successfully')
+    const observer$ = this.resumeRepository.updateSkill(this.skillForm.value, this.data.skill._id, this.data.resumeId);
+    observer$.subscribe(data => {
       this.dialogRef.close();
-    }, error=>{
-      this.alertService.error(error)
-    })
+    });
   }
 
+  save() {
+    const observer$ = this.resumeRepository.addSkill(this.skillForm.value, this.data.resumeId);
+    observer$.subscribe(data => {
+      this.dialogRef.close();
+    });
+  }
 }

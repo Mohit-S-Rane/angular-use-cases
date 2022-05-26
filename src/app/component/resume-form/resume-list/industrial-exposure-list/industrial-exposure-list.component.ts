@@ -7,5 +7,6 @@ import { IndustrialExposure } from 'src/app/models/industrial-exposure';
 })
 export class IndustrialExposureListComponent {
   @Input() industrialExposureList: IndustrialExposure[];
+  @Input() resumeId: string;
   constructor() {}
 }

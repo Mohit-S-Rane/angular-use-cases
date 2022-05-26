@@ -1,3 +1,4 @@
 <div fxLayout="column" fxLayoutGap="1rem">
-    <app-skill-card *ngFor="let skill of skillList" [skill]="skill"></app-skill-card>
+    <app-skill-card [resumeId]="resumeId" *ngFor="let skill of skillList"
+                     [skill]="skill"></app-skill-card>
 </div>

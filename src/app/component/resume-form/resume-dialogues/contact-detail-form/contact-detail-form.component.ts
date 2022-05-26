@@ -15,12 +15,14 @@ interface DataType {
   templateUrl: './contact-detail-form.component.html',
   //   styleUrls: ['./contact-detail-form.component.css'],
 })
-export class ContactDetailFormComponent implements OnInit{
+export class ContactDetailFormComponent implements OnInit {
   contactDetailForm: FormGroup;
-  constructor(public dialogRef: MatDialogRef<ContactDetailFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DataType, private resumeRepo: ResumeRepository) {}
 
-  ngOnInit(): void {
+  constructor(public dialogRef: MatDialogRef<ContactDetailFormComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: DataType, private resumeRepo: ResumeRepository) {
+  }
+
+  ngOnInit() {
     const firstName = this.data.contactDetails ? this.data.contactDetails.first_name : null;
     const lastName = this.data.contactDetails ? this.data.contactDetails.last_name : null;
     const phoneNumber = this.data.contactDetails ? this.data.contactDetails.phone_number : null;
@@ -33,7 +35,6 @@ export class ContactDetailFormComponent implements OnInit{
     const summary = this.data.contactDetails ? this.data.contactDetails.summary : null;
     const linkedInUrl = this.data.contactDetails ? this.data.contactDetails.linkedin_url : null;
     const websiteUrl = this.data.contactDetails ? this.data.contactDetails.website_url : null;
-
 
     this.contactDetailForm = new FormGroup({
       first_name: new FormControl(firstName, [Validators.required]),
@@ -51,26 +52,25 @@ export class ContactDetailFormComponent implements OnInit{
     });
   }
 
-  addOrUpdate(){
-    if(this.data.contactDetails) {
+  addOrUpdate() {
+    if (this.data.contactDetails) {
       this.update();
     } else {
       this.save();
-    }    
+    }
   }
 
   save() {
-    const observers$ = this.resumeRepo.addContactDetails(this.contactDetailForm.value, this.data.resumeId)
-    observers$.subscribe(data=>{
+    const observer$ = this.resumeRepo.addContactDetails(this.contactDetailForm.value, this.data.resumeId);
+    observer$.subscribe(data => {
       this.dialogRef.close();
-    })
+    });
   }
 
   update() {
-    const observers$ = this.resumeRepo.updateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id, this.data.resumeId)
-    observers$.subscribe(data=>{
+    const observer$ = this.resumeRepo.updateContactDetails(this.contactDetailForm.value, this.data.contactDetails._id, this.data.resumeId);
+    observer$.subscribe(data => {
       this.dialogRef.close();
-    })
+    });
   }
-
 }

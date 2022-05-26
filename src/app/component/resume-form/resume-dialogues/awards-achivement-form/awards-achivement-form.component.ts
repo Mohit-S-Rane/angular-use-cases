@@ -39,7 +39,7 @@ export class AwardsAchivementFormComponent implements OnInit{
   }
 
   save() {
-    const observer$ = this.apiService.addAwardsAchivement(this.awardsAchivementForm.value, this.data.resumeId);
+    const observer$ = this.apiService.addAward(this.awardsAchivementForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Award added successfully');
       this.dialogRef.close()
@@ -47,7 +47,7 @@ export class AwardsAchivementFormComponent implements OnInit{
   }
 
   update() {
-    const observer$ = this.apiService.updateAwardsAchivement(this.awardsAchivementForm.value, this.data.awardsAchivement._id);
+    const observer$ = this.apiService.addAward(this.awardsAchivementForm.value, this.data.awardsAchivement._id);
     observer$.subscribe(data=>{
       this.alertService.success('Award Updated successfully');
       this.dialogRef.close()
