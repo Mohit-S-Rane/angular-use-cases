@@ -10,13 +10,13 @@ import { Resume } from './../../models/resume';
   styleUrls: ['./resume-form.component.css'],
 })
 export class ResumeFormComponent implements OnInit, OnDestroy {
-  @Input() resume: Resume;
+  resume: Resume;
   isAlive = true;
   loading = false;
 
   constructor(private resumeRepo: ResumeRepository, private route: ActivatedRoute) {
   }
-
+  
   ngOnDestroy() {
     this.isAlive = false;
   }

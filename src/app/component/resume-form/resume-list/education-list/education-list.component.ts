@@ -8,5 +8,6 @@ import { Education } from './../../../../models/education';
 })
 export class EducationListComponent {
   @Input() educationList: Education[];
+  @Input() resumeId: string;
   constructor() {}
 }

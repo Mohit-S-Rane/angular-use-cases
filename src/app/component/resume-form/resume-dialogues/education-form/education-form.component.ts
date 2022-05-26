@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api-service';
 import { Education } from './../../../../models/education';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthRepository } from './../../../../repository/auth-repository';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 export interface DataType {
   resumeId: string;
@@ -21,7 +23,7 @@ export class EducationFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EducationFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService
+    private resumeRepo: ResumeRepository
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class EducationFormComponent implements OnInit {
 
   save() {
     debugger
-    const observer$ = this.apiService.addEducation(this.educationForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addEducation(this.educationForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.dialogRef.close();
     })
@@ -63,7 +65,7 @@ export class EducationFormComponent implements OnInit {
 
   update() {
     debugger
-    const observer$ = this.apiService.updateEducation(this.educationForm.value, this.data.education._id);
+    const observer$ = this.resumeRepo.updateEducation(this.educationForm.value, this.data.education._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.dialogRef.close();
     })

@@ -130,7 +130,7 @@ export class ResumeRepository {
     }));
   }
 
-  updateEducation(data, educationId: string, resumeId: string,) {
+  updateEducation(data, educationId: string, resumeId: string) {
     return this.apiService.updateEducation(data, educationId).pipe(map((res) => {
       this.store.dispatch(new UpdateEducationAction({education: res, resume_id: resumeId}));
       return res;

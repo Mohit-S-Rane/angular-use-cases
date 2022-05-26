@@ -39,7 +39,7 @@ export class SkillFormComponent implements OnInit {
   }
 
   addOrUpdate() {
-    if (this.data.skill) {
+    if (this.data.skill._id) {
       this.update();
     } else {
       this.save();
