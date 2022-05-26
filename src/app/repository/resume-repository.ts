@@ -214,14 +214,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateIndustrialExposure(data, resumeId: string, industrialExposureId: string) {
+  updateIndustrialExposure(data, industrialExposureId: string, resumeId: string) {
     return this.apiService.updateIndustrialExposure(data, industrialExposureId).pipe(map((res) => {
       this.store.dispatch(new UpdateIndustrialExposureAction({industrial_exposure: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteIndustrialExposure(resumeId: string, industrialExposureId: string) {
+  deleteIndustrialExposure(industrialExposureId: string, resumeId: string) {
     return this.apiService.deleteIndustrialExposure(industrialExposureId).pipe(map((res) => {
       this.store.dispatch(new DeleteIndustrialExposureAction({industrial_exposure: res, resume_id: resumeId}));
       return res;
@@ -235,14 +235,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateAward(data, resumeId: string, awardId: string) {
+  updateAward(data, awardId: string, resumeId: string) {
     return this.apiService.updateAward(data, awardId).pipe(map((res) => {
       this.store.dispatch(new UpdateAwardAction({award: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteAward(resumeId: string, awardId: string) {
+  deleteAward(awardId: string, resumeId: string) {
     return this.apiService.deleteAward(awardId).pipe(map((res) => {
       console.log(res);
       this.store.dispatch(new DeleteAwardAction({award: res, resume_id: resumeId}));
@@ -257,14 +257,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateObjective(data, resumeId: string, objectiveId: string) {
+  updateObjective(data, objectiveId: string, resumeId: string) {
     return this.apiService.updateObjective(data, objectiveId).pipe(map((res) => {
       this.store.dispatch(new UpdateObjectiveAction({objective: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteObjective(resumeId: string, objectiveId: string) {
+  deleteObjective(objectiveId: string, resumeId: string) {
     return this.apiService.deleteObjective(objectiveId).pipe(map((res) => {
       this.store.dispatch(new DeleteObjectiveAction({objective: res, resume_id: resumeId}));
       return res;

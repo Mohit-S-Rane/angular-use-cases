@@ -5,6 +5,7 @@ import { Education } from './../../../../models/education';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IndustrialExposure } from 'src/app/models/industrial-exposure';
 import { AlertService } from 'src/app/services/alert-service';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 export interface DataType {
   resumeId: string;
@@ -23,7 +24,7 @@ export class IndustrialExposureFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<IndustrialExposureFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +50,6 @@ export class IndustrialExposureFormComponent implements OnInit {
   }
 
   addOrUpdate() {
-    debugger
     if (this.data.industrialExposure._id) {
       this.update();
     } else {
@@ -58,7 +58,7 @@ export class IndustrialExposureFormComponent implements OnInit {
   }
 
   save() {
-    const observer$ = this.apiService.addIndustrialExposure(this.industrialExposureForm.value, this.data.resumeId)
+    const observer$ = this.resumeRepo.addIndustrialExposure(this.industrialExposureForm.value, this.data.resumeId)
     observer$.subscribe(data=>{
       this.alertService.success('Industrial Exposure added successfully')
       this.dialogRef.close();
@@ -68,7 +68,7 @@ export class IndustrialExposureFormComponent implements OnInit {
   }
 
   update() {
-    const observer$ = this.apiService.updateIndustrialExposure(this.industrialExposureForm.value, this.data.industrialExposure._id)
+    const observer$ = this.resumeRepo.updateIndustrialExposure(this.industrialExposureForm.value, this.data.industrialExposure._id, this.data.resumeId)
     observer$.subscribe(data=>{
       this.alertService.success('Industrial Exposure updated successfully')
       this.dialogRef.close();

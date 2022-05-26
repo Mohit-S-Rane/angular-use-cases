@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AwardsAchivement } from 'src/app/models/awards-achivement';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 
@@ -20,7 +21,7 @@ export class AwardsAchivementFormComponent implements OnInit{
   awardsAchivementForm : FormGroup;
 
   constructor(public dialogRef: MatDialogRef<AwardsAchivementFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DataType, private apiService: ApiService, private alertService: AlertService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DataType, private resumeRepo: ResumeRepository, private alertService: AlertService) {}
 
   ngOnInit(): void {
     const awardsAndAchivement = this.data.awardsAchivement ? this.data.awardsAchivement.awards_and_achivements : null;
@@ -39,7 +40,7 @@ export class AwardsAchivementFormComponent implements OnInit{
   }
 
   save() {
-    const observer$ = this.apiService.addAward(this.awardsAchivementForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addAward(this.awardsAchivementForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Award added successfully');
       this.dialogRef.close()
@@ -47,7 +48,7 @@ export class AwardsAchivementFormComponent implements OnInit{
   }
 
   update() {
-    const observer$ = this.apiService.addAward(this.awardsAchivementForm.value, this.data.awardsAchivement._id);
+    const observer$ = this.resumeRepo.updateAward(this.awardsAchivementForm.value, this.data.awardsAchivement._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Award Updated successfully');
       this.dialogRef.close()
