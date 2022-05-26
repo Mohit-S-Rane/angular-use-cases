@@ -13,7 +13,7 @@
             <input type="text" formControlName="role" matInput placeholder="Role">
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-            <button *ngIf="this.data.projectDetail?._id" color="primary">Update</button>
+            <button *ngIf="this.data.projectDetail?._id" mat-raised-button color="primary">Update</button>
             <button *ngIf="!this.data.projectDetail?._id" mat-raised-button color="primary">Save</button>
             <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
         </div>

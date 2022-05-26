@@ -6,6 +6,8 @@ import { Strength } from './../../../../models/strength';
 //   styleUrls: ['./strength-list.component.css'],
 })
 export class StrengthListComponent {
-  @Input() strengthList: Strength[]
+  @Input() strengthList: Strength[];
+  @Input() resumeId: string;
+
   constructor() {}
 }

@@ -4,6 +4,7 @@ import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { Refrence } from './../../../../models/refrence';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 
 export interface DataType {
   resumeId: string;
@@ -21,7 +22,7 @@ export class ReferenceFormComponent {
   constructor(
     public dialogRef: MatDialogRef<ReferenceFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class ReferenceFormComponent {
   }
 
   save() {
-    const observer$ = this.apiService.addReference(this.referenceForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addReference(this.referenceForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Reference added successfully');
       this.dialogRef.close();
@@ -61,7 +62,7 @@ export class ReferenceFormComponent {
   }
 
   update() {
-    const observer$ = this.apiService.updateObjective(this.referenceForm.value, this.data.reference._id);
+    const observer$ = this.resumeRepo.updateReference(this.referenceForm.value, this.data.reference._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Reference updated successfully');
       this.dialogRef.close();

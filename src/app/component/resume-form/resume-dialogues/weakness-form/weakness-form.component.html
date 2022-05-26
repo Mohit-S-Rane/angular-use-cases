@@ -4,7 +4,7 @@
             <input type="text" formControlName="name" matInput placeholder="Name your Weakness">
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-            <button *ngIf="this.data.weakness._id" color="primary">Update</button>
+            <button *ngIf="this.data.weakness._id" mat-raised-button color="primary">Update</button>
             <button *ngIf="!this.data.weakness._id" mat-raised-button color="primary">Save</button>
             <button type="button" (click)="this.dialogRef.close()" mat-raised-button color="warn">Cancel</button>
         </div>

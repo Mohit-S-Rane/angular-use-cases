@@ -6,6 +6,7 @@ import { Weakness } from './../../../../models/weakness';
 //   styleUrls: ['./weakness-list.component.css'],
 })
 export class WeaknessListComponent {
-  @Input() weaknessList: Weakness[]
+  @Input() weaknessList: Weakness[];
+  @Input() resumeId: string;
   constructor() {}
 }

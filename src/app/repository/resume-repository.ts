@@ -278,14 +278,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateReference(data, resumeId: string, referenceId: string) {
+  updateReference(data, referenceId: string, resumeId: string) {
     return this.apiService.updateReference(data, referenceId).pipe(map((res) => {
       this.store.dispatch(new UpdateReferenceAction({reference: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteReference(resumeId: string, referenceId: string) {
+  deleteReference(referenceId: string, resumeId: string) {
     return this.apiService.deleteReference(referenceId).pipe(map((res) => {
       this.store.dispatch(new DeleteReferenceAction({reference: res, resume_id: resumeId}));
       return res;
@@ -300,14 +300,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateProjectDetail(data, resumeId: string, projectDetailId: string) {
+  updateProjectDetail(data, projectDetailId: string, resumeId: string) {
     return this.apiService.updateProjectDetail(data, projectDetailId).pipe(map((res) => {
       this.store.dispatch(new UpdateProjectDetailAction({project_detail: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteProjectDetail(resumeId: string, projectDetailId: string) {
+  deleteProjectDetail(projectDetailId: string, resumeId: string) {
     return this.apiService.deleteProjectDetail(projectDetailId).pipe(map((res) => {
       this.store.dispatch(new DeleteProjectDetailAction({project_detail: res, resume_id: resumeId}));
       return res;
@@ -321,14 +321,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateStrength(data, resumeId: string, projectDetailId: string) {
+  updateStrength(data, projectDetailId: string, resumeId: string) {
     return this.apiService.updateStrength(data, projectDetailId).pipe(map((res) => {
       this.store.dispatch(new UpdateStrengthAction({strength: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteStrength(resumeId: string, projectDetailId: string) {
+  deleteStrength(projectDetailId: string, resumeId: string) {
     return this.apiService.deleteStrength(projectDetailId).pipe(map((res) => {
       this.store.dispatch(new DeleteStrengthAction({strength: res, resume_id: resumeId}));
       return res;
@@ -342,14 +342,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateWeakness(data, resumeId: string, weaknessId: string) {
+  updateWeakness(data, weaknessId: string, resumeId: string) {
     return this.apiService.updateWeakness(data, weaknessId).pipe(map((res) => {
       this.store.dispatch(new UpdateWeaknessAction({weakness: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteWeakness(resumeId: string, weaknessId: string) {
+  deleteWeakness(weaknessId: string, resumeId: string) {
     return this.apiService.deleteWeakness(weaknessId).pipe(map((res) => {
       this.store.dispatch(new DeleteWeaknessAction({weakness: res, resume_id: resumeId}));
       return res;

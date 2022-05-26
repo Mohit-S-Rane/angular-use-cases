@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { Strength } from './../../../../models/strength';
@@ -21,7 +22,7 @@ export class StrengthFormComponent {
   constructor(
     public dialogRef: MatDialogRef<StrengthFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class StrengthFormComponent {
   }
 
   save() {
-    const observer$ = this.apiService.addStrength(this.strengthForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addStrength(this.strengthForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Strength added successfully');
       this.dialogRef.close();
@@ -51,7 +52,7 @@ export class StrengthFormComponent {
   }
 
   update() {
-    const observer$ = this.apiService.updateStrength(this.strengthForm.value, this.data.strength._id);
+    const observer$ = this.resumeRepo.updateStrength(this.strengthForm.value, this.data.strength._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Strength updated successfully');
       this.dialogRef.close();

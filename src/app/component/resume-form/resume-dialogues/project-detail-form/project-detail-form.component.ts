@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { ProjectDetail } from './../../../../models/project-detail';
@@ -21,7 +22,7 @@ export class ProjectDetailFormComponent {
   constructor(
     public dialogRef: MatDialogRef<ProjectDetailFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class ProjectDetailFormComponent {
   }
 
   save() {
-    const observer$ = this.apiService.addProjectDetail(this.projectDetailForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addProjectDetail(this.projectDetailForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Project Detail added successfully');
       this.dialogRef.close();
@@ -57,7 +58,7 @@ export class ProjectDetailFormComponent {
   }
 
   update() {
-    const observer$ = this.apiService.updateProjectDetail(this.projectDetailForm.value, this.data.projectDetail._id);
+    const observer$ = this.resumeRepo.updateProjectDetail(this.projectDetailForm.value, this.data.projectDetail._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Project Detail updated successfully');
       this.dialogRef.close();

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from 'src/app/services/alert-service';
 import { ApiService } from 'src/app/services/api-service';
 import { Weakness } from './../../../../models/weakness';
@@ -21,7 +22,7 @@ export class WeaknessFormComponent {
   constructor(
     public dialogRef: MatDialogRef<WeaknessFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataType,
-    private apiService: ApiService, private alertService: AlertService
+    private resumeRepo: ResumeRepository, private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class WeaknessFormComponent {
   }
 
   save() {
-    const observer$ = this.apiService.addWeakness(this.weaknessForm.value, this.data.resumeId);
+    const observer$ = this.resumeRepo.addWeakness(this.weaknessForm.value, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Weakness added successfully');
       this.dialogRef.close();
@@ -51,7 +52,7 @@ export class WeaknessFormComponent {
   }
 
   update() {
-    const observer$ = this.apiService.updateStrength(this.weaknessForm.value, this.data.weakness._id);
+    const observer$ = this.resumeRepo.updateWeakness(this.weaknessForm.value, this.data.weakness._id, this.data.resumeId);
     observer$.subscribe(data=>{
       this.alertService.success('Weakness updated successfully');
       this.dialogRef.close();
