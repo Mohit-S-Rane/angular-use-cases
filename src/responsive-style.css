@@ -16,5 +16,14 @@
     .res-mat-expansion-panel-header {
       padding: 5px !important;
     }
+
+    .res-header-image {
+      width: 45% !important;
+      margin-left: -1rem !important;
+    }
+
+    .mat-menu-panel {
+      background: #1d1c1bc2 !important;
+    }
   }
   
