@@ -1,9 +1,9 @@
 import { ApiService } from '../services/api-service';
 import { Injectable } from '@angular/core';
-import { combineLatest, Observable, take } from 'rxjs';
+import { combineLatest, map, Observable, take } from 'rxjs';
 import { User } from '../models/user';
 import { Store } from '@ngrx/store';
-import { LoginRequestAction, LoginSuccessAction, LogoutAction, UserProfileRequestAction, UserProfileSuccessAction } from '../actions/user-actions';
+import { LoginRequestAction, LoginSuccessAction, LogoutAction, UserProfileRequestAction, UserProfileSuccessAction, UserUpdateAction } from '../actions/user-actions';
 import { getUser, userLoggedIn, userLoggingIn } from '../reducers';
 import { loggedIn, UserReducerState } from './../reducers/user-reducer';
 import { RootReducerState } from './../reducers/index';
@@ -53,5 +53,12 @@ export class AuthRepository {
   logout() {
     AuthUtils.removeAuthToken();
     this.store.dispatch(new LogoutAction());
+  }
+
+  updateProfile(data) {
+    const userProfile = {...data, ...{job_category: 'abc', experience_level: 'das'}}
+    return this.apiService.updateUserProfile(userProfile).pipe(map((res)=>{
+      this.store.dispatch(new UserUpdateAction(res));
+    }));
   }
 }

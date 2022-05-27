@@ -28,6 +28,9 @@ export class ApiService {
     }));
   }
 
+  updateUserProfile(data) {
+    return this.httpService.patch('/user/update/profile', data);
+  }
 
   sendResetPasswordEmail(data: { email: string }): Observable<any> {
     return this.httpService.get('/user/reset/password/email', data);
