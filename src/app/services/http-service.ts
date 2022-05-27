@@ -4,6 +4,7 @@ import { AlertService } from './alert-service';
 import { catchError, Observable, throwError } from 'rxjs';
 import { ApiService } from './api-service';
 import { AuthUtils } from './../utility/auth-utils';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpService {
@@ -11,7 +12,8 @@ export class HttpService {
 
   constructor(
     private httpClient: HttpClient,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router
   ) {}
 
   get(url?: string, paramData?: any): Observable<any> {
@@ -42,11 +44,20 @@ export class HttpService {
 
   private errorHandler(response: any) {
     const error = response.error;
+    const keys = Object.keys(error);
+    const key = keys[0];
     const message = response.message;
     const status = response.status;
     if (status === 401) {
+      this.router.navigate(['logout']);
+      this.alertService.message('Session Expired');
     }
-    this.alertService.error(message);
-    return throwError({ message, error });
+    if (key === 'isTrusted') {
+      this.alertService.error('Please connect to internet Connection');
+    } else {
+      this.alertService.error(message);
+    }
+    
+    return throwError({message, error});
   }
 }

@@ -1,12 +1,13 @@
 import { ApiService } from '../services/api-service';
 import { Injectable } from '@angular/core';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, take } from 'rxjs';
 import { User } from '../models/user';
 import { Store } from '@ngrx/store';
-import { LoginRequestAction, LoginSuccessAction, UserProfileRequestAction, UserProfileSuccessAction } from '../actions/user-actions';
+import { LoginRequestAction, LoginSuccessAction, LogoutAction, UserProfileRequestAction, UserProfileSuccessAction } from '../actions/user-actions';
 import { getUser, userLoggedIn, userLoggingIn } from '../reducers';
 import { loggedIn, UserReducerState } from './../reducers/user-reducer';
 import { RootReducerState } from './../reducers/index';
+import { AuthUtils } from '../utility/auth-utils';
 
 
 @Injectable()
@@ -37,7 +38,7 @@ export class AuthRepository {
     const loggedIn$ = this.store.select(userLoggedIn);
     const loggingIn$ = this.store.select(userLoggingIn);
     const user$ = this.store.select(getUser);
-    combineLatest([loggedIn$, loggingIn$, user$]).subscribe((data) => {
+    combineLatest([loggedIn$, loggingIn$, user$]).pipe(take(1)).subscribe((data) => {
       if ((!data[0] && !data[1]) || force) {
         this.store.dispatch(new UserProfileRequestAction());
         this.apiService.fetchMe().subscribe((user) => {
@@ -47,5 +48,10 @@ export class AuthRepository {
       }
     });
     return user$;
+  }
+
+  logout() {
+    AuthUtils.removeAuthToken();
+    this.store.dispatch(new LogoutAction());
   }
 }

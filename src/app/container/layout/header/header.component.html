@@ -4,7 +4,7 @@
     <div fxHide.xs fxFlex="1 1 auto" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
         <button routerLinkActive="selected" routerLink="resume" class="nav-bar-button" mat-button>Resumes</button>
         <button routerLinkActive="selected" routerLink="settings" class="nav-bar-button" mat-button>Settings</button>
-        <button class="nav-bar-button" mat-button>Logout</button>
+        <button class="nav-bar-button" (click)="logout()" mat-button>Logout</button>
         <span fxFlex="35%"></span>
         <div class="username" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="10px">
             <mat-icon>account_circle</mat-icon>
@@ -23,7 +23,7 @@
                 </div>
                 <button routerLinkActive="selected" routerLink="resume" class="nav-bar-button" mat-button>Resumes</button>
                 <button routerLinkActive="selected" routerLink="settings" class="nav-bar-button" mat-button>Settings</button>
-                <button class="nav-bar-button" mat-button>Logout</button>
+                <button class="nav-bar-button" (click)="logout()" mat-button>Logout</button>
             </div>
             
         </mat-menu>

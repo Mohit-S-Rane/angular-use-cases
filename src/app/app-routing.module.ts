@@ -15,6 +15,7 @@ import { VerificationCompleted } from './guards/verification-completed';
 import { VerificationInComplete } from './guards/verification-in-complete';
 import { ResumeComponent } from './container/dashboard/resume/resume.component';
 import { SettingComponent } from './container/dashboard/setting/setting.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -31,9 +32,10 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                         {path: '', canActivate: [AuthGuard, VerificationCompleted, OnBoardingComplete],
                                    children: [{path: 'dashboard', component: DashboardComponent, 
                                       children: [{path: 'resume', component: ResumeComponent},
-                                                 {path: 'settings', component: SettingComponent}]
-                                    }] 
-                        }                     
+                                                 {path: 'settings', component: SettingComponent}]}]},
+
+                        {path: 'logout', component: LogoutComponent}                                 
+
                        ]
 
 @NgModule({
