@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './container/dashboard/dashboard.component';
+import { DashboardComponent } from './container/layout/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './container/forgot-password/forgot-password.component';
 import { LoginComponent } from './container/login/login.component';
 import { OnBoardingIntroComponent } from './container/on-boarding/intro/on-boarding-intro.component';
@@ -13,6 +13,8 @@ import { OnBoardingComplete } from './guards/on-boarding-complete';
 import { OnBoardingInComplete } from './guards/on-boarding-in-complete';
 import { VerificationCompleted } from './guards/verification-completed';
 import { VerificationInComplete } from './guards/verification-in-complete';
+import { ResumeComponent } from './container/dashboard/resume/resume.component';
+import { SettingComponent } from './container/dashboard/setting/setting.component';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -27,12 +29,15 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                                               {path: 'on-boarding/add', component: OnBoardingComponent}]},
                                               
                         {path: '', canActivate: [AuthGuard, VerificationCompleted, OnBoardingComplete],
-                                   children: [{path: 'dashboard', component: DashboardComponent}] }                     
+                                   children: [{path: 'dashboard', component: DashboardComponent, 
+                                      children: [{path: 'resume', component: ResumeComponent},
+                                                 {path: 'settings', component: SettingComponent}]
+                                    }] 
+                        }                     
                        ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-
 
   exports: [RouterModule]
 })

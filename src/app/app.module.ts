@@ -20,7 +20,7 @@ import { VerificationComponent } from './container/verification/verification.com
 import { AuthGuard } from './guards/auth-guard';
 import { AnonGuard } from './guards/anon.guard';
 import { OnBoardingComponent } from './container/on-boarding/on-boarding/on-boarding.component';
-import { DashboardComponent } from './container/dashboard/dashboard.component';
+import { DashboardComponent } from './container/layout/dashboard/dashboard.component';
 import { VerificationCompleted } from './guards/verification-completed';
 import { VerificationInComplete } from './guards/verification-in-complete';
 import { OnBoardingComplete } from './guards/on-boarding-complete';
@@ -87,6 +87,8 @@ import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './reducers';
 import { AuthRepository } from './repository/auth-repository';
 import { ResumeRepository } from './repository/resume-repository'
+import { ResumeComponent } from './container/dashboard/resume/resume.component';
+import { SettingComponent } from './container/dashboard/setting/setting.component';
 
 
 @NgModule({
@@ -156,7 +158,9 @@ import { ResumeRepository } from './repository/resume-repository'
     WeaknessListComponent,
     WeaknessFormComponent,
     WeaknessCardComponent,
-    Truncate
+    Truncate,
+    ResumeComponent,
+    SettingComponent
 
   ],
   imports: [
