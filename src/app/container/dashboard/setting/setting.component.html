@@ -2,13 +2,21 @@
     <div fxLayoutAlign="center center" style="width: 100vw;">
         <h1>Setting</h1>
     </div>
-    <div fxLayout="row" fxLayoutGap="30px" style="padding: 10rem;">
+    <div fxLayout="column" fxLayoutGap="30px" style="padding: 10rem;">
         <div class="profile-container" fxLayout="row" fxLayoutAlign="start stretch">
             <div fxFlex="35%">
                 <h1>Profile</h1>
             </div>
             <div fxFlex="65%">
                 <app-profile-settings></app-profile-settings>
+            </div>
+        </div>
+        <div class="profile-container" fxLayout="row" fxLayoutAlign="start stretch">
+            <div fxFlex="35%">
+                <h1>Password</h1>
+            </div>
+            <div fxFlex="65%">
+                <app-password-setting></app-password-setting>
             </div>
         </div>
     </div>
