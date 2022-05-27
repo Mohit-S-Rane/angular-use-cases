@@ -219,4 +219,8 @@ export class ApiService {
   updateViewsCount(data: { views: number }, id: string) {
     return this.httpService.patch('/resume/update/resume/views/' + id, data);
   }
+
+  updateOnBoarding(data: { onboarding: number}) {
+    return this.httpService.patch('/user/update/onboarding', data);
+  }
 }

@@ -33,6 +33,7 @@ import {
 import {map, take} from 'rxjs/operators';
 import {Resume} from '../models/resume';
 import { RootReducerState } from './../reducers/index';
+import { UserUpdateAction } from '../actions/user-actions';
 
 @Injectable()
 export class ResumeRepository {
@@ -354,6 +355,12 @@ export class ResumeRepository {
       this.store.dispatch(new DeleteWeaknessAction({weakness: res, resume_id: resumeId}));
       return res;
     }));
+  }
+
+  updateOnBoarding(data: { onboarding: number}) {
+    return this.apiService.updateOnBoarding(data).pipe(map((res)=> {
+      this.store.dispatch(new UserUpdateAction(res));
+    }))
   }
 
 }

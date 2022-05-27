@@ -10,6 +10,9 @@
     <mat-step>
         <ng-template matStepLabel>Resume Form</ng-template>
         <app-resume-form></app-resume-form>
+        <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center" style="margin: 1rem;">
+            <button (click)="finish()" mat-raised-button color="accent">Finish</button>
+        </div>
     </mat-step>
 </mat-horizontal-stepper>
 <div *ngIf="this.loading" class="overlay" fxLayout="column" fxLayoutAlign="center center">

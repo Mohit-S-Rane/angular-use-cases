@@ -3,6 +3,8 @@ import { takeWhile } from 'rxjs';
 import { Resume } from 'src/app/models/resume';
 import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { ApiService } from 'src/app/services/api-service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-on-boarding',
@@ -15,7 +17,7 @@ export class OnBoardingComponent implements OnInit, OnDestroy {
   loading = true;
   isAlive = true;
 
-  constructor(private resumeRepo: ResumeRepository) {
+  constructor(private resumeRepo: ResumeRepository, private router: Router) {
   }
 
   ngOnDestroy() {
@@ -31,6 +33,12 @@ export class OnBoardingComponent implements OnInit, OnDestroy {
         this.isFirstStepCompleted = true;
         this.loading = false;
       }
+    });
+  }
+
+  finish() {
+    this.resumeRepo.updateOnBoarding({onboarding: 200}).subscribe(data => {
+      this.router.navigate(['dashboard']);
     });
   }
 }
