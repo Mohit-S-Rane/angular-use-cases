@@ -89,6 +89,7 @@ import { AuthRepository } from './repository/auth-repository';
 import { ResumeRepository } from './repository/resume-repository'
 import { ResumeComponent } from './container/dashboard/resume/resume.component';
 import { SettingComponent } from './container/dashboard/setting/setting.component';
+import { HeaderComponent } from './container/layout/header/header.component';
 
 
 @NgModule({
@@ -160,7 +161,8 @@ import { SettingComponent } from './container/dashboard/setting/setting.componen
     WeaknessCardComponent,
     Truncate,
     ResumeComponent,
-    SettingComponent
+    SettingComponent,
+    HeaderComponent
 
   ],
   imports: [

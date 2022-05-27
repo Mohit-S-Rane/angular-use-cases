@@ -1,0 +1,33 @@
+.header-container {
+  background-color: #4c86bd;
+  height: 10%;
+  width: 100%;
+  padding-left: 1.5rem;
+}
+
+button {
+    color: #d0e9c6 !important;
+}
+
+.username {
+    color: #a8ee90;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-bar-button {
+    color: #a8ee90 !important;
+    background: transparent;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.nav-bar-button:hover {
+    border-bottom: 1px solid #ffdab4;
+    color: #ffdab4 !important;
+}
+
+.selected {
+    border: 1px solid #a8ee90;
+}

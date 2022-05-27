@@ -21,7 +21,7 @@ export class AnonGuard implements CanActivate{
                 } else if(data.onboarding !== 200){
                     this.router.navigate(['on-boarding'])
                 } else {
-                    this.router.navigate(['dashboard'])
+                    this.router.navigate(['dashboard','resume'])
                 }
             }))
         }

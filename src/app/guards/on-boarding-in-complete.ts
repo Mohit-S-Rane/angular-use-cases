@@ -12,7 +12,7 @@ export class OnBoardingInComplete implements CanActivate{
             if(data.onboarding !== 200){
                 return true;
             } else {
-                return this.router.navigate(['dashboard'])
+                return this.router.navigate(['dashboard','resume'])
             }
         }))  
     }

@@ -12,7 +12,7 @@ export class VerificationInComplete implements CanActivate{
             if(!data.verified){
                 return true;
             } else {
-                return this.router.navigate(['dashboard']);
+                return this.router.navigate(['dashboard','resume']);
             }
         }))
     }
