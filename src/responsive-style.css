@@ -25,5 +25,9 @@
     .mat-menu-panel {
       background: #1d1c1bc2 !important;
     }
+
+    .res-setting-container {
+      padding: 2rem !important;
+    }
   }
   
