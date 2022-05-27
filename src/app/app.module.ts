@@ -91,6 +91,7 @@ import { ResumeComponent } from './container/dashboard/resume/resume.component';
 import { SettingComponent } from './container/dashboard/setting/setting.component';
 import { HeaderComponent } from './container/layout/header/header.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { NotFoundComponent } from './container/not-found/not-found.component';
 
 
 @NgModule({
@@ -164,7 +165,8 @@ import { LogoutComponent } from './component/logout/logout.component';
     ResumeComponent,
     SettingComponent,
     HeaderComponent,
-    LogoutComponent
+    LogoutComponent, 
+    NotFoundComponent
 
   ],
   imports: [

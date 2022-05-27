@@ -16,6 +16,7 @@ import { VerificationInComplete } from './guards/verification-in-complete';
 import { ResumeComponent } from './container/dashboard/resume/resume.component';
 import { SettingComponent } from './container/dashboard/setting/setting.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { NotFoundComponent } from './container/not-found/not-found.component';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -34,7 +35,9 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                                       children: [{path: 'resume', component: ResumeComponent},
                                                  {path: 'settings', component: SettingComponent}]}]},
 
-                        {path: 'logout', component: LogoutComponent}                                 
+                        {path: 'logout', component: LogoutComponent},
+
+                        {path: '**', component: NotFoundComponent}
 
                        ]
 
