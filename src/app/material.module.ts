@@ -13,6 +13,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatRippleModule} from '@angular/material/core';
 
 
 
@@ -30,7 +32,10 @@ const data = [
     MatDialogModule,
     MatSelectModule,
     MatOptionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule,
+    MatRippleModule
+
 
 ];
 
