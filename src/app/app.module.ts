@@ -99,6 +99,7 @@ import { ErrorComponent } from './component/error/error.component';
 import { AddOrEditResumeComponent } from './component/dialogues/add-or-edit-resume/add-or-edit-resume.component';
 import { TemplatesComponent } from './container/templates/templates.component';
 import { SingleTemplateComponent } from './container/single-template/single-template.component';
+import { TemplateCardComponent } from './component/template-card/template-card.component';
 
 
 @NgModule({
@@ -180,7 +181,8 @@ import { SingleTemplateComponent } from './container/single-template/single-temp
     ErrorComponent,
     AddOrEditResumeComponent,
     TemplatesComponent,
-    SingleTemplateComponent
+    SingleTemplateComponent,
+    TemplateCardComponent
     
 
   ],

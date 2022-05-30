@@ -7,5 +7,7 @@ import { Utility } from './../../utility/utility';
 })
 export class TemplatesComponent {
   templates = Utility.Templates;
-  constructor() {}
+  constructor() {
+    
+  }
 }
