@@ -60,6 +60,10 @@ export class ApiService {
     return this.httpService.patch('/resume/update/resume/' + resumeId, data)
   }
 
+  deleteResume(resumeId: string) {
+    return this.httpService.delete('/resume/delete/resume/' + resumeId)
+  }
+
   saveOrUpdateImage(image: File, resumeId: string): Observable<Resume> {
     const formData = new FormData();
     formData.append('profile_image', image);
