@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-template-card',
   templateUrl: './template-card.component.html',
@@ -6,6 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class TemplateCardComponent {
   @Input() template;
-  constructor() {
+  @Input() resumeId;
+  constructor(private router: Router) {
+  }
+
+  openTemplate() {
+    this.router.navigate(['dashboard', 'resume', 'template', this.resumeId, this.template.id])
   }
 }

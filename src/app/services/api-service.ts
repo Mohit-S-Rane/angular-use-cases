@@ -52,6 +52,10 @@ export class ApiService {
     return this.httpService.get('/resume/all');
   }
 
+  getResumeById(id): Observable<Resume> {
+    return this.httpService.get('/resume/' + id);
+  }
+
   saveResume(data: { name: string }) {
     return this.httpService.post('/resume/add/resume', data);
   }

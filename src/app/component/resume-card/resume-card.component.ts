@@ -28,6 +28,6 @@ export class ResumeCardComponent {
   }
 
   download() {
-    this.router.navigate(['dashboard', 'resume', 'template', 'this.resume._id'])
+    this.router.navigate(['dashboard', 'resume', 'template', this.resume._id])
   }
 }

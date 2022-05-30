@@ -1,39 +1,35 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../services/api-service';
 import {Store} from '@ngrx/store';
-import {getResume, resumeError, resumeLoaded, resumeLoading} from '../reducers';
+import {getResume, getResumeById, resumeError, resumeLoaded, resumeLoading, RootReducerState} from '../reducers';
 import {combineLatest, Observable} from 'rxjs';
 import {
   AddAwardAction,
   AddContactDetailAction,
   AddEducationAction,
-  AddEmploymentHistoryAction,
-  AddIndustrialExposureAction,
+  AddEmploymentHistoryAction, AddIndustrialExposureAction,
   AddInterestAction,
-  AddLanguageAction,
-  AddObjectiveAction,
-  AddProjectDetailAction,
-  AddReferenceAction,
-  AddResumeAction, AddSkillAction, AddStrengthAction, AddWeaknessAction, DeleteAwardAction, DeleteEducationAction, DeleteEmploymentHistoryAction, DeleteIndustrialExposureAction, DeleteInterestAction, DeleteLanguageAction, DeleteObjectiveAction, DeleteProjectDetailAction, DeleteReferenceAction, DeleteResumeAction, DeleteSkillAction,
-  DeleteStrengthAction,
-  DeleteWeaknessAction,
+  AddLanguageAction, AddObjectiveAction, AddProjectDetailAction, AddReferenceAction,
+  AddResumeAction,
+  AddSkillAction, AddStrengthAction, AddWeaknessAction, DeleteAwardAction,
+  DeleteEducationAction,
+  DeleteEmploymentHistoryAction, DeleteIndustrialExposureAction,
+  DeleteInterestAction, DeleteLanguageAction, DeleteObjectiveAction, DeleteProjectDetailAction, DeleteReferenceAction, DeleteResumeAction,
+  DeleteSkillAction, DeleteStrengthAction, DeleteWeaknessAction,
   ResumeErrorAction,
   ResumeListRequestAction,
-  ResumeListSuccessAction, UpdateAwardAction, UpdateContactDetailAction,
+  ResumeListSuccessAction, UpdateAwardAction,
+  UpdateContactDetailAction,
   UpdateEducationAction,
-  UpdateEmploymentHistoryAction,
-  UpdateIndustrialExposureAction,
+  UpdateEmploymentHistoryAction, UpdateIndustrialExposureAction,
   UpdateInterestAction,
-  UpdateLanguageAction,
-  UpdateObjectiveAction,
-  UpdateProjectDetailAction,
-  UpdateReferenceAction,
-  UpdateResumeAction, UpdateSkillAction, UpdateStrengthAction, UpdateWeaknessAction
+  UpdateLanguageAction, UpdateObjectiveAction, UpdateProjectDetailAction, UpdateReferenceAction,
+  UpdateResumeAction,
+  UpdateSkillAction, UpdateStrengthAction, UpdateWeaknessAction
 } from '../actions/resume-actions';
 import {map, take} from 'rxjs/operators';
 import {Resume} from '../models/resume';
-import { RootReducerState } from './../reducers/index';
-import { UserUpdateAction } from '../actions/user-actions';
+import {UserUpdateAction} from '../actions/user-actions';
 
 @Injectable()
 export class ResumeRepository {
@@ -58,6 +54,20 @@ export class ResumeRepository {
     return [loading$, error$, resume$];
   }
 
+  getResumeById(id, force = false) {
+    const resume$ = this.store.select((state: any) => {
+      return getResumeById(state, id);
+    });
+    resume$.pipe(take(1)).subscribe(data => {
+      if (!data || force) {
+        this.apiService.getResumeById(id).subscribe(res => {
+          this.store.dispatch(new AddResumeAction(res));
+        });
+      }
+    });
+    return resume$;
+  }
+
   saveResume(data): Observable<any> {
     return this.apiService.saveResume(data).pipe(map((resume) => {
       this.store.dispatch(new AddResumeAction(resume));
@@ -66,15 +76,15 @@ export class ResumeRepository {
   }
 
   editResume(data, resumeId) {
-    return this.apiService.editResume(data, resumeId).pipe(map((resume)=> {
+    return this.apiService.editResume(data, resumeId).pipe(map((resume) => {
       this.store.dispatch(new UpdateResumeAction(resume));
-    }))
+    }));
   }
 
   deleteResume(resumeId) {
     return this.apiService.deleteResume(resumeId).pipe(map((resume) => {
       this.store.dispatch(new DeleteResumeAction(resumeId));
-    }))
+    }));
   }
 
   saveOrUpdateImage(image: File, resumeId: string) {
@@ -143,7 +153,7 @@ export class ResumeRepository {
     }));
   }
 
-  updateEducation(data, educationId: string, resumeId: string) {
+  updateEducation(data, educationId: string, resumeId: string,) {
     return this.apiService.updateEducation(data, educationId).pipe(map((res) => {
       this.store.dispatch(new UpdateEducationAction({education: res, resume_id: resumeId}));
       return res;
@@ -185,14 +195,15 @@ export class ResumeRepository {
     }));
   }
 
-  updateInterest(data, interestId: string, resumeId: string) {
+  updateInterest(data, resumeId: string, interestId: string) {
     return this.apiService.updateInterest(data, interestId).pipe(map((res) => {
       this.store.dispatch(new UpdateInterestAction({interest: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteInterest(interestId: string, resumeId: string) {
+  deleteInterest(resumeId: string, interestId: string) {
+    console.log(interestId);
     return this.apiService.deleteInterest(interestId).pipe(map((res) => {
       this.store.dispatch(new DeleteInterestAction({interest: res, resume_id: resumeId}));
       return res;
@@ -206,14 +217,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateLanguage(data, languageId: string, resumeId: string) {
+  updateLanguage(data, resumeId: string, languageId: string) {
     return this.apiService.updateLanguage(data, languageId).pipe(map((res) => {
       this.store.dispatch(new UpdateLanguageAction({language: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteLanguage(languageId: string, resumeId: string) {
+  deleteLanguage(resumeId: string, languageId: string) {
     return this.apiService.deleteLanguage(languageId).pipe(map((res) => {
       this.store.dispatch(new DeleteLanguageAction({language: res, resume_id: resumeId}));
       return res;
@@ -227,14 +238,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateIndustrialExposure(data, industrialExposureId: string, resumeId: string) {
+  updateIndustrialExposure(data, resumeId: string, industrialExposureId: string) {
     return this.apiService.updateIndustrialExposure(data, industrialExposureId).pipe(map((res) => {
       this.store.dispatch(new UpdateIndustrialExposureAction({industrial_exposure: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteIndustrialExposure(industrialExposureId: string, resumeId: string) {
+  deleteIndustrialExposure(resumeId: string, industrialExposureId: string) {
     return this.apiService.deleteIndustrialExposure(industrialExposureId).pipe(map((res) => {
       this.store.dispatch(new DeleteIndustrialExposureAction({industrial_exposure: res, resume_id: resumeId}));
       return res;
@@ -248,14 +259,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateAward(data, awardId: string, resumeId: string) {
+  updateAward(data, resumeId: string, awardId: string) {
     return this.apiService.updateAward(data, awardId).pipe(map((res) => {
       this.store.dispatch(new UpdateAwardAction({award: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteAward(awardId: string, resumeId: string) {
+  deleteAward(resumeId: string, awardId: string) {
     return this.apiService.deleteAward(awardId).pipe(map((res) => {
       console.log(res);
       this.store.dispatch(new DeleteAwardAction({award: res, resume_id: resumeId}));
@@ -270,14 +281,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateObjective(data, objectiveId: string, resumeId: string) {
+  updateObjective(data, resumeId: string, objectiveId: string) {
     return this.apiService.updateObjective(data, objectiveId).pipe(map((res) => {
       this.store.dispatch(new UpdateObjectiveAction({objective: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteObjective(objectiveId: string, resumeId: string) {
+  deleteObjective(resumeId: string, objectiveId: string) {
     return this.apiService.deleteObjective(objectiveId).pipe(map((res) => {
       this.store.dispatch(new DeleteObjectiveAction({objective: res, resume_id: resumeId}));
       return res;
@@ -291,14 +302,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateReference(data, referenceId: string, resumeId: string) {
+  updateReference(data, resumeId: string, referenceId: string) {
     return this.apiService.updateReference(data, referenceId).pipe(map((res) => {
       this.store.dispatch(new UpdateReferenceAction({reference: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteReference(referenceId: string, resumeId: string) {
+  deleteReference(resumeId: string, referenceId: string) {
     return this.apiService.deleteReference(referenceId).pipe(map((res) => {
       this.store.dispatch(new DeleteReferenceAction({reference: res, resume_id: resumeId}));
       return res;
@@ -313,14 +324,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateProjectDetail(data, projectDetailId: string, resumeId: string) {
+  updateProjectDetail(data, resumeId: string, projectDetailId: string) {
     return this.apiService.updateProjectDetail(data, projectDetailId).pipe(map((res) => {
       this.store.dispatch(new UpdateProjectDetailAction({project_detail: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteProjectDetail(projectDetailId: string, resumeId: string) {
+  deleteProjectDetail(resumeId: string, projectDetailId: string) {
     return this.apiService.deleteProjectDetail(projectDetailId).pipe(map((res) => {
       this.store.dispatch(new DeleteProjectDetailAction({project_detail: res, resume_id: resumeId}));
       return res;
@@ -334,14 +345,14 @@ export class ResumeRepository {
     }));
   }
 
-  updateStrength(data, projectDetailId: string, resumeId: string) {
+  updateStrength(data, resumeId: string, projectDetailId: string) {
     return this.apiService.updateStrength(data, projectDetailId).pipe(map((res) => {
       this.store.dispatch(new UpdateStrengthAction({strength: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteStrength(projectDetailId: string, resumeId: string) {
+  deleteStrength(resumeId: string, projectDetailId: string) {
     return this.apiService.deleteStrength(projectDetailId).pipe(map((res) => {
       this.store.dispatch(new DeleteStrengthAction({strength: res, resume_id: resumeId}));
       return res;
@@ -355,24 +366,24 @@ export class ResumeRepository {
     }));
   }
 
-  updateWeakness(data, weaknessId: string, resumeId: string) {
+  updateWeakness(data, resumeId: string, weaknessId: string) {
     return this.apiService.updateWeakness(data, weaknessId).pipe(map((res) => {
       this.store.dispatch(new UpdateWeaknessAction({weakness: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  deleteWeakness(weaknessId: string, resumeId: string) {
+  deleteWeakness(resumeId: string, weaknessId: string) {
     return this.apiService.deleteWeakness(weaknessId).pipe(map((res) => {
       this.store.dispatch(new DeleteWeaknessAction({weakness: res, resume_id: resumeId}));
       return res;
     }));
   }
 
-  updateOnBoarding(data: { onboarding: number}) {
-    return this.apiService.updateOnBoarding(data).pipe(map((res)=> {
+  updateOnBoarding(data: { onboarding: number }) {
+    return this.apiService.updateOnBoarding(data).pipe(map(res => {
       this.store.dispatch(new UserUpdateAction(res));
-    }))
+    }));
   }
 
 }
