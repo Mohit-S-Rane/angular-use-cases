@@ -1,6 +1,6 @@
 <div *ngIf="!loading" fxLayout="column" fxLayoutAlign="center stretch">
     <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px" style="margin: 10px;">
-        <mat-card class="add-card" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" matRipple>
+        <mat-card class="add-card" (click)="addResume()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" matRipple>
             <mat-icon style="font-size: 3rem; color: #538ec3">add_box</mat-icon>
             <mat-card-title style="color: #538ec3">Add Resume</mat-card-title>
         </mat-card>

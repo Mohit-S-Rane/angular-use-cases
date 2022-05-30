@@ -36,6 +36,7 @@ import {
 import {StoreUtility} from '../utility/store-utility';
 import {createSelector} from '@ngrx/store';
 import {LOGOUT_ACTION} from '../actions/user-actions';
+import { RESUME_ADD_SUCCESS } from './../actions/resume-actions';
 
 export interface ResumeReducerState {
   loading: boolean;
@@ -69,6 +70,14 @@ export function ResumeReducer(state = initialState, action: Action): ResumeReduc
         ...state, loading: false, loaded: true,
         error: false, entities: newEntities, ids: newIds
       };
+    }
+    case RESUME_ADD_SUCCESS: {
+      const resume = action.payload;
+      const obj = {[resume._id]: resume};
+      const newIds = [...state.ids, resume._id];
+      const entities = {...state.entities, ...obj};
+      return {...state, ...{entities, ids: newIds}};
+
     }
     case RESUME_ERROR: {
       return {...initialState};

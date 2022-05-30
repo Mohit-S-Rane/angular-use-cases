@@ -1,0 +1,8 @@
+<form (ngSubmit)="this.form.valid && addOrUpdate()" [formGroup]="this.form">
+    <div fxLayout="column" fxLayoutAlign="start stretch">
+        <mat-form-field>
+            <input type="text" formControlName="name" matInput placeholder="Enter Resume Name">
+        </mat-form-field>
+        <button mat-raised-button color="accent">{{this.data ? 'Update' : 'Add'}}</button>
+    </div>
+</form>

@@ -65,6 +65,12 @@ export class ResumeRepository {
     }));
   }
 
+  editResume(data, resumeId) {
+    return this.apiService.editResume(data, resumeId).pipe(map((resume)=> {
+      this.store.dispatch(new UpdateResumeAction(resume));
+    }))
+  }
+
   saveOrUpdateImage(image: File, resumeId: string) {
     return this.apiService.saveOrUpdateImage(image, resumeId).pipe(map((resume) => {
       this.store.dispatch(new UpdateResumeAction(resume));

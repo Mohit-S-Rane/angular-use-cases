@@ -95,6 +95,8 @@ import { NotFoundComponent } from './container/not-found/not-found.component';
 import { ProfileSettingComponent } from './component/profile-settings/profile-settings.component';
 import { PasswordSettingComponent } from './component/password-setting/password-setting.component';
 import { ResumeCardComponent } from './component/resume-card/resume-card.component';
+import { ErrorComponent } from './component/error/error.component';
+import { AddOrEditResumeComponent } from './component/dialogues/add-or-edit-resume/add-or-edit-resume.component';
 
 
 @NgModule({
@@ -173,7 +175,8 @@ import { ResumeCardComponent } from './component/resume-card/resume-card.compone
     ProfileSettingComponent,
     PasswordSettingComponent,
     ResumeCardComponent,
-    
+    ErrorComponent,
+    AddOrEditResumeComponent
     
 
   ],

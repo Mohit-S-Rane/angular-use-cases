@@ -61,7 +61,6 @@ export const RESUME_UPDATE_WEAKNESS = 'update Weakness';
 export const RESUME_DELETE_WEAKNESS = 'delete Weakness';
 
 
-
 export class ResumeErrorAction implements Action {
   readonly type = RESUME_ERROR;
 

@@ -56,6 +56,10 @@ export class ApiService {
     return this.httpService.post('/resume/add/resume', data);
   }
 
+  editResume(data: {name: string}, resumeId: string) {
+    return this.httpService.patch('/resume/update/resume/' + resumeId, data)
+  }
+
   saveOrUpdateImage(image: File, resumeId: string): Observable<Resume> {
     const formData = new FormData();
     formData.append('profile_image', image);
