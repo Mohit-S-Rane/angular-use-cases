@@ -97,6 +97,8 @@ import { PasswordSettingComponent } from './component/password-setting/password-
 import { ResumeCardComponent } from './component/resume-card/resume-card.component';
 import { ErrorComponent } from './component/error/error.component';
 import { AddOrEditResumeComponent } from './component/dialogues/add-or-edit-resume/add-or-edit-resume.component';
+import { TemplatesComponent } from './container/templates/templates.component';
+import { SingleTemplateComponent } from './container/single-template/single-template.component';
 
 
 @NgModule({
@@ -176,7 +178,9 @@ import { AddOrEditResumeComponent } from './component/dialogues/add-or-edit-resu
     PasswordSettingComponent,
     ResumeCardComponent,
     ErrorComponent,
-    AddOrEditResumeComponent
+    AddOrEditResumeComponent,
+    TemplatesComponent,
+    SingleTemplateComponent
     
 
   ],

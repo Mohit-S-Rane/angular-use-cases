@@ -17,6 +17,8 @@ import { ResumeComponent } from './container/dashboard/resume/resume.component';
 import { SettingComponent } from './container/dashboard/setting/setting.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { NotFoundComponent } from './container/not-found/not-found.component';
+import { TemplatesComponent } from './container/templates/templates.component';
+import { SingleTemplateComponent } from './container/single-template/single-template.component';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -33,7 +35,9 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                         {path: '', canActivate: [AuthGuard, VerificationCompleted, OnBoardingComplete],
                                    children: [{path: 'dashboard', component: DashboardComponent, 
                                       children: [{path: 'resume', component: ResumeComponent},
-                                                 {path: 'settings', component: SettingComponent}]}]},
+                                                 {path: 'settings', component: SettingComponent},
+                                                 {path: 'resume/template/:id', component: TemplatesComponent},
+                                                 {path: 'resume/template/:id/:templateId', component: SingleTemplateComponent}]}]},
 
                         {path: 'logout', component: LogoutComponent},
 
