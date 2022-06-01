@@ -106,6 +106,8 @@ import { ModernTemplateComponent } from './component/templates/modern-template/m
 import { RoyalTemplateComponent } from './component/templates/royal-template/royal-template.component';
 import { TraditionalPanelTemplateComponent } from './component/templates/traditional-template/traditional-template.component';
 import { SingleResumeComponent } from './container/single-resume/single-resume.component';
+import { TemplateContactDetailComponent } from './component/resume-template/contact-detail/template-contact-detail.component';
+import { TemplateButtonsComponent } from './component/resume-template/template-buttons/template-buttons.component';
 
 
 @NgModule({
@@ -194,7 +196,9 @@ import { SingleResumeComponent } from './container/single-resume/single-resume.c
     ModernTemplateComponent,
     RoyalTemplateComponent,
     TraditionalPanelTemplateComponent,
-    SingleResumeComponent
+    SingleResumeComponent,
+    TemplateContactDetailComponent,
+    TemplateButtonsComponent
     
 
   ],

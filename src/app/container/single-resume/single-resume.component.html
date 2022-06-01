@@ -7,23 +7,7 @@
                 style="background: #f1c232 !important;">
                 <mat-icon style="color: black;">remove_red_eye</mat-icon>
             </button>
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <button class="profile-pic" [ngStyle]="{'background-image': 'url('+this.imageUrl+')'}" mat-fab></button>
-                <h1 fxLayout="start center">{{this.resume.contact_details.first_name}}
-                    {{this.resume.contact_details.last_name}}</h1>
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
-                    <button mat-mini-fab matTooltip="Edit Resume">
-                        <mat-icon>assignment</mat-icon>
-                    </button>
-                    <button mat-mini-fab matTooltip="Edit Profile Photo & Video">
-                        <mat-icon>videocam</mat-icon>
-                    </button>
-                    <button mat-mini-fab matTooltip="Share Resume">
-                        <mat-icon>share</mat-icon>
-                    </button>
-                </div>
-            </div>
+            <app-template-contact-detail [resume]="resume"></app-template-contact-detail>
         </div>
     </mat-card>
-
 </div>

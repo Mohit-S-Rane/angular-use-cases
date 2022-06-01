@@ -4,14 +4,6 @@
     background-image: url("../../../assets/back.jpg");
   }
 
-  h1 {
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 37pt;
-    text-align: center;
-  }
-
   .sidebar {
     background: #538EC3;
     margin-left: 12rem;
@@ -19,17 +11,6 @@
     box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.3) !important;
     margin-top: 3rem;
     margin-bottom: 3rem;
-  }
-
-  .profile-pic {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin-bottom: 10%;
-    border: 3px solid white;
-    width: 75%;
-    height: 200px;
   }
 
   .eye-button-pos {
