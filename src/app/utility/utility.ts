@@ -8,3 +8,10 @@ export class Utility {
     ];
   }
   
+  export enum TemplateType {
+    BLUES_TEMPLATE = 1,
+    MODERN_TEMPLATE = 2,
+    ROYAL_TEMPLATE = 3,
+    TRADITIONAL_TEMPLATE = 4,
+    CLASSIC_TEMPLATE = 5
+  }

@@ -100,6 +100,11 @@ import { AddOrEditResumeComponent } from './component/dialogues/add-or-edit-resu
 import { TemplatesComponent } from './container/templates/templates.component';
 import { SingleTemplateComponent } from './container/single-template/single-template.component';
 import { TemplateCardComponent } from './component/template-card/template-card.component';
+import { BluesTemplateComponent } from './component/templates/blues-template/blues-template.component';
+import { ClassicTemplateComponent } from './component/templates/classic-template/classic-template.component';
+import { ModernTemplateComponent } from './component/templates/modern-template/modern-template.component';
+import { RoyalTemplateComponent } from './component/templates/royal-template/royal-template.component';
+import { TraditionalPanelTemplateComponent } from './component/templates/traditional-template/traditional-template.component';
 
 
 @NgModule({
@@ -182,7 +187,12 @@ import { TemplateCardComponent } from './component/template-card/template-card.c
     AddOrEditResumeComponent,
     TemplatesComponent,
     SingleTemplateComponent,
-    TemplateCardComponent
+    TemplateCardComponent,
+    BluesTemplateComponent,
+    ClassicTemplateComponent,
+    ModernTemplateComponent,
+    RoyalTemplateComponent,
+    TraditionalPanelTemplateComponent
     
 
   ],

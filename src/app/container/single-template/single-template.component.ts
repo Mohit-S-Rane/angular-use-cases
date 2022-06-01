@@ -3,16 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { filter, map, switchMap, takeWhile } from 'rxjs';
 import { Resume } from 'src/app/models/resume';
 import { ResumeRepository } from 'src/app/repository/resume-repository';
+import { TemplateType } from 'src/app/utility/utility';
 @Component({
   selector: 'app-single-template',
   templateUrl: './single-template.component.html',
-//   styleUrls: ['./single-template.component.css'],
+  styleUrls: ['./single-template.component.css'],
 })
 export class SingleTemplateComponent implements OnInit, OnDestroy {
   resume: Resume;
   templateId;
   loading = false;
   isAlive = true;
+  templateType: TemplateType;
 
   constructor(private route: ActivatedRoute, private resumeRepo: ResumeRepository) {
   }
