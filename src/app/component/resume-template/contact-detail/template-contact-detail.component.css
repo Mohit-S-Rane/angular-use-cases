@@ -1,41 +1,40 @@
+h1 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 37pt;
+  text-align: center;
+}
+
+h4 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+mat-icon {
+  font-size: 30px;
+}
+
+.container {
+  color: #fff;
+  margin-top: 5%;
+  width: 90%
+}
+
+.border-container {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
 .profile-pic {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin-bottom: 10%;
-    border: 3px solid white;
-    width: 75%;
-    height: 200px;
-  }
-
-  .container {
-      color: #fff;
-      margin-top: 10%;
-  }
-
-  .border-container {
-    padding-bottom: 10%;
-    border-bottom: 1px solid #fff;
-    margin-bottom: 15%;
-  }
-
-  p {
-      font-weight: 300;
-      font-size: 1.2rem;
-      line-height: 17pt;
-      word-wrap: break-word;
-      overflow: hidden;
-  }
-
-  h1 {
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 37pt;
-    text-align: center;
-  }
-
-  mat-icon {
-      font-size: 30px;
-  }
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 10%;
+  border: 3px solid white;
+  width: 75%;
+  height: 200px;
+}

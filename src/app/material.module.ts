@@ -15,6 +15,7 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatRippleModule} from '@angular/material/core';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -34,7 +35,8 @@ const data = [
     MatOptionModule,
     MatMenuModule,
     MatTooltipModule,
-    MatRippleModule
+    MatRippleModule,
+    MatProgressBarModule
 
 
 ];

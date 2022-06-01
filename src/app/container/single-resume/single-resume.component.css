@@ -1,6 +1,6 @@
 .main-div {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     background-image: url("../../../assets/back.jpg");
   }
 
@@ -8,9 +8,10 @@
     background: #538EC3;
     margin-left: 12rem;
     width: 300px;
+    height: auto;
     box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.3) !important;
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
 
   .eye-button-pos {

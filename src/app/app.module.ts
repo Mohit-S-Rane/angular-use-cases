@@ -108,6 +108,10 @@ import { TraditionalPanelTemplateComponent } from './component/templates/traditi
 import { SingleResumeComponent } from './container/single-resume/single-resume.component';
 import { TemplateContactDetailComponent } from './component/resume-template/contact-detail/template-contact-detail.component';
 import { TemplateButtonsComponent } from './component/resume-template/template-buttons/template-buttons.component';
+import { TemplateSkillCardComponent } from './component/resume-template/template-skill-card/template-skill-card.component';
+import { TemplateLanguageCardComponent } from './component/resume-template/template-language-card/template-language-card.component';
+import { TemplateStrengthCardComponent } from './component/resume-template/template-strength-card/template-strength-card.component';
+import { TemplateWeaknessCardComponent } from './component/resume-template/template-weakness-card/template-weakness-card.component';
 
 
 @NgModule({
@@ -198,7 +202,11 @@ import { TemplateButtonsComponent } from './component/resume-template/template-b
     TraditionalPanelTemplateComponent,
     SingleResumeComponent,
     TemplateContactDetailComponent,
-    TemplateButtonsComponent
+    TemplateButtonsComponent,
+    TemplateSkillCardComponent,
+    TemplateLanguageCardComponent,
+    TemplateStrengthCardComponent,
+    TemplateWeaknessCardComponent
     
 
   ],

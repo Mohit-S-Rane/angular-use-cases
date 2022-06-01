@@ -62,6 +62,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: rgb(125, 226, 97);
 }
 
+.template-description {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 17pt;
+    word-wrap: break-word;
+    overflow: hidden;
+    padding: 5px;
+  }
+
 .tabs-heading {
     color: #538ec3 !important;
     font-weight: bolder !important;

@@ -1,0 +1,4 @@
+<p class="template-description">{{this.language.name}}</p>
+<mat-progress-bar *ngIf="language.level === 'advance'" mode="determinate" value="90"></mat-progress-bar>
+<mat-progress-bar *ngIf="language.level === 'intermediate'" mode="determinate" value="70"></mat-progress-bar>
+<mat-progress-bar *ngIf="language.level === 'basic'" mode="determinate" value="50"></mat-progress-bar>
