@@ -1,1 +1,29 @@
-<h1>Single resume preview</h1>
+<div fxFlex="100%" class="main-div" fxLayout="row" *ngIf="this.resume">
+    <mat-card class="sidebar"
+        *ngIf="this.resume.contact_details || this.resume.skills.length || this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length">
+        <div fxLayout="column" fxLayoutGap="20px">
+            <button class="eye-button-pos" mat-mini-fab matTooltip="Views: {{this.resume.views}}"
+                *ngIf="this.resume && this.isPreview && this.resume.contact_details"
+                style="background: #f1c232 !important;">
+                <mat-icon style="color: black;">remove_red_eye</mat-icon>
+            </button>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <button class="profile-pic" [ngStyle]="{'background-image': 'url('+this.imageUrl+')'}" mat-fab></button>
+                <h1 fxLayout="start center">{{this.resume.contact_details.first_name}}
+                    {{this.resume.contact_details.last_name}}</h1>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
+                    <button mat-mini-fab matTooltip="Edit Resume">
+                        <mat-icon>assignment</mat-icon>
+                    </button>
+                    <button mat-mini-fab matTooltip="Edit Profile Photo & Video">
+                        <mat-icon>videocam</mat-icon>
+                    </button>
+                    <button mat-mini-fab matTooltip="Share Resume">
+                        <mat-icon>share</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+</div>

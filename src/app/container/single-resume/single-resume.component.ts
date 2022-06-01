@@ -13,6 +13,7 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
   loading = false;
   isAlive = true;
   isPreview = false;
+  imageUrl = ''; 
 
   constructor(private route: ActivatedRoute, private router: Router, private resumeRepo: ResumeRepository) {}
 
@@ -25,6 +26,7 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
       }), filter(res => !!res))
     resume$.subscribe(data => {
       this.resume = data;
+      this.imageUrl = this.resume.image_url ? this.resume.image_url : "../../../assets/testimonial.png";
     })
     
   }
