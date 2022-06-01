@@ -1,0 +1,20 @@
+<div class="main-container" fxLayout="column" fxLayoutGap="30px">
+    <iframe *ngIf="!!this.videoUrl" [src]="this.videoUrl" width="700px" height="400px"></iframe>
+    <ng-container *ngTemplateOutlet="educationTemplate"></ng-container>
+</div>
+<ng-template #educationTemplate>
+    <mat-card fxLayout="column">
+        <mat-card-header>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+                <mat-icon>school</mat-icon>
+                <p>Education</p>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutGap="20px" class="card-container ">
+                <app-template-education *ngFor="let education of this.resume.education" [education]="education">
+                </app-template-education>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</ng-template>

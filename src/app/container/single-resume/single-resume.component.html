@@ -1,13 +1,14 @@
-<div fxFlex="100%" class="main-div" fxLayout="row" *ngIf="this.resume">
-    <mat-card class="sidebar"
-        *ngIf="this.resume.contact_details || this.resume.skills.length || this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length">
+<div class="main-div" fxLayout="row" fxLayoutGap="50px" *ngIf="this.resume">
+    <mat-card class="sidebar" *ngIf="this.resume.contact_details || this.resume.skills.length ||
+this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length">
         <div fxLayout="column" fxLayoutGap="20px">
-            <button class="eye-button-pos" mat-mini-fab matTooltip="Views: {{this.resume.views}}"
-                *ngIf="this.resume && this.isPreview && this.resume.contact_details"
-                style="background: #f1c232 !important;">
-                <mat-icon style="color: black;">remove_red_eye</mat-icon>
+            <button matTooltip="Views: {{this.resume.views}}" style="background: #f1c232;" mat-mini-fab
+                *ngIf="this.resume && this.isPreview && this.resume.contact_details ">
+                <mat-icon style="color: black">remove_red_eye</mat-icon>
             </button>
-            <app-template-contact-detail [resume]="resume"></app-template-contact-detail>
+            <app-template-contact-detail [resume]="resume">
+            </app-template-contact-detail>
         </div>
     </mat-card>
+    <app-template-details [resume]="resume"></app-template-details>
 </div>

@@ -112,6 +112,8 @@ import { TemplateSkillCardComponent } from './component/resume-template/template
 import { TemplateLanguageCardComponent } from './component/resume-template/template-language-card/template-language-card.component';
 import { TemplateStrengthCardComponent } from './component/resume-template/template-strength-card/template-strength-card.component';
 import { TemplateWeaknessCardComponent } from './component/resume-template/template-weakness-card/template-weakness-card.component';
+import { TemplateEducationComponent } from './component/resume-template/template-education/template-education.component';
+import { TemplateDetailsComponent } from './component/resume-template/template-details/template-details.component';
 
 
 @NgModule({
@@ -206,7 +208,9 @@ import { TemplateWeaknessCardComponent } from './component/resume-template/templ
     TemplateSkillCardComponent,
     TemplateLanguageCardComponent,
     TemplateStrengthCardComponent,
-    TemplateWeaknessCardComponent
+    TemplateWeaknessCardComponent,
+    TemplateEducationComponent,
+    TemplateDetailsComponent
     
 
   ],
