@@ -2,7 +2,7 @@
     <button class="profile-pic" [ngStyle]="{'background-image': 'url('+this.imageUrl+')'}" mat-fab></button>
     <h1 fxLayout="start center">{{this.resume.contact_details.first_name}}
         {{this.resume.contact_details.last_name}}</h1>
-    <app-template-buttons></app-template-buttons>
+    <app-template-buttons [resumeId]="resume._id"></app-template-buttons>
     <div class="container border-container" fxLayout="row" fxLayoutGap="30px">
         <mat-icon>account_circle</mat-icon>
         <p>{{this.resume.contact_details.summary}}</p>
