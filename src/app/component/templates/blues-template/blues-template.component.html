@@ -1,5 +1,6 @@
 <div *ngIf="this.resume" fxLayout="column" fxLayoutAlign="center center">
-    <mat-card>
+  <mat-card>
+    <div id="html">
       <div *ngIf="this.resume.contact_details">
         <ng-container *ngTemplateOutlet="contactDetail"></ng-container>
       </div>
@@ -8,9 +9,6 @@
       </div>
       <div *ngIf="this.resume.employment_history.length">
         <ng-container *ngTemplateOutlet="workExpTemplate"></ng-container>
-      </div>
-      <div *ngIf="this.resume.industrialExposures.length">
-        <ng-container *ngTemplateOutlet="industrialExposure"></ng-container>
       </div>
       <div *ngIf="this.resume.education.length">
         <ng-container *ngTemplateOutlet="educationTemplate"></ng-container>
@@ -37,8 +35,7 @@
       <div *ngIf="this.resume.interests.length">
         <h1 class="education-heading">Interests</h1>
         <ng-container *ngFor="let interest of this.resume['interests']">
-          <ul style="word-break: break-word"
-              itemprop="description">
+          <ul style="word-break: break-word" itemprop="description">
             <li>
               <div fxLayout="row" fxLayoutGap="10px">
                 <i class="fa fa-dot-circle-o" style="color:#538ec3;" aria-hidden="true"></i>
@@ -85,135 +82,144 @@
       </div>
       <div class="hover" fxLayout="column" fxLayoutAlign="center center">
         <div fxLayout="row" fxLayoutAlign="center center">
-            <button mat-icon-button>
-                <mat-icon style="cursor: pointer; color: aliceblue; font-size: 4rem;">download</mat-icon>
-            </button>
+          <button (click)="download()" mat-icon-button>
+            <mat-icon style="cursor: pointer">download</mat-icon>
+          </button>
         </div>
       </div>
-    </mat-card>
+    </div>
+  </mat-card>
+</div>
+
+
+<ng-template #skillTemplate>
+  <h1 class='education-heading'>Skills</h1>
+  <div *ngFor="let skill of this.resume['skills']">
+    <ul>
+      <li>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <i class="fa fa-dot-circle-o" style="color:#3683cc;" aria-hidden="true"></i>
+          <span class="hack">{{skill.skill}}</span>
+        </div>
+      </li>
+    </ul>
   </div>
-  <ng-template #skillTemplate>
-    <h1 class='education-heading'>Skills</h1>
-    <div *ngFor="let skill of this.resume['skills']">
-      <ul>
-        <li>
-          <div fxLayout="row" fxLayoutGap="10px">
-            <i class="fa fa-dot-circle-o" style="color:#3683cc;" aria-hidden="true"></i>
-            <span class="hack">{{skill.skill}}</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </ng-template>
-  <ng-template #referenceTemplate>
-    <h1 class="education-heading">References</h1>
-    <ng-container *ngFor="let refrence of this.resume['refrences']">
-      <h3 style="color:#767270;" class="container">
-        {{refrence.name}} <span style="text-transform: lowercase; font-size: 10pt;">
-              @{{refrence.company}}</span><br>
-        {{refrence.relationship}}<br>
-        <span style="text-transform: lowercase">{{refrence.email}}</span><br>
-        {{refrence.phone}}<br>
-        {{refrence.address}}
-      </h3>
-    </ng-container>
-  </ng-template>
-  <ng-template #objectiveTemplate>
-    <h1 class="education-heading">Objective</h1>
-    <ng-container *ngFor="let objective of this.resume['objectives']">
-      <h3 style="color: #767270;" class="h3-span">
-        {{objective.objective}}<br>
-        {{objective.date}}<br>
-        {{objective.place}}
-      </h3>
-      <p class="h4-p">{{objective.declaration}}</p>
-    </ng-container>
-  </ng-template>
-  <ng-template #contactDetail>
-    <div *ngIf="this.resume.contact_details">
-      <h1 class="main-heading text-align">{{this.resume.contact_details.first_name}}
-        {{this.resume.contact_details.last_name}}</h1>
-      <p class="address text-align">{{this.resume.contact_details.address}}
-        {{this.resume.contact_details.city}},{{this.resume.contact_details.state}}-{{this.resume.contact_details.zip_code}}</p>
-      <p class="text-align address">{{this.resume.contact_details.phone_number}}</p>
-      <p class="text-align" style="color: #4c86bd;font-weight: bold">{{this.resume.contact_details.email}}</p>
-      <a class="text-align" style="color: #4c86bd;"
-         [href]="this.resume.contact_details.website_url">{{this.resume.contact_details.website_url}}</a>
-      <p style="  border-bottom: 2px solid #87b0d5;padding-bottom: 1rem">{{this.resume.contact_details.summary}}</p>
-    </div>
-  </ng-template>
-  <ng-template #industrialExposure>
-    <h1 class="education-heading">Industrial Exposure as an Intern</h1>
-    <div *ngFor="let industrialExposure of this.resume.industrialExposures">
-      <h3 class="h3-span">{{industrialExposure.organisation}}</h3>
-      <span class="h3-span" style="color: #5da4d9;float: right; margin-top: -5%;" *ngIf="industrialExposure.end_month">
-                    {{industrialExposure.start_month}} {{industrialExposure.start_year}} -
-        {{industrialExposure.end_month}} {{industrialExposure.end_year}}
-                  </span>
-      <span class="h3-span" style="color: #5da4d9;float: right; margin-top: -5%;" *ngIf="!industrialExposure.end_month">
-                    {{industrialExposure.start_month}} {{industrialExposure.start_year}} - Present
-                  </span>
-      <h4 class="h4-p h4">
-        {{industrialExposure.city}}, {{industrialExposure.state}}
-      </h4>
-      <p class="h4-p" style="margin-top: 4%;" class="container">{{industrialExposure.work}}</p>
-    </div>
-  </ng-template>
-  <ng-template #workExpTemplate>
-    <h1 class="education-heading">Work Experience</h1>
-    <div *ngFor="let employmentHistory  of this.resume['employment_history']">
-      <h3 style="color: #3683cc" class="h3-span">{{employmentHistory.designation}}
-        <span class="h3-span" style="text-transform: lowercase !important; font-size: 10pt;color: #3683cc">
-                @{{employmentHistory.organisation}}
-                </span>
-      </h3>
-      <span class="h3-span exp-span res-down" style="color: #5da4d9;float: right; margin-top: -2%;" *ngIf="employmentHistory.end_month">
-                    {{employmentHistory.start_month}} {{employmentHistory.start_year}} -
-        {{employmentHistory.end_month}} {{employmentHistory.end_year}}
-                  </span>
-      <span class="h3-span exp-span res-down" style="color: #5da4d9;float: right; margin-top: -2%;" *ngIf="!employmentHistory.end_month">
-                    {{employmentHistory.start_month}} {{employmentHistory.start_year}} - Present
-                  </span>
-      <h4 class="container h4-p h4">
-        {{employmentHistory.city}}, {{employmentHistory.state}} <br>
-        {{employmentHistory.employer}}
-      </h4>
-    </div>
-  </ng-template>
+</ng-template>
+<ng-template #referenceTemplate>
+  <h1 class="education-heading">References</h1>
+  <ng-container *ngFor="let refrence of this.resume['refrences']">
+    <h3 style="color:#767270;" class="container">
+      {{refrence.name}} <span style="text-transform: lowercase; font-size: 10pt;">
+        @{{refrence.company}}</span><br>
+      {{refrence.relationship}}<br>
+      <span style="text-transform: lowercase">{{refrence.email}}</span><br>
+      {{refrence.phone}}<br>
+      {{refrence.address}}
+    </h3>
+  </ng-container>
+</ng-template>
+<ng-template #objectiveTemplate>
+  <h1 class="education-heading">Objective</h1>
+  <ng-container *ngFor="let objective of this.resume['objectives']">
+    <h3 style="color: #767270;" class="h3-span">
+      {{objective.objective}}<br>
+      {{objective.date}}<br>
+      {{objective.place}}
+    </h3>
+    <p class="h4-p">{{objective.declaration}}</p>
+  </ng-container>
+</ng-template>
+<ng-template #contactDetail>
+  <div *ngIf="this.resume.contact_details">
+    <h1 class="main-heading text-align">{{this.resume.contact_details.first_name}}
+      {{this.resume.contact_details.last_name}}</h1>
+    <p class="address text-align">{{this.resume.contact_details.address}}
+      {{this.resume.contact_details.city}},{{this.resume.contact_details.state}}-{{this.resume.contact_details.zip_code}}
+    </p>
+    <p class="text-align address">{{this.resume.contact_details.phone_number}}</p>
+    <p class="text-align" style="color: #4c86bd;font-weight: bold">{{this.resume.contact_details.email}}</p>
+    <a class="text-align" style="color: #4c86bd;"
+      [href]="this.resume.contact_details.website_url">{{this.resume.contact_details.website_url}}</a>
+    <p style="  border-bottom: 2px solid #87b0d5;padding-bottom: 1rem">{{this.resume.contact_details.summary}}</p>
+  </div>
+</ng-template>
+<ng-template #industrialExposure>
+  <h1 class="education-heading">Industrial Exposure as an Intern</h1>
+  <div *ngFor="let industrialExposure of this.resume.industrialExposures">
+    <h3 class="h3-span">{{industrialExposure.organisation}}</h3>
+    <span class="h3-span" style="color: #5da4d9;float: right; margin-top: -5%;" *ngIf="industrialExposure.end_month">
+      {{industrialExposure.start_month}} {{industrialExposure.start_year}} -
+      {{industrialExposure.end_month}} {{industrialExposure.end_year}}
+    </span>
+    <span class="h3-span" style="color: #5da4d9;float: right; margin-top: -5%;" *ngIf="!industrialExposure.end_month">
+      {{industrialExposure.start_month}} {{industrialExposure.start_year}} - Present
+    </span>
+    <h4 class="h4-p h4">
+      {{industrialExposure.city}}, {{industrialExposure.state}}
+    </h4>
+    <p class="h4-p" style="margin-top: 4%;" class="container">{{industrialExposure.work}}</p>
+  </div>
+</ng-template>
+<ng-template #workExpTemplate>
+  <h1 class="education-heading">Work Experience</h1>
+  <div *ngFor="let employmentHistory  of this.resume['employment_history']">
+    <h3 style="color: #3683cc" class="h3-span">{{employmentHistory.designation}}
+      <span class="h3-span" style="text-transform: lowercase !important; font-size: 10pt;color: #3683cc">
+        @{{employmentHistory.organisation}}
+      </span>
+    </h3>
+    <span class="h3-span exp-span res-down" style="color: #5da4d9;float: right; margin-top: -2%;"
+      *ngIf="employmentHistory.end_month">
+      {{employmentHistory.start_month}} {{employmentHistory.start_year}} -
+      {{employmentHistory.end_month}} {{employmentHistory.end_year}}
+    </span>
+    <span class="h3-span exp-span res-down" style="color: #5da4d9;float: right; margin-top: -2%;"
+      *ngIf="!employmentHistory.end_month">
+      {{employmentHistory.start_month}} {{employmentHistory.start_year}} - Present
+    </span>
+    <h4 class="container h4-p h4">
+      {{employmentHistory.city}}, {{employmentHistory.state}} <br>
+      {{employmentHistory.employer}}
+    </h4>
+  </div>
+</ng-template>
 
-  <ng-template #educationTemplate>
-    <h1 class="education-heading">Education</h1>
-    <div *ngFor="let education of this.resume['education']">
-      <h3 class="h3-span">{{education.degree_type}}
-        <span class="h3-span" style="text-transform: lowercase !important; font-size: 10pt;">@{{education.school_name}}</span></h3>
-      <span class="h3-span res-down"
-            style="color: #5da4d9; float: right; margin-top: -5%;">{{education.graduation_month}} {{education.graduation_year}}</span>
-      <h4 class="container h4 h4-p">
-        {{education.city}}, {{education.state}} <br>
-        {{education.field}} - {{education.percentage}}
-      </h4>
-    </div>
-  </ng-template>
-  <ng-template #languageTemplate>
-    <h1 class="education-heading">Language I Speak</h1>
-    <div *ngFor="let language of this.resume['languages']">
-      <ul>
-        <li>
-          <div fxLayout="row" fxLayoutGap="10px">
-            <i class="fa fa-dot-circle-o" style="color:#3683cc;" aria-hidden="true"></i>
-            <span class="hack">{{language.name}}</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </ng-template>
+<ng-template #educationTemplate>
+  <h1 class="education-heading">Education</h1>
+  <div *ngFor="let education of this.resume['education']">
+    <h3 class="h3-span">{{education.degree_type}}
+      <span class="h3-span"
+        style="text-transform: lowercase !important; font-size: 10pt;">@{{education.school_name}}</span>
+    </h3>
+    <span class="h3-span res-down" style="color: #5da4d9; float: right; margin-top: -5%;">{{education.graduation_month}}
+      {{education.graduation_year}}</span>
+    <h4 class="container h4 h4-p">
+      {{education.city}}, {{education.state}} <br>
+      {{education.field}} - {{education.percentage}}
+    </h4>
+  </div>
+</ng-template>
+<ng-template #languageTemplate>
+  <h1 class="education-heading">Language I Speak</h1>
+  <div *ngFor="let language of this.resume['languages']">
+    <ul>
+      <li>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <i class="fa fa-dot-circle-o" style="color:#3683cc;" aria-hidden="true"></i>
+          <span class="hack">{{language.name}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-template>
 
-  <ng-template #projectDetailTemplate>
-    <h1 class="education-heading">Project Details</h1>
-    <ng-container *ngFor="let projectDetail of this.resume['projectDetails']">
-      <h3 class="h3-span">{{projectDetail.title}} <span style="text-transform: none; font-size: 13pt">
-              as a {{projectDetail.role}}</span>
-        <span class="h3-span" style="color: #5da4d9; font-weight: 100"> - {{projectDetail.duration}}</span></h3>
-      <p style="margin-top: 4%;" class="container h4-p">{{projectDetail.description}}</p>
-    </ng-container>
-  </ng-template>
+<ng-template #projectDetailTemplate>
+  <h1 class="education-heading">Project Details</h1>
+  <ng-container *ngFor="let projectDetail of this.resume['projectDetails']">
+    <h3 class="h3-span">{{projectDetail.title}} <span style="text-transform: none; font-size: 13pt">
+        as a {{projectDetail.role}}</span>
+      <span class="h3-span" style="color: #5da4d9; font-weight: 100"> - {{projectDetail.duration}}</span>
+    </h3>
+    <p style="margin-top: 4%;" class="container h4-p">{{projectDetail.description}}</p>
+  </ng-container>
+</ng-template>

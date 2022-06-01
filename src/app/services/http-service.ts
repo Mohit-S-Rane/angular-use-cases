@@ -22,9 +22,11 @@ export class HttpService {
       .get(this.base_url + url, data).pipe(catchError(this.errorHandler.bind(this)));
   }
 
-  post(url: string, body: any): Observable<any> {
-    return this.httpClient
-      .post(this.base_url + url, body, {headers: this.getAuthHeaders()}).pipe(catchError(this.errorHandler.bind(this)));
+  post(url: string, body: any, isArrayBuffer = false): Observable<any> {
+    const options: any = isArrayBuffer ? {
+      headers: this.getAuthHeaders(), responseType: 'arraybuffer',
+    } : {headers: this.getAuthHeaders()};
+    return this.httpClient.post(this.base_url + url, body, options).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   patch(url: string, body: any): Observable<any> {

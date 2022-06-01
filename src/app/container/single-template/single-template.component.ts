@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { filter, map, switchMap, takeWhile } from 'rxjs';
 import { Resume } from 'src/app/models/resume';
 import { ResumeRepository } from 'src/app/repository/resume-repository';
+import { HttpService } from 'src/app/services/http-service';
 import { TemplateType } from 'src/app/utility/utility';
 @Component({
   selector: 'app-single-template',
@@ -14,9 +15,9 @@ export class SingleTemplateComponent implements OnInit, OnDestroy {
   templateId;
   loading = false;
   isAlive = true;
-  templateType: TemplateType;
+  templateType = TemplateType;
 
-  constructor(private route: ActivatedRoute, private resumeRepo: ResumeRepository) {
+  constructor(private route: ActivatedRoute, private resumeRepo: ResumeRepository, private httpService: HttpService) {
   }
 
   ngOnDestroy() {
@@ -39,6 +40,18 @@ export class SingleTemplateComponent implements OnInit, OnDestroy {
     resume$.subscribe(data => {
       this.resume = data;
       console.log('fetch resume call', this.resume)
+    });
+  }
+
+  downloadTemplate(html) {
+    const data = {
+      html
+    };
+    this.httpService.post('/resume/add/pdf', data,
+      true).pipe(takeWhile(() => this.isAlive)).subscribe(res => {
+      const blob = new Blob([res], {type: 'application/pdf'});
+      const file = URL.createObjectURL(blob);
+      window.open(file);
     });
   }
 }
