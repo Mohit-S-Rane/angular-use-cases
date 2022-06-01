@@ -19,6 +19,7 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { NotFoundComponent } from './container/not-found/not-found.component';
 import { TemplatesComponent } from './container/templates/templates.component';
 import { SingleTemplateComponent } from './container/single-template/single-template.component';
+import { SingleResumeComponent } from './container/single-resume/single-resume.component';
 
 
 const routes: Routes = [{path: '', canActivate: [AnonGuard], 
@@ -31,13 +32,16 @@ const routes: Routes = [{path: '', canActivate: [AnonGuard],
                         {path: '', canActivate: [AuthGuard, VerificationCompleted, OnBoardingInComplete],
                                    children: [{path: 'on-boarding', component: OnBoardingIntroComponent},
                                               {path: 'on-boarding/add', component: OnBoardingComponent}]},
+                        
+                        {path: 'resume/view/:id', component: SingleResumeComponent},                      
                                               
                         {path: '', canActivate: [AuthGuard, VerificationCompleted, OnBoardingComplete],
                                    children: [{path: 'dashboard', component: DashboardComponent, 
                                       children: [{path: 'resume', component: ResumeComponent},
                                                  {path: 'settings', component: SettingComponent},
                                                  {path: 'resume/template/:id', component: TemplatesComponent},
-                                                 {path: 'resume/template/:id/:templateId', component: SingleTemplateComponent}]}]},
+                                                 {path: 'resume/template/:id/:templateId', component: SingleTemplateComponent},
+                                                 {path: 'resume/preview/:id', component: SingleResumeComponent} ]}]},
 
                         {path: 'logout', component: LogoutComponent},
 
