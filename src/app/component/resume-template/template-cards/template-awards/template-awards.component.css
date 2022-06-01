@@ -1,0 +1,10 @@
+ul {
+    color: #767270;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  ul li {
+    vertical-align: top;
+    margin-bottom: 5px;
+  }

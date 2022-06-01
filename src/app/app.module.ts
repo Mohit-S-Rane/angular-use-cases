@@ -114,6 +114,13 @@ import { TemplateStrengthCardComponent } from './component/resume-template/templ
 import { TemplateWeaknessCardComponent } from './component/resume-template/template-weakness-card/template-weakness-card.component';
 import { TemplateEducationComponent } from './component/resume-template/template-education/template-education.component';
 import { TemplateDetailsComponent } from './component/resume-template/template-details/template-details.component';
+import { TemplateAwardsComponent } from './component/resume-template/template-cards/template-awards/template-awards.component';
+import { TemplateEmploymentHistoryComponent } from './component/resume-template/template-cards/template-employment-history/template-employment-history.component';
+import { TemplateIndustrialExposureComponent } from './component/resume-template/template-cards/template-industrial-exposure/template-industrial-exposure.component';
+import { TemplateInterestComponent } from './component/resume-template/template-cards/template-interest/template-interest.component';
+import { TemplateReferenceComponent } from './component/resume-template/template-cards/template-reference/template-reference.component';
+import { TemplateObjectiveComponent } from './component/resume-template/template-cards/template-objective/template-objective.component';
+import { TemplateProjectDetailComponent } from './component/resume-template/template-cards/template-project-detail/template-project-detail.component';
 
 
 @NgModule({
@@ -210,7 +217,14 @@ import { TemplateDetailsComponent } from './component/resume-template/template-d
     TemplateStrengthCardComponent,
     TemplateWeaknessCardComponent,
     TemplateEducationComponent,
-    TemplateDetailsComponent
+    TemplateDetailsComponent,
+    TemplateAwardsComponent,
+    TemplateEmploymentHistoryComponent,
+    TemplateIndustrialExposureComponent,
+    TemplateInterestComponent,
+    TemplateReferenceComponent,
+    TemplateObjectiveComponent,
+    TemplateProjectDetailComponent
     
 
   ],

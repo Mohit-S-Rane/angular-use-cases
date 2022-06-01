@@ -1,23 +1,27 @@
 .main-container {
-    width: 100%;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-  }
+  width: 100%;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
 
-  .card-container {
-    padding-left: 6rem;
-  }
+.card-container {
+  padding-left: 6rem;
+}
 
-  mat-icon {
-    font-size: 2.5rem;
-  }
+mat-icon {
+  font-size: 2.5rem;
+}
 
-  p, mat-icon {
-    color: #a85f46;
-  }
+p, mat-icon {
+  color: #a85f46;
+}
 
-  p {
-    text-transform: uppercase;
-    font-size: 2rem;
-    margin-top: 1.2rem;
-  }
+p {
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-top: 1.2rem;
+}
+
+mat-card {
+  width: 700px !important;
+}

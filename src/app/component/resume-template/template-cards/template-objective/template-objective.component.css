@@ -1,0 +1,9 @@
+h3, span {
+    text-transform: capitalize;
+    color: #767270;
+    margin-top: 5%;
+  }
+
+  h4, p {
+    color: #767270;
+  }

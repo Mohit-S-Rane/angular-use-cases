@@ -8,19 +8,18 @@ import { Skill } from 'src/app/models/skill';
   styleUrls: ['./template-details.component.css'],
 })
 export class TemplateDetailsComponent implements AfterContentInit {
-    @Input() resume: Resume;
-    videoUrl: any = '';
-  
-    constructor(private domSanatizer: DomSanitizer) {
-    }
-  
-    ngAfterContentInit() {
-      if (this.resume.video_url) {
-        const id = this.resume.video_url.split('v=')[1];
-        const url = 'https://www.youtube.com/embed/' + id;
-        this.videoUrl = this.domSanatizer
-          .bypassSecurityTrustResourceUrl(url);
-      }
+  @Input() resume: Resume;
+  videoUrl: any = '';
+
+  constructor(private domSanatizer: DomSanitizer) {
+  }
+
+  ngAfterContentInit() {
+    if (this.resume.video_url) {
+      const id = this.resume.video_url.split('v=')[1];
+      const url = 'https://www.youtube.com/embed/' + id;
+      this.videoUrl = this.domSanatizer
+        .bypassSecurityTrustResourceUrl(url);
     }
   }
-  
+}
