@@ -13,7 +13,8 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
   loading = false;
   isAlive = true;
   isPreview = false;
-  imageUrl = ''; 
+  imageUrl = '';
+  isLeftPanelEnable = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private resumeRepo: ResumeRepository) {}
 
@@ -26,6 +27,8 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
       }), filter(res => !!res))
     resume$.subscribe(data => {
       this.resume = data;
+      this.isLeftPanelEnable = !!(this.resume.contact_details || this.resume.skills.length ||
+        this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length)
     })
     
   }

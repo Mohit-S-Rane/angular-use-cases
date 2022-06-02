@@ -8,6 +8,7 @@ import { Resume } from 'src/app/models/resume';
 })
 export class TemplateButtonsComponent {
   @Input() resumeId: string;
+  @Input() isLeftPanelEnable: any;
 
   constructor(private router: Router) {}
 

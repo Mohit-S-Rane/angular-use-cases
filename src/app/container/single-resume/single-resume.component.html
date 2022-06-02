@@ -1,6 +1,5 @@
-<div class="main-div" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px" *ngIf="this.resume">
-    <mat-card class="sidebar res-sidebar-margine" *ngIf="this.resume.contact_details || this.resume.skills.length ||
-this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length">
+<div class="main-div" fxLayout="{{this.isLeftPanelEnable ? 'row' : 'column'}}" fxLayout.xs="column" fxLayoutAlign="{{this.isLeftPanelEnable ? 'start start' : 'center center'}}" fxLayoutGap="50px" *ngIf="this.resume">
+    <mat-card class="sidebar res-sidebar-margine" *ngIf="isLeftPanelEnable">
         <div fxLayout="column" fxLayoutGap="20px">
             <button matTooltip="Views: {{this.resume.views}}" style="background: #f1c232;" mat-mini-fab
                 *ngIf="this.resume && this.isPreview && this.resume.contact_details ">
@@ -10,5 +9,6 @@ this.resume.weakness.length || this.resume.languages.length || this.resume.stren
             </app-template-contact-detail>
         </div>
     </mat-card>
+    <app-template-buttons *ngIf="!isLeftPanelEnable" [isLeftPanelEnable]="isLeftPanelEnable" [resumeId]="resume._id"></app-template-buttons>
     <app-template-details [resume]="resume"></app-template-details>
 </div>
