@@ -1,5 +1,5 @@
-<div class="main-div" fxLayout="row" fxLayoutGap="50px" *ngIf="this.resume">
-    <mat-card class="sidebar" *ngIf="this.resume.contact_details || this.resume.skills.length ||
+<div class="main-div" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px" *ngIf="this.resume">
+    <mat-card class="sidebar res-sidebar-margine" *ngIf="this.resume.contact_details || this.resume.skills.length ||
 this.resume.weakness.length || this.resume.languages.length || this.resume.strengths.length">
         <div fxLayout="column" fxLayoutGap="20px">
             <button matTooltip="Views: {{this.resume.views}}" style="background: #f1c232;" mat-mini-fab

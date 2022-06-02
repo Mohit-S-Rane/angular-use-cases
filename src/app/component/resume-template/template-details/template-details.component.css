@@ -22,6 +22,6 @@ p {
   margin-top: 1.2rem;
 }
 
-mat-card {
-  width: 700px !important;
+.template-card {
+  width: 700px;
 }

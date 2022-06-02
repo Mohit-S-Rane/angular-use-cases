@@ -29,5 +29,19 @@
     .res-setting-container {
       padding: 2rem !important;
     }
+
+    .res-sidebar-margine {
+      margin: auto !important;
+      margin-top: 2.5rem !important;
+    }
+
+    .res-template-card {
+      width: 90% !important;
+      margin: auto;
+    }
+
+    .res-template-card-title {
+      font-size: 1.5rem !important;
+    }
   }
   

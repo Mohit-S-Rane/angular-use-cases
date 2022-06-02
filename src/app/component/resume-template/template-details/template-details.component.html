@@ -10,11 +10,11 @@
     <ng-container *ngTemplateOutlet="projectDetailTemplate"></ng-container>
 </div>
 <ng-template #educationTemplate>
-    <mat-card fxLayout="column" style="width: 700px;">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.education.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
                 <mat-icon>school</mat-icon>
-                <p>Education</p>
+                <p class="res-template-card-title">Education</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -26,11 +26,11 @@
     </mat-card>
 </ng-template>
 <ng-template #experienceTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.employment_history.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Experience</p>
+                <mat-icon>stars</mat-icon>
+                <p class="res-template-card-title">Experience</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -43,11 +43,11 @@
 </ng-template>
 
 <ng-template #interestTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.interests.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Interest</p>
+                <mat-icon>flight_land</mat-icon>
+                <p class="res-template-card-title">Interest</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -59,11 +59,11 @@
     </mat-card>
 </ng-template>
 <ng-template #industrialExposureTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.industrialExposures.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Industrial Exposure</p>
+                <mat-icon>build_circle</mat-icon>
+                <p class="res-template-card-title">Industrial Exposure</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -75,11 +75,11 @@
     </mat-card>
 </ng-template>
 <ng-template #awardsTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.award_achivements.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Awards & Achievements</p>
+                <mat-icon>emoji_events</mat-icon>
+                <p class="res-template-card-title">Awards & Achievements</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -91,11 +91,11 @@
     </mat-card>
 </ng-template>
 <ng-template #objectiveTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.objectives.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Objectives</p>
+                <mat-icon>emoji_objects</mat-icon>
+                <p class="res-template-card-title">Objectives</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -107,11 +107,11 @@
     </mat-card>
 </ng-template>
 <ng-template #referenceTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.refrences.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Reference</p>
+                <mat-icon>groups</mat-icon>
+                <p class="res-template-card-title">Reference</p>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -123,11 +123,11 @@
     </mat-card>
 </ng-template>
 <ng-template #projectDetailTemplate>
-    <mat-card fxLayout="column">
+    <mat-card class="template-card res-template-card" *ngIf="this.resume.projectDetails.length" fxLayout="column">
         <mat-card-header>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-                <mat-icon>school</mat-icon>
-                <p>Project Details</p>
+                <mat-icon>create_new_folder</mat-icon>
+                <p class="res-template-card-title">Project Details</p>
             </div>
         </mat-card-header>
         <mat-card-content>
