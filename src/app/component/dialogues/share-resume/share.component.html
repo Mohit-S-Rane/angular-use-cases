@@ -1,0 +1,16 @@
+<!-- <form (ngSubmit)="this.form.valid && addOrUpdate()" [formGroup]="this.form"> -->
+    <div fxLayout="column">
+        <div fxLayout="row">
+            <mat-form-field>
+                <input type="text" [value]="this.link" formControlName="name" matInput placeholder="Resume Link">
+            </mat-form-field>
+            <button (click)="copy()">
+                <mat-icon>filter_none</mat-icon>
+            </button>
+        </div>
+        <div>
+            <share-buttons [exclude]="['copy', 'print']" [showText]="true" [url]="this.link" [title]="'Guys Check out mt digital resume'"></share-buttons>
+        </div>
+        <button mat-raised-button color="accent">Share</button>
+    </div>
+<!-- </form> -->

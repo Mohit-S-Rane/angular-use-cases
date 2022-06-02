@@ -121,7 +121,8 @@ import { TemplateInterestComponent } from './component/resume-template/template-
 import { TemplateReferenceComponent } from './component/resume-template/template-cards/template-reference/template-reference.component';
 import { TemplateObjectiveComponent } from './component/resume-template/template-cards/template-objective/template-objective.component';
 import { TemplateProjectDetailComponent } from './component/resume-template/template-cards/template-project-detail/template-project-detail.component';
-
+import { ShareResumeComponent } from './component/dialogues/share-resume/share.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 
 @NgModule({
   declarations: [
@@ -224,7 +225,9 @@ import { TemplateProjectDetailComponent } from './component/resume-template/temp
     TemplateInterestComponent,
     TemplateReferenceComponent,
     TemplateObjectiveComponent,
-    TemplateProjectDetailComponent
+    TemplateProjectDetailComponent,
+    ShareResumeComponent,
+
     
 
   ],
@@ -238,6 +241,8 @@ import { TemplateProjectDetailComponent } from './component/resume-template/temp
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot(rootReducer),
+    ShareButtonsModule,
+    // ShareIconsModule
     
   ],
   providers: [HttpService, ApiService,AlertService, AuthGuard, AnonGuard, VerificationCompleted, VerificationInComplete, OnBoardingComplete, OnBoardingInComplete, AuthRepository, ResumeRepository],

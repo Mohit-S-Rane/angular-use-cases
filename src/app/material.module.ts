@@ -37,6 +37,7 @@ const data = [
     MatTooltipModule,
     MatRippleModule,
     MatProgressBarModule
+    
 
 
 ];

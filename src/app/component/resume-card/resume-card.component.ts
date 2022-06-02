@@ -5,6 +5,7 @@ import { AddOrEditResumeComponent } from './../dialogues/add-or-edit-resume/add-
 import { ResumeRepository } from 'src/app/repository/resume-repository';
 import { AlertService } from './../../services/alert-service';
 import { Router } from '@angular/router';
+import { ShareResumeComponent } from './../dialogues/share-resume/share.component';
 @Component({
   selector: 'app-resume-card',
   templateUrl: './resume-card.component.html',
@@ -33,5 +34,11 @@ export class ResumeCardComponent {
 
   preview() {
     this.router.navigate(['dashboard', 'resume', 'preview', this.resume._id])
+  }
+
+  share() {
+    this.matDialog.open(ShareResumeComponent, {
+      height: '25%', width: '50%', data: this.resume
+    });
   }
 }
