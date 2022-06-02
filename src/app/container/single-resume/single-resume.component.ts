@@ -16,7 +16,9 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
   imageUrl = '';
   isLeftPanelEnable = true;
 
-  constructor(private route: ActivatedRoute, private router: Router, private resumeRepo: ResumeRepository) {}
+  constructor(private route: ActivatedRoute, private router: Router, private resumeRepo: ResumeRepository) {
+    document.body.style.backgroundImage = 'url("../../../assets/back.jpg")'; 
+  }
 
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class SingleResumeComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.isAlive = false;
+    document.body.style.backgroundImage = ''; 
   }
 
 }
